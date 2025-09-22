@@ -1,0 +1,49 @@
+# ============================================
+# Visual Studio / .NET
+# ============================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]ppPackages/
+[Bb]undleArtifacts/
+[Tt]estResult*/
+
+# Cache / Profiling
+*.ilk
+*.idb
+*.pdb
+*.ipch
+*.obj
+*.pch
+*.log
+*.vspscc
+*.vssscc
+
+# Packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+
+# Resharper / Rider / Code analyzers
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+.DS_Store
+*.swp
