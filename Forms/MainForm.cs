@@ -1,7 +1,4 @@
-﻿using DeltaSchool.Data;
-using DeltaSchool.Utilities;
-using System;
-using System.Management.Instrumentation;
+﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -27,13 +24,7 @@ namespace DeltaSchool.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.pnlTitleBar.MouseDown += this.PnlMouseDown;
-            using (var context = new DeltaSchoolContext())
-            {
-                if (context.Database.Exists())
-                    ShowAlert.DisplayMessage("Connexion établie", ShowAlert.A_type.Success);
-                else
-                    ShowAlert.DisplayMessage("Echec de connexion", ShowAlert.A_type.Error);
-            }
+            OpenChildForm(new ParentStudent.ParentStudentForm());
         }
 
         public void OpenChildForm(Form child_form)
@@ -89,11 +80,6 @@ namespace DeltaSchool.Forms
                 WindowState = FormWindowState.Normal;
                 this.MainEllipse.AllCornerRadius = 30;
             }
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
