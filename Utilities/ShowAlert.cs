@@ -1,4 +1,6 @@
-﻿namespace DeltaSchool.Utilities
+﻿using System.Windows.Forms;
+
+namespace DeltaSchool.Utilities
 {
     class ShowAlert
     {
@@ -38,6 +40,11 @@
                     break;
             }
 
+        }
+
+        public static DialogResult RemoveItem()
+        {
+            return MessageBox.Show("Voulez-vous supprimer cet élément", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
     }
 }

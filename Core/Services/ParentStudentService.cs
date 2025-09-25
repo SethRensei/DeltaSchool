@@ -42,6 +42,45 @@ namespace DeltaSchool.Services
             }
         }
 
-        // Update/Delete idem...
+        public bool Update(ParentStudent p)
+        {
+            if (!FormValidator.Validate(p))
+                return false;
+
+            try
+            {
+                _uow.ParentStudents.Update(p);
+                _uow.Save();
+                ShowAlert.DisplayMessage("Information du parent mis à jour.", ShowAlert.A_type.Success);
+                return true;
+            }
+            catch (MySqlException mex)
+            {
+                var friendly = MySqlExceptionHelper.TryParseDuplicateEntry(mex);
+                ShowAlert.DisplayMessage(friendly ?? mex.Message, ShowAlert.A_type.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                ShowAlert.DisplayMessage(ex.Message, ShowAlert.A_type.Error);
+                return false;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                _uow.ParentStudents.Delete(id);
+                _uow.Save();
+                ShowAlert.DisplayMessage("Parent supprimé.", ShowAlert.A_type.Success);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ShowAlert.DisplayMessage(ex.Message, ShowAlert.A_type.Error);
+                return false;
+            }
+        }
     }
 }

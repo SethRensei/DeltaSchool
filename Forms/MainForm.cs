@@ -24,7 +24,8 @@ namespace DeltaSchool.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.pnlTitleBar.MouseDown += this.PnlMouseDown;
-            OpenChildForm(new ParentStudent.ParentStudentForm());
+            picLogo.Click += ReturnMainForm;
+            lblLogo.Click += ReturnMainForm;
         }
 
         public void OpenChildForm(Form child_form)
@@ -51,6 +52,7 @@ namespace DeltaSchool.Forms
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        #region -> Events
         private void PnlMouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -81,5 +83,27 @@ namespace DeltaSchool.Forms
                 this.MainEllipse.AllCornerRadius = 30;
             }
         }
+
+        private void ReturnMainForm(object sender, EventArgs e)
+        {
+            currentChildForm.Close();
+        }
+        
+        private void BtnStudent_Click(object sender, EventArgs e)
+        {
+            drpStudent.Show(btnStudent, btnStudent.Width, 0);
+        }
+
+        private void ParentTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ParentStudent.ParentF());
+        }
+
+        private void AdParentSTM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ParentStudent.AddParentF());
+        }
+
+        #endregion
     }
 }

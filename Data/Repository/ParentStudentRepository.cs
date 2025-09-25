@@ -7,10 +7,9 @@ using DeltaSchool.Data.Repository.Interface;
 
 namespace DeltaSchool.Data.Repository
 {
-    public class ParentStudentRepository : IParentStudentRepository, IDisposable
+    public class ParentStudentRepository : IParentStudentRepository
     {
         private readonly DeltaSchoolContext _context;
-        private bool _disposed = false;
 
         public ParentStudentRepository(DeltaSchoolContext context)
         {
@@ -47,15 +46,6 @@ namespace DeltaSchool.Data.Repository
         public void Save()
         {
             _context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            if (!_disposed)
-            {
-                _context.Dispose();
-                _disposed = true;
-            }
         }
     }
 }

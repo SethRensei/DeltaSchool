@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlertForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pic_box = new System.Windows.Forms.PictureBox();
             this.lblMsg = new System.Windows.Forms.Label();
@@ -94,6 +95,7 @@
             this.Controls.Add(this.pic_box);
             this.Font = new System.Drawing.Font("Noto Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "AlertForm";
             this.Text = "AlertForm";
