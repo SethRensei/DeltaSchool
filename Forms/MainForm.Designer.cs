@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new RenComponent.RenPanel();
+            this.btnClasse = new RenComponent.RenButton();
             this.btnStudent = new RenComponent.RenButton();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
@@ -48,11 +49,17 @@
             this.parentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adParentSTM = new System.Windows.Forms.ToolStripMenuItem();
             this.parentTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.drpClasse = new RenComponent.RenDropdownMenu(this.components);
+            this.classesAndSubjetsTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignationClasseMatièreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addClasseSubjectTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.classesSubjectsTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlTitleBar.SuspendLayout();
             this.drpStudent.SuspendLayout();
+            this.drpClasse.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -62,6 +69,7 @@
             this.pnlMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlMenu.BorderRadius = 0;
             this.pnlMenu.BorderSize = 0;
+            this.pnlMenu.Controls.Add(this.btnClasse);
             this.pnlMenu.Controls.Add(this.btnStudent);
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -74,6 +82,35 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(234, 700);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnClasse
+            // 
+            this.btnClasse.BackColor = System.Drawing.Color.Transparent;
+            this.btnClasse.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnClasse.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClasse.BorderRadius = 0;
+            this.btnClasse.BorderSize = 0;
+            this.btnClasse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClasse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClasse.FlatAppearance.BorderSize = 0;
+            this.btnClasse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnClasse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnClasse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClasse.Font = new System.Drawing.Font("Lucida Fax", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClasse.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnClasse.Image = global::DeltaSchool.Properties.Resources.student;
+            this.btnClasse.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnClasse.Location = new System.Drawing.Point(0, 170);
+            this.btnClasse.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClasse.Name = "btnClasse";
+            this.btnClasse.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnClasse.Size = new System.Drawing.Size(234, 46);
+            this.btnClasse.TabIndex = 2;
+            this.btnClasse.Text = " Classes   ▶";
+            this.btnClasse.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnClasse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClasse.UseVisualStyleBackColor = false;
+            this.btnClasse.Click += new System.EventHandler(this.BtnClasse_Click);
             // 
             // btnStudent
             // 
@@ -96,7 +133,7 @@
             this.btnStudent.Margin = new System.Windows.Forms.Padding(0);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnStudent.Size = new System.Drawing.Size(234, 40);
+            this.btnStudent.Size = new System.Drawing.Size(234, 46);
             this.btnStudent.TabIndex = 1;
             this.btnStudent.Text = " Élèves   ▶";
             this.btnStudent.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -277,10 +314,11 @@
             this.drpStudent.Name = "drpStudent";
             this.drpStudent.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStudent.ShowImageMargin = false;
-            this.drpStudent.Size = new System.Drawing.Size(159, 92);
+            this.drpStudent.Size = new System.Drawing.Size(159, 116);
             // 
             // adStudentTSM
             // 
+            this.adStudentTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
             this.adStudentTSM.Name = "adStudentTSM";
             this.adStudentTSM.Size = new System.Drawing.Size(158, 22);
             this.adStudentTSM.Text = "Inscription";
@@ -288,6 +326,7 @@
             // 
             // studentTSM
             // 
+            this.studentTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
             this.studentTSM.Name = "studentTSM";
             this.studentTSM.Size = new System.Drawing.Size(158, 22);
             this.studentTSM.Text = "Liste d\'élèves";
@@ -298,6 +337,7 @@
             this.parentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adParentSTM,
             this.parentTSM});
+            this.parentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.parentsToolStripMenuItem.Name = "parentsToolStripMenuItem";
             this.parentsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.parentsToolStripMenuItem.Text = "Parents";
@@ -320,6 +360,59 @@
             this.parentTSM.Text = "Liste";
             this.parentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.parentTSM.Click += new System.EventHandler(this.ParentTSM_Click);
+            // 
+            // drpClasse
+            // 
+            this.drpClasse.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.drpClasse.DropShadowEnabled = false;
+            this.drpClasse.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.drpClasse.IsMainMenu = false;
+            this.drpClasse.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.classesAndSubjetsTSM,
+            this.assignationClasseMatièreToolStripMenuItem});
+            this.drpClasse.MenuItemHeight = 25;
+            this.drpClasse.MenuItemTextColor = System.Drawing.Color.LightCyan;
+            this.drpClasse.Name = "drpStudent";
+            this.drpClasse.PrimaryColor = System.Drawing.Color.DarkSlateGray;
+            this.drpClasse.ShowImageMargin = false;
+            this.drpClasse.Size = new System.Drawing.Size(276, 63);
+            // 
+            // classesAndSubjetsTSM
+            // 
+            this.classesAndSubjetsTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
+            this.classesAndSubjetsTSM.Name = "classesAndSubjetsTSM";
+            this.classesAndSubjetsTSM.Size = new System.Drawing.Size(275, 22);
+            this.classesAndSubjetsTSM.Text = "Liste classes et matières";
+            this.classesAndSubjetsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.classesAndSubjetsTSM.Click += new System.EventHandler(this.ClassesAndSubjetsTSM_Click);
+            // 
+            // assignationClasseMatièreToolStripMenuItem
+            // 
+            this.assignationClasseMatièreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addClasseSubjectTSM,
+            this.classesSubjectsTSM});
+            this.assignationClasseMatièreToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.assignationClasseMatièreToolStripMenuItem.Name = "assignationClasseMatièreToolStripMenuItem";
+            this.assignationClasseMatièreToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
+            this.assignationClasseMatièreToolStripMenuItem.Text = "Assignation Classe - Matière";
+            // 
+            // addClasseSubjectTSM
+            // 
+            this.addClasseSubjectTSM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.addClasseSubjectTSM.ForeColor = System.Drawing.Color.LightCyan;
+            this.addClasseSubjectTSM.Name = "addClasseSubjectTSM";
+            this.addClasseSubjectTSM.Size = new System.Drawing.Size(225, 22);
+            this.addClasseSubjectTSM.Text = "Ajouter";
+            this.addClasseSubjectTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // classesSubjectsTSM
+            // 
+            this.classesSubjectsTSM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.classesSubjectsTSM.ForeColor = System.Drawing.Color.LightCyan;
+            this.classesSubjectsTSM.Name = "classesSubjectsTSM";
+            this.classesSubjectsTSM.Size = new System.Drawing.Size(225, 22);
+            this.classesSubjectsTSM.Text = "Liste d\'assignation";
+            this.classesSubjectsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
@@ -347,6 +440,7 @@
             this.pnlTitleBar.ResumeLayout(false);
             this.pnlTitleBar.PerformLayout();
             this.drpStudent.ResumeLayout(false);
+            this.drpClasse.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -371,5 +465,11 @@
         private System.Windows.Forms.ToolStripMenuItem parentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adParentSTM;
         private System.Windows.Forms.ToolStripMenuItem parentTSM;
+        private RenComponent.RenButton btnClasse;
+        private RenComponent.RenDropdownMenu drpClasse;
+        private System.Windows.Forms.ToolStripMenuItem classesAndSubjetsTSM;
+        private System.Windows.Forms.ToolStripMenuItem assignationClasseMatièreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addClasseSubjectTSM;
+        private System.Windows.Forms.ToolStripMenuItem classesSubjectsTSM;
     }
 }

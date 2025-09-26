@@ -9,6 +9,8 @@ namespace DeltaSchool.Data.Repository
     {
         private readonly DeltaSchoolContext _context;
         private ParentStudentRepository _parentRepo;
+        private SubjectRepository _subjectRepo;
+        private ClasseRepository _classeRepo;
         private DbContextTransaction _transaction;
         private bool _disposed = false;
 
@@ -19,7 +21,14 @@ namespace DeltaSchool.Data.Repository
 
         public IParentStudentRepository ParentStudents 
             => _parentRepo ?? (_parentRepo = new ParentStudentRepository(_context));
-        
+
+        public ISubjectRepository Subjects 
+            => _subjectRepo ?? (_subjectRepo = new SubjectRepository(_context));
+
+        public IClasseRepository Classes
+            => _classeRepo ?? (_classeRepo = new ClasseRepository(_context));
+
+
         public DbContextTransaction BeginTransaction()
         {
             if (_transaction == null)
@@ -64,6 +73,13 @@ namespace DeltaSchool.Data.Repository
                 _context.Dispose();
                 _disposed = true;
             }
+        }
+
+        public void DetachEntity(object entity)
+        {
+            var entry = _context.Entry(entity);
+            if (entry != null)
+                entry.State = System.Data.Entity.EntityState.Detached;
         }
     }
 }

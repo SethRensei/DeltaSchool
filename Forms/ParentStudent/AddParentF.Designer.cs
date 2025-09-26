@@ -176,7 +176,7 @@
             // 
             this.rbFemale.CheckedColor = System.Drawing.Color.MidnightBlue;
             this.rbFemale.FlatAppearance.BorderSize = 3;
-            this.rbFemale.Location = new System.Drawing.Point(253, 238);
+            this.rbFemale.Location = new System.Drawing.Point(273, 238);
             this.rbFemale.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -191,7 +191,7 @@
             this.rbMale.Checked = true;
             this.rbMale.CheckedColor = System.Drawing.Color.MidnightBlue;
             this.rbMale.FlatAppearance.BorderSize = 3;
-            this.rbMale.Location = new System.Drawing.Point(119, 238);
+            this.rbMale.Location = new System.Drawing.Point(139, 238);
             this.rbMale.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbMale.Name = "rbMale";
             this.rbMale.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);

@@ -116,13 +116,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\FormValidator.cs" />
+    <Compile Include="Core\Services\ClasseService.cs" />
     <Compile Include="Core\Services\ParentStudentService.cs" />
+    <Compile Include="Core\Services\SubjectService.cs" />
     <Compile Include="Data\DeltaSchoolContext.cs" />
+    <Compile Include="Data\Entity\Classe.cs" />
+    <Compile Include="Data\Entity\ClasseSubject.cs" />
+    <Compile Include="Data\Entity\Job.cs" />
+    <Compile Include="Data\Entity\Sites.cs" />
     <Compile Include="Data\Entity\ParentStudent.cs" />
+    <Compile Include="Data\Entity\Staff.cs" />
+    <Compile Include="Data\Entity\StaffJob.cs" />
+    <Compile Include="Data\Entity\Subject.cs" />
+    <Compile Include="Data\Repository\ClasseRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IClasseRepository.cs" />
     <Compile Include="Data\Repository\Interface\IParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\Interface\ISubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IUnitOfWork.cs" />
     <Compile Include="Data\Repository\ParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\SubjectRepository.cs" />
     <Compile Include="Data\Repository\UnitOfWork.cs" />
+    <Compile Include="Forms\ClasseSubject\AdClasseAndSubjectF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClasseSubject\AdClasseAndSubjectF.Designer.cs">
+      <DependentUpon>AdClasseAndSubjectF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClasseSubject\ClasseAndSubjectF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClasseSubject\ClasseAndSubjectF.Designer.cs">
+      <DependentUpon>ClasseAndSubjectF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +175,18 @@
       <DependentUpon>AlertForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ColorHelpers.cs" />
+    <Compile Include="Utilities\Extensions\CategoryExtension.cs" />
+    <Compile Include="Utilities\Extensions\CycleExtension.cs" />
+    <Compile Include="Utilities\DbExceptionHandler.cs" />
     <Compile Include="Utilities\MySqlExceptionHelper.cs" />
     <Compile Include="Utilities\ShowAlert.cs" />
     <Compile Include="Utilities\GlobalEvent.cs" />
+    <EmbeddedResource Include="Forms\ClasseSubject\AdClasseAndSubjectF.resx">
+      <DependentUpon>AdClasseAndSubjectF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClasseSubject\ClasseAndSubjectF.resx">
+      <DependentUpon>ClasseAndSubjectF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

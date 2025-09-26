@@ -41,6 +41,7 @@ namespace DeltaSchool.Data.Entity
         [Required(ErrorMessage = "Le N° de téléphone est requis")]
         [StringLength(30)]
         [Column("phone_number")]
+        [Phone(ErrorMessage = "N° de téléphone invalide")]
         public string PhoneNumber { get; set; }
 
         [StringLength(50, ErrorMessage = "La profession ne peut dépasser 50 caractères")]

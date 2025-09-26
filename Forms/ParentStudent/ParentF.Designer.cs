@@ -77,7 +77,7 @@
             this.dgvParent.DataGrid.ColumnHeadersHeight = 39;
             this.dgvParent.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvParent.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvParent.DataGrid.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.dgvParent.DataGrid.Margin = new System.Windows.Forms.Padding(13, 8, 13, 8);
             this.dgvParent.DataGrid.Name = "dataGridView1";
             this.dgvParent.DataGrid.ReadOnly = true;
             this.dgvParent.DataGrid.RowHeadersVisible = false;

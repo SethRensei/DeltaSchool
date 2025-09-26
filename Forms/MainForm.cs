@@ -105,5 +105,15 @@ namespace DeltaSchool.Forms
         }
 
         #endregion
+
+        private void BtnClasse_Click(object sender, EventArgs e)
+        {
+            drpClasse.Show(btnClasse, btnClasse.Width, 0);
+        }
+
+        private void ClassesAndSubjetsTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ClasseSubject.ClasseAndSubjectF());
+        }
     }
 }

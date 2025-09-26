@@ -46,5 +46,10 @@ namespace DeltaSchool.Utilities
         {
             return MessageBox.Show("Voulez-vous supprimer cet élément", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
+
+        public static DialogResult Question(string question)
+        {
+            return MessageBox.Show(question, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
     }
 }
