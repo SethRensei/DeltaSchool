@@ -34,5 +34,7 @@ namespace DeltaSchool.Data.Entity
         public DateTime? CreatedAt { get; private set; }
 
         public virtual ICollection<ClasseSubject> ClasseSubjects { get; set; }
+
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

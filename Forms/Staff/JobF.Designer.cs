@@ -39,6 +39,7 @@
             this.btnDelete = new RenComponent.RenButton();
             this.btnEdit = new RenComponent.RenButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnCancel = new RenComponent.RenButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJob.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,7 +171,7 @@
             this.dgvJob.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvJob.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvJob.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvJob.DataGrid.Margin = new System.Windows.Forms.Padding(37, 15, 37, 15);
+            this.dgvJob.DataGrid.Margin = new System.Windows.Forms.Padding(103, 29, 103, 29);
             this.dgvJob.DataGrid.Name = "dataGridView1";
             this.dgvJob.DataGrid.RowHeadersVisible = false;
             this.dgvJob.DataGrid.RowTemplate.Height = 35;
@@ -195,7 +196,7 @@
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(892, 36);
+            this.btnDelete.Location = new System.Drawing.Point(892, 43);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 27);
             this.btnDelete.TabIndex = 19;
@@ -216,7 +217,7 @@
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(799, 36);
+            this.btnEdit.Location = new System.Drawing.Point(799, 43);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(87, 27);
             this.btnEdit.TabIndex = 20;
@@ -237,12 +238,34 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Ce champ est requis";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.DimGray;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.DimGray;
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 4;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(383, 43);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(175, 27);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Annuler l\'opération";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // JobF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1010, 647);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvJob);
@@ -277,5 +300,6 @@
         private RenComponent.RenButton btnDelete;
         private RenComponent.RenButton btnEdit;
         private System.Windows.Forms.Label label3;
+        private RenComponent.RenButton btnCancel;
     }
 }

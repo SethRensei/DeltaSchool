@@ -18,6 +18,7 @@ namespace DeltaSchool.Data
         }
 
         public DbSet<Sites> Locations { get; set; }
+        public DbSet<SchoolYear> SchoolYears { get; set; }
         public DbSet<Classe> Classes { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Job> Jobs { get; set; }
@@ -25,13 +26,16 @@ namespace DeltaSchool.Data
         public DbSet<ClasseSubject> ClasseSubjects { get; set; }
         public DbSet<StaffJob> StaffJobs { get; set; }
         public DbSet<ParentStudent> ParentStudents { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Table names (s'assurer que EF n'ajoute pas 's' ou modifie)
+            #region Table names (s'assurer que EF n'ajoute pas 's' ou modifie)
+            
             modelBuilder.Entity<Sites>().ToTable("location");
+            modelBuilder.Entity<SchoolYear>().ToTable("school_year");
             modelBuilder.Entity<Classe>().ToTable("classe");
             modelBuilder.Entity<Subject>().ToTable("subject");
             modelBuilder.Entity<Job>().ToTable("job");
@@ -39,8 +43,18 @@ namespace DeltaSchool.Data
             modelBuilder.Entity<ClasseSubject>().ToTable("classe_subject");
             modelBuilder.Entity<StaffJob>().ToTable("staff_job");
             modelBuilder.Entity<ParentStudent>().ToTable("parent_student");
+            modelBuilder.Entity<Student>().ToTable("student");
+            
+            #endregion
 
-            // Indexes / contraintes uniques (via IndexAnnotation - EF6)
+            #region Indexes / contraintes uniques (via IndexAnnotation - EF6)
+            // school_year.label unique
+            modelBuilder.Entity<SchoolYear>()
+                .Property(sy => sy.Label)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_SchoolYear_Label") { IsUnique = true }));
+
             // classe.name unique
             modelBuilder.Entity<Classe>()
                 .Property(c => c.Name)
@@ -78,10 +92,29 @@ namespace DeltaSchool.Data
 
             // parent_student.phone_number unique
             modelBuilder.Entity<ParentStudent>()
+                .Property(p => p.Email)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_ParentStudent_Email") { IsUnique = true }));
+
+            modelBuilder.Entity<ParentStudent>()
                 .Property(p => p.PhoneNumber)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_Parent_Phone") { IsUnique = true }));
+
+            // student.email and student.phone_number unique (nullable)
+            modelBuilder.Entity<Student>()
+                .Property(s => s.Email)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Student_Email") { IsUnique = true }));
+
+            modelBuilder.Entity<Student>()
+                .Property(s => s.PhoneNumber)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Student_Phone") { IsUnique = true }));
 
             // Unique composite Contraints — handled via IndexAnnotation on multiple properties if needed:
             // classe_subject unique(classe_id, subject_id)
@@ -104,7 +137,33 @@ namespace DeltaSchool.Data
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_StaffJob_Unique", 2) { IsUnique = true }));
 
-            // Relations (s'assurer du comportement ON DELETE/UPDATE)
+            #endregion
+
+            #region Relations (s'assurer du comportement ON DELETE/UPDATE)
+            modelBuilder.Entity<Student>()
+                .HasOptional(s => s.Parent)
+                .WithMany(p => p.Students)
+                .HasForeignKey(s => s.ParentId)
+                .WillCascadeOnDelete(false); // SQL had ON DELETE SET NULL
+
+            modelBuilder.Entity<Student>()
+                .HasOptional(s => s.Classe)
+                .WithMany(c => c.Students)
+                .HasForeignKey(s => s.ClasseId)
+                .WillCascadeOnDelete(false); // ON DELETE SET NULL
+
+            modelBuilder.Entity<Student>()
+                .HasOptional(s => s.SchoolYear)
+                .WithMany(sy => sy.Students)
+                .HasForeignKey(s => s.SchoolYearId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Student>()
+                .HasOptional(s => s.Location)
+                .WithMany(l => l.Students)
+                .HasForeignKey(s => s.LocationId)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<ClasseSubject>()
                 .HasRequired(cs => cs.Classe)
                 .WithMany(c => c.ClasseSubjects)
@@ -134,6 +193,8 @@ namespace DeltaSchool.Data
                 .WithMany(j => j.StaffJobs)
                 .HasForeignKey(sj => sj.JobId)
                 .WillCascadeOnDelete(true);
+
+            #endregion
         }
     } 
 }

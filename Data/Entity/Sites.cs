@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,5 +25,7 @@ namespace DeltaSchool.Data.Entity
         [Column("created_at")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? CreatedAt { get; private set; }
+
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

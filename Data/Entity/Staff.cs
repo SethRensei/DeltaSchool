@@ -14,14 +14,14 @@ namespace DeltaSchool.Data.Entity
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Le nom est requis")]
-        [StringLength(200, ErrorMessage = "Le prénom ne peut dépasser 200 caractères")]
-        [Column("firstname")]
-        public string Firstname { get; set; }
-
-        [Required(ErrorMessage = "Le nom est requis")]
         [StringLength(200, ErrorMessage = "Le nom ne peut dépasser 200 caractères")]
         [Column("lastname")]
         public string Lastname { get; set; }
+
+        [Required(ErrorMessage = "Le prénom est requis")]
+        [StringLength(200, ErrorMessage = "Le prénom ne peut dépasser 200 caractères")]
+        [Column("firstname")]
+        public string Firstname { get; set; }
 
         [Required(ErrorMessage = "Le genre est requis")]
         [RegularExpression("MALE|FEMALE", ErrorMessage = "Le genre doit être 'MALE' ou 'FEMALE'")]

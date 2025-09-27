@@ -11,6 +11,8 @@ namespace DeltaSchool.Data.Repository.Interface
         IStaffRepository Staffs { get; }
         IClasseSubjectRepository ClasseSubjects { get; }
 
+        IStudentRepository Students { get; }
+
         // transaction handling
         System.Data.Entity.DbContextTransaction BeginTransaction();
         void Commit();

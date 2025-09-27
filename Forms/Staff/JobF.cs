@@ -106,6 +106,11 @@ namespace DeltaSchool.Forms.Staff
             }
         }
 
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            ResetValue();
+        }
+
         private void JobF_FormClosed(object sender, FormClosedEventArgs e)
         {
             _uow.Dispose();
@@ -127,6 +132,7 @@ namespace DeltaSchool.Forms.Staff
 
             dgvJob.SetData(dt);
             dgvJob.Visible = true;
+            btnCancel.Visible = true;
         }
 
         private void ResetValue()
