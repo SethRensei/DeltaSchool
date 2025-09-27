@@ -117,7 +117,10 @@
   <ItemGroup>
     <Compile Include="Core\FormValidator.cs" />
     <Compile Include="Core\Services\ClasseService.cs" />
+    <Compile Include="Core\Services\ClasseSubjectService.cs" />
+    <Compile Include="Core\Services\JobService.cs" />
     <Compile Include="Core\Services\ParentStudentService.cs" />
+    <Compile Include="Core\Services\StaffService.cs" />
     <Compile Include="Core\Services\SubjectService.cs" />
     <Compile Include="Data\DeltaSchoolContext.cs" />
     <Compile Include="Data\Entity\Classe.cs" />
@@ -129,11 +132,17 @@
     <Compile Include="Data\Entity\StaffJob.cs" />
     <Compile Include="Data\Entity\Subject.cs" />
     <Compile Include="Data\Repository\ClasseRepository.cs" />
+    <Compile Include="Data\Repository\ClasseSubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IClasseRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IClasseSubjectRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IJobRepository.cs" />
     <Compile Include="Data\Repository\Interface\IParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IStaffRepository.cs" />
     <Compile Include="Data\Repository\Interface\ISubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IUnitOfWork.cs" />
+    <Compile Include="Data\Repository\JobRepository.cs" />
     <Compile Include="Data\Repository\ParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\StaffRepository.cs" />
     <Compile Include="Data\Repository\SubjectRepository.cs" />
     <Compile Include="Data\Repository\UnitOfWork.cs" />
     <Compile Include="Forms\ClasseSubject\AdClasseAndSubjectF.cs">
@@ -147,6 +156,12 @@
     </Compile>
     <Compile Include="Forms\ClasseSubject\ClasseAndSubjectF.Designer.cs">
       <DependentUpon>ClasseAndSubjectF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClasseSubject\ClasseSubjectF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClasseSubject\ClasseSubjectF.Designer.cs">
+      <DependentUpon>ClasseSubjectF.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -166,6 +181,24 @@
     <Compile Include="Forms\ParentStudent\ParentF.Designer.cs">
       <DependentUpon>ParentF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Staff\AdStaffF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff\AdStaffF.Designer.cs">
+      <DependentUpon>AdStaffF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff\JobF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff\JobF.Designer.cs">
+      <DependentUpon>JobF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Staff\StaffsF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff\StaffsF.Designer.cs">
+      <DependentUpon>StaffsF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AlertForm.cs">
@@ -174,18 +207,22 @@
     <Compile Include="Utilities\AlertForm.Designer.cs">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\ColorHelpers.cs" />
     <Compile Include="Utilities\Extensions\CategoryExtension.cs" />
     <Compile Include="Utilities\Extensions\CycleExtension.cs" />
     <Compile Include="Utilities\DbExceptionHandler.cs" />
+    <Compile Include="Utilities\Extensions\MaritalStatusExtension.cs" />
     <Compile Include="Utilities\MySqlExceptionHelper.cs" />
     <Compile Include="Utilities\ShowAlert.cs" />
     <Compile Include="Utilities\GlobalEvent.cs" />
+    <Compile Include="Utilities\UHelpers.cs" />
     <EmbeddedResource Include="Forms\ClasseSubject\AdClasseAndSubjectF.resx">
       <DependentUpon>AdClasseAndSubjectF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClasseSubject\ClasseAndSubjectF.resx">
       <DependentUpon>ClasseAndSubjectF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClasseSubject\ClasseSubjectF.resx">
+      <DependentUpon>ClasseSubjectF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -195,6 +232,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParentStudent\ParentF.resx">
       <DependentUpon>ParentF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff\AdStaffF.resx">
+      <DependentUpon>AdStaffF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff\JobF.resx">
+      <DependentUpon>JobF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff\StaffsF.resx">
+      <DependentUpon>StaffsF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -252,6 +298,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

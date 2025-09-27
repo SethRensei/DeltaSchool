@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new RenComponent.RenPanel();
+            this.btnStaff = new RenComponent.RenButton();
             this.btnClasse = new RenComponent.RenButton();
             this.btnStudent = new RenComponent.RenButton();
             this.pnlLogo = new System.Windows.Forms.Panel();
@@ -51,15 +52,18 @@
             this.parentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.drpClasse = new RenComponent.RenDropdownMenu(this.components);
             this.classesAndSubjetsTSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.assignationClasseMatièreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addClasseSubjectTSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.classesSubjectsTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.classeSubjectTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.drpStaff = new RenComponent.RenDropdownMenu(this.components);
+            this.adStaffTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffsTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.jobTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlTitleBar.SuspendLayout();
             this.drpStudent.SuspendLayout();
             this.drpClasse.SuspendLayout();
+            this.drpStaff.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -69,6 +73,7 @@
             this.pnlMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlMenu.BorderRadius = 0;
             this.pnlMenu.BorderSize = 0;
+            this.pnlMenu.Controls.Add(this.btnStaff);
             this.pnlMenu.Controls.Add(this.btnClasse);
             this.pnlMenu.Controls.Add(this.btnStudent);
             this.pnlMenu.Controls.Add(this.pnlLogo);
@@ -82,6 +87,35 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(234, 700);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnStaff
+            // 
+            this.btnStaff.BackColor = System.Drawing.Color.Transparent;
+            this.btnStaff.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnStaff.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnStaff.BorderRadius = 0;
+            this.btnStaff.BorderSize = 0;
+            this.btnStaff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStaff.FlatAppearance.BorderSize = 0;
+            this.btnStaff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnStaff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStaff.Font = new System.Drawing.Font("Lucida Fax", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStaff.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnStaff.Image = global::DeltaSchool.Properties.Resources.staff;
+            this.btnStaff.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnStaff.Location = new System.Drawing.Point(0, 216);
+            this.btnStaff.Margin = new System.Windows.Forms.Padding(0);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnStaff.Size = new System.Drawing.Size(234, 46);
+            this.btnStaff.TabIndex = 3;
+            this.btnStaff.Text = " Personnel   ▶";
+            this.btnStaff.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnStaff.Click += new System.EventHandler(this.BtnStaff_Click);
             // 
             // btnClasse
             // 
@@ -98,7 +132,7 @@
             this.btnClasse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClasse.Font = new System.Drawing.Font("Lucida Fax", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClasse.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnClasse.Image = global::DeltaSchool.Properties.Resources.student;
+            this.btnClasse.Image = global::DeltaSchool.Properties.Resources.classroom;
             this.btnClasse.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnClasse.Location = new System.Drawing.Point(0, 170);
             this.btnClasse.Margin = new System.Windows.Forms.Padding(0);
@@ -314,7 +348,7 @@
             this.drpStudent.Name = "drpStudent";
             this.drpStudent.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStudent.ShowImageMargin = false;
-            this.drpStudent.Size = new System.Drawing.Size(159, 116);
+            this.drpStudent.Size = new System.Drawing.Size(159, 94);
             // 
             // adStudentTSM
             // 
@@ -347,7 +381,7 @@
             // 
             this.adParentSTM.BackColor = System.Drawing.Color.DarkSlateGray;
             this.adParentSTM.Name = "adParentSTM";
-            this.adParentSTM.Size = new System.Drawing.Size(180, 22);
+            this.adParentSTM.Size = new System.Drawing.Size(136, 22);
             this.adParentSTM.Text = "Ajouter";
             this.adParentSTM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.adParentSTM.Click += new System.EventHandler(this.AdParentSTM_Click);
@@ -356,7 +390,7 @@
             // 
             this.parentTSM.BackColor = System.Drawing.Color.DarkSlateGray;
             this.parentTSM.Name = "parentTSM";
-            this.parentTSM.Size = new System.Drawing.Size(180, 22);
+            this.parentTSM.Size = new System.Drawing.Size(136, 22);
             this.parentTSM.Text = "Liste";
             this.parentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.parentTSM.Click += new System.EventHandler(this.ParentTSM_Click);
@@ -369,13 +403,13 @@
             this.drpClasse.IsMainMenu = false;
             this.drpClasse.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.classesAndSubjetsTSM,
-            this.assignationClasseMatièreToolStripMenuItem});
+            this.classeSubjectTSM});
             this.drpClasse.MenuItemHeight = 25;
             this.drpClasse.MenuItemTextColor = System.Drawing.Color.LightCyan;
             this.drpClasse.Name = "drpStudent";
             this.drpClasse.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpClasse.ShowImageMargin = false;
-            this.drpClasse.Size = new System.Drawing.Size(276, 63);
+            this.drpClasse.Size = new System.Drawing.Size(276, 85);
             // 
             // classesAndSubjetsTSM
             // 
@@ -386,38 +420,63 @@
             this.classesAndSubjetsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.classesAndSubjetsTSM.Click += new System.EventHandler(this.ClassesAndSubjetsTSM_Click);
             // 
-            // assignationClasseMatièreToolStripMenuItem
+            // classeSubjectTSM
             // 
-            this.assignationClasseMatièreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addClasseSubjectTSM,
-            this.classesSubjectsTSM});
-            this.assignationClasseMatièreToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.assignationClasseMatièreToolStripMenuItem.Name = "assignationClasseMatièreToolStripMenuItem";
-            this.assignationClasseMatièreToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
-            this.assignationClasseMatièreToolStripMenuItem.Text = "Assignation Classe - Matière";
+            this.classeSubjectTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.classeSubjectTSM.Name = "classeSubjectTSM";
+            this.classeSubjectTSM.Size = new System.Drawing.Size(275, 22);
+            this.classeSubjectTSM.Text = "Assignation Classe - Matière";
+            this.classeSubjectTSM.Click += new System.EventHandler(this.ClasseSubjectTSM_Click);
             // 
-            // addClasseSubjectTSM
+            // drpStaff
             // 
-            this.addClasseSubjectTSM.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.addClasseSubjectTSM.ForeColor = System.Drawing.Color.LightCyan;
-            this.addClasseSubjectTSM.Name = "addClasseSubjectTSM";
-            this.addClasseSubjectTSM.Size = new System.Drawing.Size(225, 22);
-            this.addClasseSubjectTSM.Text = "Ajouter";
-            this.addClasseSubjectTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.drpStaff.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.drpStaff.DropShadowEnabled = false;
+            this.drpStaff.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.drpStaff.IsMainMenu = false;
+            this.drpStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adStaffTSM,
+            this.staffsTSM,
+            this.jobTSM});
+            this.drpStaff.MenuItemHeight = 25;
+            this.drpStaff.MenuItemTextColor = System.Drawing.Color.LightCyan;
+            this.drpStaff.Name = "drpStudent";
+            this.drpStaff.PrimaryColor = System.Drawing.Color.DarkSlateGray;
+            this.drpStaff.ShowImageMargin = false;
+            this.drpStaff.Size = new System.Drawing.Size(225, 94);
             // 
-            // classesSubjectsTSM
+            // adStaffTSM
             // 
-            this.classesSubjectsTSM.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.classesSubjectsTSM.ForeColor = System.Drawing.Color.LightCyan;
-            this.classesSubjectsTSM.Name = "classesSubjectsTSM";
-            this.classesSubjectsTSM.Size = new System.Drawing.Size(225, 22);
-            this.classesSubjectsTSM.Text = "Liste d\'assignation";
-            this.classesSubjectsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adStaffTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
+            this.adStaffTSM.Name = "adStaffTSM";
+            this.adStaffTSM.Size = new System.Drawing.Size(224, 22);
+            this.adStaffTSM.Text = "Ajouter du personnel";
+            this.adStaffTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adStaffTSM.Click += new System.EventHandler(this.AdStaffTSM_Click);
+            // 
+            // staffsTSM
+            // 
+            this.staffsTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.staffsTSM.Name = "staffsTSM";
+            this.staffsTSM.Size = new System.Drawing.Size(224, 22);
+            this.staffsTSM.Text = "Liste du personnel";
+            this.staffsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.staffsTSM.Click += new System.EventHandler(this.StaffsTSM_Click);
+            // 
+            // jobTSM
+            // 
+            this.jobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.jobTSM.Name = "jobTSM";
+            this.jobTSM.Size = new System.Drawing.Size(224, 22);
+            this.jobTSM.Text = "Gestion de fonction";
+            this.jobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.jobTSM.Click += new System.EventHandler(this.JobTSM_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1244, 700);
             this.ControlBox = false;
@@ -441,6 +500,7 @@
             this.pnlTitleBar.PerformLayout();
             this.drpStudent.ResumeLayout(false);
             this.drpClasse.ResumeLayout(false);
+            this.drpStaff.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -468,8 +528,11 @@
         private RenComponent.RenButton btnClasse;
         private RenComponent.RenDropdownMenu drpClasse;
         private System.Windows.Forms.ToolStripMenuItem classesAndSubjetsTSM;
-        private System.Windows.Forms.ToolStripMenuItem assignationClasseMatièreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addClasseSubjectTSM;
-        private System.Windows.Forms.ToolStripMenuItem classesSubjectsTSM;
+        private System.Windows.Forms.ToolStripMenuItem classeSubjectTSM;
+        private RenComponent.RenButton btnStaff;
+        private RenComponent.RenDropdownMenu drpStaff;
+        private System.Windows.Forms.ToolStripMenuItem adStaffTSM;
+        private System.Windows.Forms.ToolStripMenuItem staffsTSM;
+        private System.Windows.Forms.ToolStripMenuItem jobTSM;
     }
 }

@@ -1,32 +1,32 @@
-﻿using DeltaSchool.Core;
-using DeltaSchool.Data.Entity;
-using DeltaSchool.Data.Repository.Interface;
-using DeltaSchool.Utilities;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data.Entity.Infrastructure;
 
-namespace DeltaSchool.Services
+using DeltaSchool.Data.Entity;
+using DeltaSchool.Data.Repository.Interface;
+using DeltaSchool.Utilities;
+
+namespace DeltaSchool.Core.Services
 {
-    public class ParentStudentService
+    public class StaffService
     {
         private readonly IUnitOfWork _uow;
 
-        public ParentStudentService(IUnitOfWork uow)
+        public StaffService(IUnitOfWork uow)
         {
             _uow = uow;
         }
 
-        public bool Create(ParentStudent parent)
+        public bool Create(Staff staff)
         {
-            if (!FormValidator.Validate(parent))
+            if (!FormValidator.Validate(staff))
                 return false;
 
             try
             {
-                _uow.ParentStudents.Add(parent);
+                _uow.Staffs.Add(staff);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Parent ajouté avec succès.");
+                ShowAlert.SuccessMsg("Personnel ajouté avec succès.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -43,7 +43,7 @@ namespace DeltaSchool.Services
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(parent);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(staff);  // ou _uow.ClearChangeTracker();
 
                 return false;
             }
@@ -54,16 +54,16 @@ namespace DeltaSchool.Services
             }
         }
 
-        public bool Update(ParentStudent p)
+        public bool Update(Staff staff)
         {
-            if (!FormValidator.Validate(p))
+            if (!FormValidator.Validate(staff))
                 return false;
 
             try
             {
-                _uow.ParentStudents.Update(p);
+                _uow.Staffs.Update(staff);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Information du parent mis à jour.");
+                ShowAlert.SuccessMsg("Information du personnel a été mis à jour.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -80,7 +80,7 @@ namespace DeltaSchool.Services
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(p);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(staff);  // ou _uow.ClearChangeTracker();
 
                 return false;
             }
@@ -95,9 +95,9 @@ namespace DeltaSchool.Services
         {
             try
             {
-                _uow.ParentStudents.Delete(id);
+                _uow.Staffs.Delete(id);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Parent supprimé avec succès.");
+                ShowAlert.SuccessMsg("Personnel supprimé avec succès.");
                 return true;
             }
             catch (Exception ex)

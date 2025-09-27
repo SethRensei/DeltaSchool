@@ -1,14 +1,15 @@
-﻿using DeltaSchool.Core.Services;
+﻿using System;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
+
+using DeltaSchool.Core.Services;
 using DeltaSchool.Data;
 using DeltaSchool.Data.Entity;
 using DeltaSchool.Data.Repository;
 using DeltaSchool.Data.Repository.Interface;
 using DeltaSchool.Utilities;
 using DeltaSchool.Utilities.Extensions;
-using System;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace DeltaSchool.Forms.ClasseSubject
 {
@@ -17,8 +18,8 @@ namespace DeltaSchool.Forms.ClasseSubject
         private readonly IUnitOfWork _uow;
         private readonly ClasseService _classeService;
         private readonly SubjectService _subjectService;
-        private Classe _classe;
-        private Subject _subject;
+        private Classe _classe = null;
+        private Subject _subject = null;
 
         private int _classeId = -1, _subjectId = -1;
 
@@ -46,19 +47,33 @@ namespace DeltaSchool.Forms.ClasseSubject
 
             this._classeId = classe;
             this._subjectId = subject;
-
-            this._classe = GetClasse();
-            this._subject = GetSubject();
+            this._subject = new Subject();
+            this._classe = new Classe();
         }
 
         private void AdClasseAndSubjectF_Load(object sender, EventArgs e)
         {
-            cbxCycle.DataSource = Enum.GetValues(typeof(Cycle))
-            .Cast<Cycle>()
-            .Select(c => new CycleItem { Value = c, Label = c.GetLabel() })
-            .ToList();
-            cbxCycle.DisplayMember = "Label";
-            cbxCycle.ValueMember = "Value";
+            cbCycle.DataSource = Enum.GetValues(typeof(Cycle))
+                .Cast<Cycle>()
+                .Select(c => new CycleItem { Value = c, Label = c.GetLabel() })
+                .ToList();
+            cbCycle.DisplayMember = "Label";
+            cbCycle.ValueMember = "Value";
+
+            this._classe = GetClasse();
+            this._subject = GetSubject();
+            if (this._classe != null)
+            {
+                Cycle selectedCycle;
+                if (this._classe.Cycle is string cycleStr && Enum.TryParse(cycleStr, out selectedCycle))
+                {
+                    cbCycle.SelectedValue = selectedCycle;
+                }
+                else
+                {
+                    ShowAlert.WarningMsg("Cycle introuvable ou mal typé.");
+                }
+            }
         }
 
         private void BtnAddClasse_Click(object sender, EventArgs e)
@@ -68,14 +83,14 @@ namespace DeltaSchool.Forms.ClasseSubject
                 var classe = new Data.Entity.Classe
                 {
                     Name = txtClasse.Texts.Trim(),
-                    Cycle = cbxCycle.SelectedValue.ToString(),
+                    Cycle = cbCycle.SelectedValue.ToString(),
                     Category = rbPass.Checked ? "PASS" : "EXAM"
                 };
                 if (_classeService.Create(classe))
                 {
                     OpenClasseAndSubjectF();
                     txtClasse.Texts = string.Empty;
-                    cbxCycle.SelectedIndex = 0;
+                    cbCycle.SelectedIndex = 0;
                     rbPass.Checked = true;
                 }
             } else
@@ -83,7 +98,7 @@ namespace DeltaSchool.Forms.ClasseSubject
                 if (this._classe != null)
                 {
                     this._classe.Name = txtClasse.Texts.Trim();
-                    this._classe.Cycle = cbxCycle.SelectedValue.ToString();
+                    this._classe.Cycle = cbCycle.SelectedValue.ToString();
                     this._classe.Category = rbPass.Checked ? "PASS" : "EXAM";
 
                     if (_classeService.Update(this._classe))
@@ -92,10 +107,10 @@ namespace DeltaSchool.Forms.ClasseSubject
                         this.Close();
                     }
                     else
-                        ShowAlert.DisplayMessage("Échec de la mise à jour.", ShowAlert.A_type.Error);
+                        ShowAlert.ErrorMsg("Échec de la mise à jour.");
                 }
                 else
-                    ShowAlert.DisplayMessage("Aucune classe trouvée.", ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg("Aucune classe trouvée.");
             }
         }
 
@@ -123,10 +138,10 @@ namespace DeltaSchool.Forms.ClasseSubject
                         this.Close();
                     }
                     else
-                        ShowAlert.DisplayMessage("Échec de la mise à jour.", ShowAlert.A_type.Error);
+                        ShowAlert.ErrorMsg("Échec de la mise à jour.");
                 }
                 else
-                    ShowAlert.DisplayMessage("Aucune matière trouvée.", ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg("Aucune matière trouvée.");
             }
         }
 
@@ -155,8 +170,7 @@ namespace DeltaSchool.Forms.ClasseSubject
             btnAddClasse.Text = "Mettre à jour";
             txtClasse.Texts = classe.Name;
             if (classe.Category.Equals("PASS")) rbPass.Checked = true;
-            else rbExam.Checked = false;
-            cbxCycle.SelectedItem = classe.Cycle;
+            else rbExam.Checked = true;
             return classe;
         }
 
@@ -172,6 +186,4 @@ namespace DeltaSchool.Forms.ClasseSubject
             txtSubject.Texts = subject.Name;
             return subject;
         }
-    }
-
-}
+    }}

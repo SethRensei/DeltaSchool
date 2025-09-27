@@ -17,7 +17,7 @@ namespace DeltaSchool.Core
             {
                 foreach (var error in results)
                 {
-                    ShowAlert.DisplayMessage(error.ErrorMessage, ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg(error.ErrorMessage);
                 }
             }
 

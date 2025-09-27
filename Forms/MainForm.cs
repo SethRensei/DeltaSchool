@@ -115,5 +115,30 @@ namespace DeltaSchool.Forms
         {
             OpenChildForm(new ClasseSubject.ClasseAndSubjectF());
         }
+
+        private void BtnStaff_Click(object sender, EventArgs e)
+        {
+            drpStaff.Show(btnStaff, btnStaff.Width, 0);
+        }
+
+        private void AdStaffTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff.AdStaffF());
+        }
+
+        private void StaffsTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff.StaffsF());
+        }
+
+        private void JobTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff.JobF());
+        }
+
+        private void ClasseSubjectTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ClasseSubject.ClasseSubjectF());
+        }
     }
 }

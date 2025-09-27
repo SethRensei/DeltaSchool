@@ -55,10 +55,10 @@
             // 
             // lblMsg
             // 
-            this.lblMsg.AutoSize = true;
-            this.lblMsg.Location = new System.Drawing.Point(56, 14);
+            this.lblMsg.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.lblMsg.Location = new System.Drawing.Point(56, 7);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(55, 24);
+            this.lblMsg.Size = new System.Drawing.Size(368, 74);
             this.lblMsg.TabIndex = 8;
             this.lblMsg.Text = "label1";
             // 

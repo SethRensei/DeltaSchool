@@ -96,14 +96,14 @@ namespace DeltaSchool.Forms.ClasseSubject
         {
             if (this._classeId == -1)
             {
-                ShowAlert.DisplayMessage("Veuillez sélectionner une classe.", ShowAlert.A_type.Warning);
+                ShowAlert.InfoMsg("Veuillez sélectionner une classe.");
                 return;
             }
             else
             {
                 if (ShowAlert.RemoveItem() != DialogResult.Yes) return;
                 if (!_classeService.Delete(this._classeId))
-                    ShowAlert.DisplayMessage("Échec de la suppression.", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg("Échec de la suppression.");
                 else
                 {
                     LoadClasses();
@@ -131,14 +131,14 @@ namespace DeltaSchool.Forms.ClasseSubject
         {
             if (this._subjectId == -1)
             {
-                ShowAlert.DisplayMessage("Veuillez sélectionner une matière.", ShowAlert.A_type.Warning);
+                ShowAlert.InfoMsg("Veuillez sélectionner une matière.");
                 return;
             }
             else
             {
                 if (ShowAlert.RemoveItem() != DialogResult.Yes) return;
                 if (!_subjectService.Delete(this._subjectId))
-                    ShowAlert.DisplayMessage("Échec de la suppression.", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg("Échec de la suppression.");
                 else
                 {
                     LoadSubjects();

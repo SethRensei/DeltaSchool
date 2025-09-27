@@ -16,38 +16,38 @@ namespace DeltaSchool.Utilities
                 if (myEx.Number == 1062)
                 {
                     var friendly = TryParseDuplicateEntry(myEx);
-                    ShowAlert.DisplayMessage(friendly ?? "Valeur en double détectée.", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg(friendly ?? "Valeur en double détectée.");
                     return;
                 }
 
                 // 1452 = Cannot add or update a child row: a foreign key constraint fails
                 if (myEx.Number == 1452)
                 {
-                    ShowAlert.DisplayMessage("Contrainte de clé étrangère violée (FK). Vérifie les relations existantes.", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg("Contrainte de clé étrangère violée (FK). Vérifie les relations existantes.");
                     return;
                 }
 
                 // 1048 = Column cannot be null
                 if (myEx.Number == 1048)
                 {
-                    ShowAlert.DisplayMessage("Une colonne obligatoire est nulle. Vérifie les champs requis.", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg("Une colonne obligatoire est nulle. Vérifie les champs requis.");
                     return;
                 }
 
                 // 1406 = Data too long for column
                 if (myEx.Number == 1406)
                 {
-                    ShowAlert.DisplayMessage("Une valeur est trop longue pour sa colonne. Vérifie les longueurs (StringLength).", ShowAlert.A_type.Error);
+                    ShowAlert.WarningMsg("Une valeur est trop longue pour sa colonne. Vérifie les longueurs (StringLength).");
                     return;
                 }
 
                 // fallback
-                ShowAlert.DisplayMessage($"Erreur MySQL #{myEx.Number}: {myEx.Message}", ShowAlert.A_type.Error);
+                ShowAlert.WarningMsg($"Erreur MySQL #{myEx.Number}: {myEx.Message}");
                 return;
             }
 
             // Si ce n'est pas MySqlException
-            ShowAlert.DisplayMessage($"Erreur de mise à jour : {baseEx.Message}", ShowAlert.A_type.Error);
+            ShowAlert.WarningMsg($"Erreur de mise à jour : {baseEx.Message}");
         }
 
         private static string TryParseDuplicateEntry(MySqlException ex)

@@ -26,7 +26,7 @@ namespace DeltaSchool.Core.Services
             {
                 _uow.Classes.Add(c);
                 _uow.Save();
-                ShowAlert.DisplayMessage("Classe ajouté avec succès.", ShowAlert.A_type.Success);
+                ShowAlert.SuccessMsg("Classe ajouté avec succès.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -35,11 +35,11 @@ namespace DeltaSchool.Core.Services
                 if (baseEx is MySqlException mex)
                 {
                     var msg = MySqlExceptionHelper.TryParseDuplicateEntry(mex) ?? mex.Message;
-                    ShowAlert.DisplayMessage(msg, ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg(msg);
                 }
                 else
                 {
-                    ShowAlert.DisplayMessage(baseEx.Message, ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg(baseEx.Message);
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
@@ -49,7 +49,7 @@ namespace DeltaSchool.Core.Services
             }
             catch (Exception ex)
             {
-                ShowAlert.DisplayMessage($"Erreur: {ex.Message}", ShowAlert.A_type.Error);
+                ShowAlert.ErrorMsg($"Erreur: {ex.Message}");
                 return false;
             }
         }
@@ -63,7 +63,7 @@ namespace DeltaSchool.Core.Services
             {
                 _uow.Classes.Update(c);
                 _uow.Save();
-                ShowAlert.DisplayMessage("Information de la classe a été modifié avec succes.", ShowAlert.A_type.Success);
+                ShowAlert.SuccessMsg("Information de la classe a été modifié avec succes.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -72,11 +72,11 @@ namespace DeltaSchool.Core.Services
                 if (baseEx is MySqlException mex)
                 {
                     var msg = MySqlExceptionHelper.TryParseDuplicateEntry(mex) ?? mex.Message;
-                    ShowAlert.DisplayMessage(msg, ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg(msg);
                 }
                 else
                 {
-                    ShowAlert.DisplayMessage(baseEx.Message, ShowAlert.A_type.Error);
+                    ShowAlert.ErrorMsg(baseEx.Message);
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
@@ -86,7 +86,7 @@ namespace DeltaSchool.Core.Services
             }
             catch (Exception ex)
             {
-                ShowAlert.DisplayMessage(ex.Message, ShowAlert.A_type.Error);
+                ShowAlert.ErrorMsg(ex.Message);
                 return false;
             }
         }
@@ -97,12 +97,12 @@ namespace DeltaSchool.Core.Services
             {
                 _uow.Classes.Delete(id);
                 _uow.Save();
-                ShowAlert.DisplayMessage("Classe a été supprimé.", ShowAlert.A_type.Success);
+                ShowAlert.SuccessMsg("Classe a été supprimé.");
                 return true;
             }
             catch (Exception ex)
             {
-                ShowAlert.DisplayMessage(ex.Message, ShowAlert.A_type.Error);
+                ShowAlert.ErrorMsg(ex.Message);
                 return false;
             }
         }

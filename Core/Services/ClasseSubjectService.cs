@@ -1,32 +1,32 @@
-﻿using DeltaSchool.Core;
-using DeltaSchool.Data.Entity;
-using DeltaSchool.Data.Repository.Interface;
-using DeltaSchool.Utilities;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data.Entity.Infrastructure;
 
-namespace DeltaSchool.Services
+using DeltaSchool.Data.Entity;
+using DeltaSchool.Data.Repository.Interface;
+using DeltaSchool.Utilities;
+
+namespace DeltaSchool.Core.Services
 {
-    public class ParentStudentService
+    public class ClasseSubjectService
     {
         private readonly IUnitOfWork _uow;
 
-        public ParentStudentService(IUnitOfWork uow)
+        public ClasseSubjectService(IUnitOfWork uow)
         {
             _uow = uow;
         }
 
-        public bool Create(ParentStudent parent)
+        public bool Create(ClasseSubject cs)
         {
-            if (!FormValidator.Validate(parent))
+            if (!FormValidator.Validate(cs))
                 return false;
 
             try
             {
-                _uow.ParentStudents.Add(parent);
+                _uow.ClasseSubjects.Add(cs);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Parent ajouté avec succès.");
+                ShowAlert.SuccessMsg("Assignation classe - matière ajouté avec succès.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -43,7 +43,7 @@ namespace DeltaSchool.Services
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(parent);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(cs);  // ou _uow.ClearChangeTracker();
 
                 return false;
             }
@@ -54,16 +54,16 @@ namespace DeltaSchool.Services
             }
         }
 
-        public bool Update(ParentStudent p)
+        public bool Update(ClasseSubject cs)
         {
-            if (!FormValidator.Validate(p))
+            if (!FormValidator.Validate(cs))
                 return false;
 
             try
             {
-                _uow.ParentStudents.Update(p);
+                _uow.ClasseSubjects.Update(cs);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Information du parent mis à jour.");
+                ShowAlert.SuccessMsg("Information d'insignation classe - matière a été modifié avec succes.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -80,7 +80,7 @@ namespace DeltaSchool.Services
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(p);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(cs);  // ou _uow.ClearChangeTracker();
 
                 return false;
             }
@@ -95,9 +95,9 @@ namespace DeltaSchool.Services
         {
             try
             {
-                _uow.ParentStudents.Delete(id);
+                _uow.ClasseSubjects.Delete(id);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Parent supprimé avec succès.");
+                ShowAlert.SuccessMsg("Assignation classe - matière a été supprimé avec succès.");
                 return true;
             }
             catch (Exception ex)

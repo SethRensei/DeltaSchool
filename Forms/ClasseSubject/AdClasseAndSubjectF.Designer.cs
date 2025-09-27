@@ -41,7 +41,7 @@
             this.lblClasse = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbxCycle = new RenComponent.RenComboBox();
+            this.cbCycle = new RenComponent.RenComboBox();
             this.SuspendLayout();
             // 
             // label9
@@ -249,23 +249,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Cycle 📌";
             // 
-            // cbxCycle
+            // cbCycle
             // 
-            this.cbxCycle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            this.cbxCycle.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.cbxCycle.BorderSize = 2;
-            this.cbxCycle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxCycle.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            this.cbxCycle.ForeColor = System.Drawing.Color.Black;
-            this.cbxCycle.IconColor = System.Drawing.Color.DarkCyan;
-            this.cbxCycle.ListBackColor = System.Drawing.Color.DarkSlateGray;
-            this.cbxCycle.ListTextColor = System.Drawing.Color.LightCyan;
-            this.cbxCycle.Location = new System.Drawing.Point(40, 309);
-            this.cbxCycle.Name = "cbxCycle";
-            this.cbxCycle.Padding = new System.Windows.Forms.Padding(2);
-            this.cbxCycle.Size = new System.Drawing.Size(330, 30);
-            this.cbxCycle.TabIndex = 2;
-            this.cbxCycle.Texts = "";
+            this.cbCycle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            this.cbCycle.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.cbCycle.BorderSize = 2;
+            this.cbCycle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbCycle.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.cbCycle.ForeColor = System.Drawing.Color.Black;
+            this.cbCycle.IconColor = System.Drawing.Color.DarkCyan;
+            this.cbCycle.ListBackColor = System.Drawing.Color.DarkSlateGray;
+            this.cbCycle.ListTextColor = System.Drawing.Color.LightCyan;
+            this.cbCycle.Location = new System.Drawing.Point(40, 309);
+            this.cbCycle.Name = "cbCycle";
+            this.cbCycle.Padding = new System.Windows.Forms.Padding(2);
+            this.cbCycle.Size = new System.Drawing.Size(330, 30);
+            this.cbCycle.TabIndex = 2;
+            this.cbCycle.Texts = "";
             // 
             // AdClasseAndSubjectF
             // 
@@ -275,7 +275,7 @@
             this.ClientSize = new System.Drawing.Size(1010, 647);
             this.Controls.Add(this.rbExam);
             this.Controls.Add(this.rbPass);
-            this.Controls.Add(this.cbxCycle);
+            this.Controls.Add(this.cbCycle);
             this.Controls.Add(this.btnAddSubject);
             this.Controls.Add(this.btnAddClasse);
             this.Controls.Add(this.label2);
@@ -316,6 +316,6 @@
         private System.Windows.Forms.Label lblClasse;
         private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.Label label3;
-        private RenComponent.RenComboBox cbxCycle;
+        private RenComponent.RenComboBox cbCycle;
     }
 }

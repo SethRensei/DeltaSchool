@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClasse = new RenComponent.PaginatedDataGridView();
             this.dgvSubject = new RenComponent.PaginatedDataGridView();
             this.lblClasses = new System.Windows.Forms.Label();
@@ -61,13 +63,24 @@
             this.dgvClasse.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvClasse.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClasse.DataGrid.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClasse.DataGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClasse.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvClasse.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvClasse.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvClasse.DataGrid.Margin = new System.Windows.Forms.Padding(103, 29, 103, 29);
+            this.dgvClasse.DataGrid.Margin = new System.Windows.Forms.Padding(172, 40, 172, 40);
             this.dgvClasse.DataGrid.Name = "dataGridView1";
+            this.dgvClasse.DataGrid.ReadOnly = true;
             this.dgvClasse.DataGrid.RowHeadersVisible = false;
             this.dgvClasse.DataGrid.RowTemplate.Height = 35;
-            this.dgvClasse.DataGrid.Size = new System.Drawing.Size(549, 393);
+            this.dgvClasse.DataGrid.Size = new System.Drawing.Size(524, 393);
             this.dgvClasse.DataGrid.TabIndex = 1;
             this.dgvClasse.Location = new System.Drawing.Point(14, 158);
             this.dgvClasse.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -95,10 +108,21 @@
             this.dgvSubject.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvSubject.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubject.DataGrid.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubject.DataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubject.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubject.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvSubject.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvSubject.DataGrid.Margin = new System.Windows.Forms.Padding(172, 40, 172, 40);
+            this.dgvSubject.DataGrid.Margin = new System.Windows.Forms.Padding(287, 55, 287, 55);
             this.dgvSubject.DataGrid.Name = "dataGridView1";
+            this.dgvSubject.DataGrid.ReadOnly = true;
             this.dgvSubject.DataGrid.RowHeadersVisible = false;
             this.dgvSubject.DataGrid.RowTemplate.Height = 35;
             this.dgvSubject.DataGrid.Size = new System.Drawing.Size(426, 391);

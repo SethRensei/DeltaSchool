@@ -1,11 +1,11 @@
-﻿using DeltaSchool.Data;
+﻿using System;
+using System.Windows.Forms;
+
+using DeltaSchool.Data;
 using DeltaSchool.Data.Repository;
 using DeltaSchool.Data.Repository.Interface;
 using DeltaSchool.Services;
 using DeltaSchool.Utilities;
-using System;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DeltaSchool.Forms.ParentStudent
 {
@@ -70,18 +70,18 @@ namespace DeltaSchool.Forms.ParentStudent
         {
             var parent = new Data.Entity.ParentStudent
             {
-                Firstname = txtFirstname.Texts,
                 Lastname = txtLastname.Texts.Trim().ToUpper(),
+                Firstname = UHelpers.ToTitleCase(txtFirstname.Texts),
                 Gender = Gender,
-                PhoneNumber = txtPhone.Texts,
-                Address = txtAddress.Texts,
-                Email = string.IsNullOrWhiteSpace(txtEmail.Texts) ? null : txtEmail.Texts.Trim(),
-                Profession = string.IsNullOrWhiteSpace(txtProfession.Texts) ? null : txtProfession.Texts.Trim(),
-                EmerContact = string.IsNullOrWhiteSpace(txtEmContact.Texts) ? null : txtEmContact.Texts.Trim(),
+                PhoneNumber = txtPhone.Texts.Trim(),
+                Address = txtAddress.Texts.Trim(),
+                Email = UHelpers.GetValueOrtNull(txtEmail.Texts),
+                Profession = UHelpers.GetValueOrtNull(txtProfession.Texts),
+                EmerContact = UHelpers.GetValueOrtNull(txtEmail.Texts),
             };
 
             if (!_service.Create(parent))
-                ShowAlert.DisplayMessage("Échec de l'ajout du parent.", ShowAlert.A_type.Error);
+                ShowAlert.WarningMsg("Échec de l'ajout du parent.");
 
         }
 
@@ -98,7 +98,7 @@ namespace DeltaSchool.Forms.ParentStudent
         {
             if (this.parent != null)
             {
-                parent.Firstname = txtFirstname.Texts;
+                parent.Firstname = UHelpers.ToTitleCase(txtFirstname.Texts);
                 parent.Lastname = txtLastname.Texts.Trim().ToUpper();
                 parent.Gender = Gender;
                 parent.PhoneNumber = txtPhone.Texts;
@@ -110,7 +110,7 @@ namespace DeltaSchool.Forms.ParentStudent
                 if (_service.Update(parent))
                     MainForm.Instance.OpenChildForm(new ParentF());
             } else
-                ShowAlert.DisplayMessage("Aucun parent trouvé.", ShowAlert.A_type.Warning);
+                ShowAlert.WarningMsg("Aucun parent trouvé.");
         }
     }
 }

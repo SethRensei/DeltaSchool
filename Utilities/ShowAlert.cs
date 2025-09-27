@@ -17,7 +17,7 @@ namespace DeltaSchool.Utilities
             Warning,
             Error
         }
-        public static void DisplayMessage(string msg, A_type type)
+        private static void DisplayMessage(string msg, A_type type)
         {
             AlertForm frm = new AlertForm();
             frm.TopMost = true;
@@ -41,6 +41,14 @@ namespace DeltaSchool.Utilities
             }
 
         }
+
+        public static void ErrorMsg(string msg) => DisplayMessage(msg, A_type.Error);
+
+        public static void InfoMsg(string msg) => DisplayMessage(msg, A_type.Info);
+
+        public static void SuccessMsg(string msg) => DisplayMessage(msg, A_type.Success);
+
+        public static void WarningMsg(string msg) => DisplayMessage(msg, A_type.Warning);
 
         public static DialogResult RemoveItem()
         {

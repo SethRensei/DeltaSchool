@@ -7,6 +7,9 @@ namespace DeltaSchool.Data.Repository.Interface
         IParentStudentRepository ParentStudents { get; }
         ISubjectRepository Subjects { get; }
         IClasseRepository Classes { get; }
+        IJobRepository Jobs { get; }
+        IStaffRepository Staffs { get; }
+        IClasseSubjectRepository ClasseSubjects { get; }
 
         // transaction handling
         System.Data.Entity.DbContextTransaction BeginTransaction();

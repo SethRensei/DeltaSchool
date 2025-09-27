@@ -4,12 +4,12 @@ using DeltaSchool.Data.Entity;
 
 namespace DeltaSchool.Data.Repository.Interface
 {
-    public interface IClasseRepository
+    public interface IJobRepository
     {
-        IEnumerable<Classe> GetAll();
-        Classe GetById(int id);
-        void Add(Classe classe);
-        void Update(Classe classe);
+        IEnumerable<Job> GetAll();
+        Job GetById(int id);
+        void Add(Job job);
+        void Update(Job job);
         void Delete(int id);
         void Save();
     }

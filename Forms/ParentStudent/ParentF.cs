@@ -38,14 +38,14 @@ namespace DeltaSchool.Forms.ParentStudent
             btnDelete.Click += (s, ev) => {
                 if (this._parentId == -1)
                 {
-                    ShowAlert.DisplayMessage("Veuillez sélectionner un parent.", ShowAlert.A_type.Warning);
+                    ShowAlert.InfoMsg("Veuillez sélectionner un parent.");
                     return;
                 }
                 else
                 {
                     if (ShowAlert.RemoveItem() != DialogResult.Yes) return;
                     if (!_parentService.Delete(this._parentId))
-                        ShowAlert.DisplayMessage("Échec de la suppression.", ShowAlert.A_type.Error);
+                        ShowAlert.WarningMsg("Échec de la suppression.");
                     else
                     {
                         LoadParents();
@@ -58,7 +58,7 @@ namespace DeltaSchool.Forms.ParentStudent
             btnEdit.Click += (s, ev) => {
                 if (this._parentId == -1)
                 {
-                    ShowAlert.DisplayMessage("Veuillez sélectionner un parent.", ShowAlert.A_type.Warning);
+                    ShowAlert.InfoMsg("Veuillez sélectionner un parent.");
                     return;
                 }
                 else
@@ -88,7 +88,9 @@ namespace DeltaSchool.Forms.ParentStudent
             
             var parents = _uow.ParentStudents.GetAll();
             foreach (var p in parents)
-                dt.Rows.Add(p.Id, p.Lastname, p.Firstname, p.Gender, p.PhoneNumber, p.Address, p.Email, p.Profession, p.EmerContact);
+                dt.Rows.Add(p.Id, p.Lastname, p.Firstname,
+                    p.Gender.Equals("MALE") ? "Homme" : "Femme", p.PhoneNumber, p.Address,
+                    p.Email, p.Profession, p.EmerContact);
 
             dgvParent.SetData(dt);
             dgvParent.Visible = true;
