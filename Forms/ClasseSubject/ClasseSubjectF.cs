@@ -108,8 +108,8 @@ namespace DeltaSchool.Forms.ClasseSubject
             txtCoeff.Texts = Convert.ToString(this._clSb.Coeff);
             cbSubject.SelectedValue = this._clSb.Subject.Id;
             cbClasse.SelectedValue = this._clSb.Classe.Id;
-            if(this._clSb.Staff != null)
-                cbStaff.SelectedValue = this._clSb.Staff.Id;
+            if(this._clSb.StaffId != null)
+                cbStaff.SelectedValue = this._clSb.StaffId;
             else
                 cbStaff.SelectedIndex = -1;
 
@@ -164,7 +164,7 @@ namespace DeltaSchool.Forms.ClasseSubject
 
             cbStaff.DataSource = staffs;
             cbStaff.ValueMember = "Id";
-            cbStaff.DisplayMember = "Fullname";
+            cbStaff.DisplayMember = "FullName";
             cbStaff.SelectedIndex = -1; // Set null
         }
 
@@ -179,13 +179,11 @@ namespace DeltaSchool.Forms.ClasseSubject
 
             var cs = _uow.ClasseSubjects.GetAll();
             foreach (var c in cs)
-            {
-                var staffName = c.Staff != null
+                dt.Rows.Add(c.Id, c.Classe.Name,
+                    c.Subject.Name, c.Coeff,
+                    c.Staff != null
                     ? $"{c.Staff.Lastname} {c.Staff.Firstname}"
-                    : "Non affecté";
-
-                dt.Rows.Add(c.Id, c.Classe.Name, c.Subject.Name, c.Coeff, staffName);
-            }
+                    : "N/A");
 
             dgvClasseSubject.SetData(dt);
             dgvClasseSubject.Visible = true;

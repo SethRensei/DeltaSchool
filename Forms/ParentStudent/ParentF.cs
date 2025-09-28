@@ -17,6 +17,7 @@ namespace DeltaSchool.Forms.ParentStudent
         private readonly IUnitOfWork _uow;
         private readonly ParentStudentService _parentService;
         private int _parentId;
+        private string _fullname;
 
         public ParentF()
         {
@@ -27,6 +28,7 @@ namespace DeltaSchool.Forms.ParentStudent
 
             _parentService = new ParentStudentService(_uow);
             this._parentId = -1;
+            this._fullname = string.Empty;
         }
 
         private void ParentF_Load(object sender, EventArgs e)
@@ -85,12 +87,14 @@ namespace DeltaSchool.Forms.ParentStudent
             dt.Columns.Add("Adresse e-mail");
             dt.Columns.Add("Profession");
             dt.Columns.Add("Contact d'urgence");
-            
+            dt.Columns.Add("Nombre d'élèves");
+
             var parents = _uow.ParentStudents.GetAll();
             foreach (var p in parents)
                 dt.Rows.Add(p.Id, p.Lastname, p.Firstname,
                     p.Gender.Equals("MALE") ? "Homme" : "Femme", p.PhoneNumber, p.Address,
-                    p.Email, p.Profession, p.EmerContact);
+                    p.Email, p.Profession, p.EmerContact,
+                    p.Students.Count());
 
             dgvParent.SetData(dt);
             dgvParent.Visible = true;
@@ -109,7 +113,21 @@ namespace DeltaSchool.Forms.ParentStudent
             if (e.RowIndex < 0) return; // Header clicked
             var selectedRow = dgvParent.DataGrid.Rows[e.RowIndex];
             this._parentId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-            
+            this._fullname = selectedRow.Cells["Nom"].Value.ToString() + " " + selectedRow.Cells["Prénom (s)"].Value.ToString();
+
+        }
+
+        private void BtnAddStudent_Click(object sender, EventArgs e)
+        {
+            if (this._parentId == -1)
+            {
+                ShowAlert.InfoMsg("Veuillez sélectionner un parent.");
+                return;
+            }
+            else
+            {
+                MainForm.Instance.OpenChildForm(new Student.AdStudent(this._parentId, this._fullname));
+            }
         }
         #endregion
     }

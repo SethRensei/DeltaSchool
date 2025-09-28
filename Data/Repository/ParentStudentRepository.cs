@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 using DeltaSchool.Data.Entity;
@@ -18,7 +19,10 @@ namespace DeltaSchool.Data.Repository
 
         public IEnumerable<ParentStudent> GetAll()
         {
-            return _context.ParentStudents.ToList();
+            return _context.ParentStudents
+                .Include(p => p.Students) // si tu affiches les enfants
+                .AsNoTracking()   // if readonly -> better performance
+                .ToList();
         }
 
         public ParentStudent GetById(int id)

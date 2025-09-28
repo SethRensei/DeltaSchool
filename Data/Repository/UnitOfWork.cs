@@ -8,6 +8,9 @@ namespace DeltaSchool.Data.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DeltaSchoolContext _context;
+
+        private LocationRepository _locatRepo;
+        private SchoolYearRepository _schoolYearRepo;
         private ParentStudentRepository _parentRepo;
         private SubjectRepository _subjectRepo;
         private ClasseRepository _classeRepo;
@@ -23,6 +26,12 @@ namespace DeltaSchool.Data.Repository
         {
             _context = context;
         }
+
+        public ILocationRepository Locations 
+            => _locatRepo ?? (_locatRepo = new LocationRepository(_context));
+
+        public ISchoolYearRepository SchoolYears
+            => _schoolYearRepo ?? (_schoolYearRepo = new SchoolYearRepository(_context));
 
         public IParentStudentRepository ParentStudents 
             => _parentRepo ?? (_parentRepo = new ParentStudentRepository(_context));

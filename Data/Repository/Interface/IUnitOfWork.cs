@@ -4,6 +4,8 @@ namespace DeltaSchool.Data.Repository.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
+        ILocationRepository Locations { get; }
+        ISchoolYearRepository SchoolYears { get; }
         IParentStudentRepository ParentStudents { get; }
         ISubjectRepository Subjects { get; }
         IClasseRepository Classes { get; }

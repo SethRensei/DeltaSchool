@@ -30,8 +30,7 @@ namespace DeltaSchool.Forms
 
         public void OpenChildForm(Form child_form)
         {
-            if (currentChildForm != null)
-                currentChildForm.Close();
+            if (currentChildForm != null) currentChildForm.Close();
 
             currentChildForm = child_form;
             child_form.TopLevel = false;
@@ -93,6 +92,15 @@ namespace DeltaSchool.Forms
         {
             drpStudent.Show(btnStudent, btnStudent.Width, 0);
         }
+        private void AdStudentTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Student.AdStudent());
+        }
+
+        private void StudentTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Student.StudentsF());
+        }
 
         private void ParentTSM_Click(object sender, EventArgs e)
         {
@@ -103,8 +111,6 @@ namespace DeltaSchool.Forms
         {
             OpenChildForm(new ParentStudent.AddParentF());
         }
-
-        #endregion
 
         private void BtnClasse_Click(object sender, EventArgs e)
         {
@@ -140,5 +146,7 @@ namespace DeltaSchool.Forms
         {
             OpenChildForm(new ClasseSubject.ClasseSubjectF());
         }
+
+        #endregion
     }
 }

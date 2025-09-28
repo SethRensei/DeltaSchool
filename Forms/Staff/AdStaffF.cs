@@ -45,8 +45,6 @@ namespace DeltaSchool.Forms.Staff
 
             cbMaritalStatus.DisplayMember = "Label";
             cbMaritalStatus.ValueMember = "Value";
-
-            //ShowAlert.DisplayMessage(dpBirthday.Value.ToString("yyyy-MM-dd"), ShowAlert.A_type.Info);
         }
 
         private string Gender => rbMale.Checked ? "MALE" : "FEMALE";
@@ -76,6 +74,8 @@ namespace DeltaSchool.Forms.Staff
 
             if (!_service.Create(staff))
                 ShowAlert.WarningMsg("Échec de l'ajout du personnel.");
+            else
+                MainForm.Instance.OpenChildForm(new Staff.StaffsF());
         }
 
         private void AdStaffF_FormClosed(object sender, FormClosedEventArgs e)

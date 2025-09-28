@@ -39,7 +39,6 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pnlTitleBar = new RenComponent.RenPanel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnMaximize = new RenComponent.RenButton();
             this.btnMinimize = new RenComponent.RenButton();
             this.btnClose = new RenComponent.RenButton();
             this.MainEllipse = new RenComponent.RenEllipse();
@@ -85,7 +84,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(234, 700);
+            this.pnlMenu.Size = new System.Drawing.Size(229, 700);
             this.pnlMenu.TabIndex = 0;
             // 
             // btnStaff
@@ -109,7 +108,7 @@
             this.btnStaff.Margin = new System.Windows.Forms.Padding(0);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnStaff.Size = new System.Drawing.Size(234, 46);
+            this.btnStaff.Size = new System.Drawing.Size(229, 46);
             this.btnStaff.TabIndex = 3;
             this.btnStaff.Text = " Personnel   ▶";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -138,7 +137,7 @@
             this.btnClasse.Margin = new System.Windows.Forms.Padding(0);
             this.btnClasse.Name = "btnClasse";
             this.btnClasse.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnClasse.Size = new System.Drawing.Size(234, 46);
+            this.btnClasse.Size = new System.Drawing.Size(229, 46);
             this.btnClasse.TabIndex = 2;
             this.btnClasse.Text = " Classes   ▶";
             this.btnClasse.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -167,7 +166,7 @@
             this.btnStudent.Margin = new System.Windows.Forms.Padding(0);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnStudent.Size = new System.Drawing.Size(234, 46);
+            this.btnStudent.Size = new System.Drawing.Size(229, 46);
             this.btnStudent.TabIndex = 1;
             this.btnStudent.Text = " Élèves   ▶";
             this.btnStudent.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -182,7 +181,7 @@
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(234, 124);
+            this.pnlLogo.Size = new System.Drawing.Size(229, 124);
             this.pnlLogo.TabIndex = 0;
             // 
             // lblLogo
@@ -216,7 +215,6 @@
             this.pnlTitleBar.BorderRadius = 0;
             this.pnlTitleBar.BorderSize = 0;
             this.pnlTitleBar.Controls.Add(this.lblTitle);
-            this.pnlTitleBar.Controls.Add(this.btnMaximize);
             this.pnlTitleBar.Controls.Add(this.btnMinimize);
             this.pnlTitleBar.Controls.Add(this.btnClose);
             this.pnlTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -224,10 +222,10 @@
             this.pnlTitleBar.GradientAngle = 95F;
             this.pnlTitleBar.GradientBottomColor = System.Drawing.Color.DarkSlateGray;
             this.pnlTitleBar.GradientTopColor = System.Drawing.Color.MidnightBlue;
-            this.pnlTitleBar.Location = new System.Drawing.Point(234, 0);
+            this.pnlTitleBar.Location = new System.Drawing.Point(229, 0);
             this.pnlTitleBar.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTitleBar.Name = "pnlTitleBar";
-            this.pnlTitleBar.Size = new System.Drawing.Size(1010, 53);
+            this.pnlTitleBar.Size = new System.Drawing.Size(1015, 53);
             this.pnlTitleBar.TabIndex = 0;
             // 
             // lblTitle
@@ -240,28 +238,6 @@
             this.lblTitle.Size = new System.Drawing.Size(84, 22);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Accueil";
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderRadius = 0;
-            this.btnMaximize.BorderSize = 0;
-            this.btnMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.Image = global::DeltaSchool.Properties.Resources.maximize;
-            this.btnMaximize.Location = new System.Drawing.Point(933, 7);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(21, 27);
-            this.btnMaximize.TabIndex = 0;
-            this.btnMaximize.UseVisualStyleBackColor = false;
-            this.btnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
             // 
             // btnMinimize
             // 
@@ -278,7 +254,7 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::DeltaSchool.Properties.Resources.minimize;
-            this.btnMinimize.Location = new System.Drawing.Point(892, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(928, 10);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(29, 27);
             this.btnMinimize.TabIndex = 0;
@@ -300,7 +276,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::DeltaSchool.Properties.Resources.cancel;
-            this.btnClose.Location = new System.Drawing.Point(965, 0);
+            this.btnClose.Location = new System.Drawing.Point(969, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(35, 35);
             this.btnClose.TabIndex = 0;
@@ -328,9 +304,9 @@
             this.pnlMain.GradientAngle = 90F;
             this.pnlMain.GradientBottomColor = System.Drawing.Color.Transparent;
             this.pnlMain.GradientTopColor = System.Drawing.Color.Transparent;
-            this.pnlMain.Location = new System.Drawing.Point(234, 53);
+            this.pnlMain.Location = new System.Drawing.Point(229, 53);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1010, 647);
+            this.pnlMain.Size = new System.Drawing.Size(1015, 647);
             this.pnlMain.TabIndex = 0;
             // 
             // drpStudent
@@ -357,6 +333,7 @@
             this.adStudentTSM.Size = new System.Drawing.Size(158, 22);
             this.adStudentTSM.Text = "Inscription";
             this.adStudentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adStudentTSM.Click += new System.EventHandler(this.AdStudentTSM_Click);
             // 
             // studentTSM
             // 
@@ -365,6 +342,7 @@
             this.studentTSM.Size = new System.Drawing.Size(158, 22);
             this.studentTSM.Text = "Liste d\'élèves";
             this.studentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.studentTSM.Click += new System.EventHandler(this.StudentTSM_Click);
             // 
             // parentsToolStripMenuItem
             // 
@@ -409,7 +387,7 @@
             this.drpClasse.Name = "drpStudent";
             this.drpClasse.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpClasse.ShowImageMargin = false;
-            this.drpClasse.Size = new System.Drawing.Size(276, 85);
+            this.drpClasse.Size = new System.Drawing.Size(276, 63);
             // 
             // classesAndSubjetsTSM
             // 
@@ -512,7 +490,6 @@
         private RenComponent.RenButton btnClose;
         private RenComponent.RenEllipse MainEllipse;
         private RenComponent.RenButton btnMinimize;
-        private RenComponent.RenButton btnMaximize;
         private RenComponent.RenPanel pnlMain;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlLogo;

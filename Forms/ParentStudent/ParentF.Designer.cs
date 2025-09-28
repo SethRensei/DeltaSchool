@@ -88,7 +88,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -97,7 +97,7 @@
             this.dgvParent.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvParent.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvParent.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvParent.DataGrid.Margin = new System.Windows.Forms.Padding(22, 11, 22, 11);
+            this.dgvParent.DataGrid.Margin = new System.Windows.Forms.Padding(37, 15, 37, 15);
             this.dgvParent.DataGrid.Name = "dataGridView1";
             this.dgvParent.DataGrid.ReadOnly = true;
             this.dgvParent.DataGrid.RowHeadersVisible = false;
@@ -170,6 +170,7 @@
             this.btnAddStudent.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnAddStudent.UseVisualStyleBackColor = false;
             this.btnAddStudent.Visible = false;
+            this.btnAddStudent.Click += new System.EventHandler(this.BtnAddStudent_Click);
             // 
             // ParentF
             // 

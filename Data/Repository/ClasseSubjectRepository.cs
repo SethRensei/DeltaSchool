@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 using DeltaSchool.Data.Entity;
@@ -17,7 +18,12 @@ namespace DeltaSchool.Data.Repository
 
         public IEnumerable<ClasseSubject> GetAll()
         {
-            return _context.ClasseSubjects.ToList();
+            return _context.ClasseSubjects
+                .Include(cs => cs.Classe)
+                .Include(cs => cs.Subject)
+                .Include(cs => cs.Staff) // si tu affiches staff
+                .AsNoTracking()
+                .ToList();
         }
 
         public ClasseSubject GetById(int id)

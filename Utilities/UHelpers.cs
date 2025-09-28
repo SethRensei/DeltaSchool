@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 
 namespace DeltaSchool.Utilities
 {
@@ -12,5 +13,16 @@ namespace DeltaSchool.Utilities
         }
 
         public static string GetValueOrtNull(string input) => string.IsNullOrWhiteSpace(input) ? null : input.Trim();
+
+        public static int CalculateAge(DateTime birthday)
+        {
+            var age = DateTime.Today.Year - birthday.Year;
+
+            // If the birthday has not yet passed this year, we subtract 1.
+            if (birthday.Date > DateTime.Today.AddYears(-age)) age--;
+
+            return age;
+        }
+
     }
 }

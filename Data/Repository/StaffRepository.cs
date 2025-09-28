@@ -42,9 +42,6 @@ namespace DeltaSchool.Data.Repository
                 _context.Staffs.Remove(staff);
         }
 
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+        public void Save() => _context.SaveChanges();
     }
 }

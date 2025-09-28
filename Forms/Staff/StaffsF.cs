@@ -6,6 +6,7 @@ using DeltaSchool.Core.Services;
 using DeltaSchool.Data;
 using DeltaSchool.Data.Repository;
 using DeltaSchool.Data.Repository.Interface;
+using DeltaSchool.Utilities;
 using DeltaSchool.Utilities.Extensions;
 
 namespace DeltaSchool.Forms.Staff
@@ -33,6 +34,7 @@ namespace DeltaSchool.Forms.Staff
             dt.Columns.Add("Nom");
             dt.Columns.Add("Prénom (s)");
             dt.Columns.Add("Genre");
+            dt.Columns.Add("Âge");
             dt.Columns.Add("Téléphone");
             dt.Columns.Add("Adresse");
             dt.Columns.Add("Adresse e-mail");
@@ -42,6 +44,7 @@ namespace DeltaSchool.Forms.Staff
             foreach (var staff in staffs)
                 dt.Rows.Add(staff.Id, staff.Lastname,
                     staff.Firstname, staff.Gender.Equals("MALE") ? "Homme" : "Femme",
+                    staff.Birthday != null ? $"{UHelpers.CalculateAge(staff.Birthday.Value)} ans" : "_",
                     staff.PhoneNumber1, staff.Address,
                     staff.Email, MaritalStatuseMapper.GetLabelFromDbValue(staff.MaritalStatus),
                     staff.Nationality);

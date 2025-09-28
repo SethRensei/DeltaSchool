@@ -121,28 +121,37 @@
     <Compile Include="Core\Services\JobService.cs" />
     <Compile Include="Core\Services\ParentStudentService.cs" />
     <Compile Include="Core\Services\StaffService.cs" />
+    <Compile Include="Core\Services\StudentService.cs" />
     <Compile Include="Core\Services\SubjectService.cs" />
     <Compile Include="Data\DeltaSchoolContext.cs" />
     <Compile Include="Data\Entity\Classe.cs" />
     <Compile Include="Data\Entity\ClasseSubject.cs" />
     <Compile Include="Data\Entity\Job.cs" />
+    <Compile Include="Data\Entity\SchoolYear.cs" />
     <Compile Include="Data\Entity\Sites.cs" />
     <Compile Include="Data\Entity\ParentStudent.cs" />
     <Compile Include="Data\Entity\Staff.cs" />
     <Compile Include="Data\Entity\StaffJob.cs" />
+    <Compile Include="Data\Entity\Student.cs" />
     <Compile Include="Data\Entity\Subject.cs" />
     <Compile Include="Data\Repository\ClasseRepository.cs" />
     <Compile Include="Data\Repository\ClasseSubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IClasseRepository.cs" />
     <Compile Include="Data\Repository\Interface\IClasseSubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IJobRepository.cs" />
+    <Compile Include="Data\Repository\Interface\ILocationRepository.cs" />
     <Compile Include="Data\Repository\Interface\IParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\Interface\ISchoolYearRepository.cs" />
     <Compile Include="Data\Repository\Interface\IStaffRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IStudentRepository.cs" />
     <Compile Include="Data\Repository\Interface\ISubjectRepository.cs" />
     <Compile Include="Data\Repository\Interface\IUnitOfWork.cs" />
     <Compile Include="Data\Repository\JobRepository.cs" />
+    <Compile Include="Data\Repository\LocationRepository.cs" />
     <Compile Include="Data\Repository\ParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\SchoolYearRepository.cs" />
     <Compile Include="Data\Repository\StaffRepository.cs" />
+    <Compile Include="Data\Repository\StudentRepository.cs" />
     <Compile Include="Data\Repository\SubjectRepository.cs" />
     <Compile Include="Data\Repository\UnitOfWork.cs" />
     <Compile Include="Forms\ClasseSubject\AdClasseAndSubjectF.cs">
@@ -199,6 +208,18 @@
     <Compile Include="Forms\Staff\StaffsF.Designer.cs">
       <DependentUpon>StaffsF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Student\AdStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Student\AdStudent.Designer.cs">
+      <DependentUpon>AdStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Student\StudentsF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Student\StudentsF.Designer.cs">
+      <DependentUpon>StudentsF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\AlertForm.cs">
@@ -241,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Staff\StaffsF.resx">
       <DependentUpon>StaffsF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Student\AdStudent.resx">
+      <DependentUpon>AdStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Student\StudentsF.resx">
+      <DependentUpon>StudentsF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -305,6 +332,7 @@
   <ItemGroup>
     <None Include="Resources\staff.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

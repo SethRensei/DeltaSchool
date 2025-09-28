@@ -12,13 +12,18 @@ namespace DeltaSchool.Data.Entity
         [Column("id")]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "Le nom du site est obligatoire")]
+        [StringLength(50, ErrorMessage = "Le nom du site a une longueur max de 50 caractères")]
         [Column("name")]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Le code du site est obligatoire")]
+        [StringLength(5, ErrorMessage = "Le code du site ne doit pas depasser 5 caractères")]
+        [Column("code")]
+        public string Code { get; set; }
+
+        [Required(ErrorMessage = "L'addresse du site est requise")]
+        [StringLength(100, ErrorMessage = "L'addresse a 100 caractères max autorisés")]
         [Column("address")]
         public string Address { get; set; }
 

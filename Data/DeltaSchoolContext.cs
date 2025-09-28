@@ -15,6 +15,8 @@ namespace DeltaSchool.Data
             // Configuration par défaut
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
+            //this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
         }
 
         public DbSet<Sites> Locations { get; set; }
@@ -44,10 +46,23 @@ namespace DeltaSchool.Data
             modelBuilder.Entity<StaffJob>().ToTable("staff_job");
             modelBuilder.Entity<ParentStudent>().ToTable("parent_student");
             modelBuilder.Entity<Student>().ToTable("student");
-            
+
             #endregion
 
             #region Indexes / contraintes uniques (via IndexAnnotation - EF6)
+            // location.name unique and location.code unique
+            modelBuilder.Entity<Sites>()
+                .Property(l => l.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Location_Name") { IsUnique = true }));
+
+            modelBuilder.Entity<Sites>()
+                .Property(l => l.Code)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Location_Code") { IsUnique = true }));
+
             // school_year.label unique
             modelBuilder.Entity<SchoolYear>()
                 .Property(sy => sy.Label)
