@@ -120,6 +120,7 @@
     <Compile Include="Core\Services\ClasseSubjectService.cs" />
     <Compile Include="Core\Services\JobService.cs" />
     <Compile Include="Core\Services\ParentStudentService.cs" />
+    <Compile Include="Core\Services\StaffJobService.cs" />
     <Compile Include="Core\Services\StaffService.cs" />
     <Compile Include="Core\Services\StudentService.cs" />
     <Compile Include="Core\Services\SubjectService.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Data\Repository\Interface\ILocationRepository.cs" />
     <Compile Include="Data\Repository\Interface\IParentStudentRepository.cs" />
     <Compile Include="Data\Repository\Interface\ISchoolYearRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IStaffJobRepository.cs" />
     <Compile Include="Data\Repository\Interface\IStaffRepository.cs" />
     <Compile Include="Data\Repository\Interface\IStudentRepository.cs" />
     <Compile Include="Data\Repository\Interface\ISubjectRepository.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Data\Repository\LocationRepository.cs" />
     <Compile Include="Data\Repository\ParentStudentRepository.cs" />
     <Compile Include="Data\Repository\SchoolYearRepository.cs" />
+    <Compile Include="Data\Repository\StaffJobRepository.cs" />
     <Compile Include="Data\Repository\StaffRepository.cs" />
     <Compile Include="Data\Repository\StudentRepository.cs" />
     <Compile Include="Data\Repository\SubjectRepository.cs" />
@@ -202,6 +205,12 @@
     <Compile Include="Forms\Staff\JobF.Designer.cs">
       <DependentUpon>JobF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Staff\StaffJobF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Staff\StaffJobF.Designer.cs">
+      <DependentUpon>StaffJobF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Staff\StaffsF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +241,7 @@
     <Compile Include="Utilities\Extensions\CycleExtension.cs" />
     <Compile Include="Utilities\DbExceptionHandler.cs" />
     <Compile Include="Utilities\Extensions\MaritalStatusExtension.cs" />
+    <Compile Include="Utilities\Extensions\PeriodicityExtension.cs" />
     <Compile Include="Utilities\MySqlExceptionHelper.cs" />
     <Compile Include="Utilities\ShowAlert.cs" />
     <Compile Include="Utilities\GlobalEvent.cs" />
@@ -259,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Staff\JobF.resx">
       <DependentUpon>JobF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Staff\StaffJobF.resx">
+      <DependentUpon>StaffJobF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Staff\StaffsF.resx">
       <DependentUpon>StaffsF.cs</DependentUpon>

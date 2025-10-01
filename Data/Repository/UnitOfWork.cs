@@ -16,6 +16,7 @@ namespace DeltaSchool.Data.Repository
         private ClasseRepository _classeRepo;
         private JobRepository _jobRepo;
         private StaffRepository _staffRepo;
+        private StaffJobRepository _staffJobRepo;
         private ClasseSubjectRepository _classeSubjectRepo;
         private StudentRepository _studentRepo;
 
@@ -47,6 +48,9 @@ namespace DeltaSchool.Data.Repository
 
         public IStaffRepository Staffs
             => _staffRepo ?? (_staffRepo = new StaffRepository(_context));
+
+        public IStaffJobRepository StaffJobs
+            => _staffJobRepo ?? (_staffJobRepo = new StaffJobRepository(_context));
 
         public IClasseSubjectRepository ClasseSubjects
             => _classeSubjectRepo ?? (_classeSubjectRepo = new ClasseSubjectRepository(_context));

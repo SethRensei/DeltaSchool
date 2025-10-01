@@ -27,21 +27,27 @@ namespace DeltaSchool.Data.Repository
                 .ToList();
         }
 
+        public IEnumerable<Student> FindAllForLocaton(int location)
+        {
+            return _context.Students
+                .Where(s => s.LocationId == location)
+                .Include(s => s.Classe)
+                .Include(s => s.Parent)
+                .Include(s => s.SchoolYear)
+                .Include(s => s.Location)
+                .AsNoTracking()   // if readonly -> better performance
+                .ToList();
+        }
+
         public Student GetById(int id)
         {
             return _context.Students.Find(id);
         }
 
-        public void Add(Student student)
-        {
-            _context.Students.Add(student);
-        }
-
-        public void Update(Student student)
-        {
-            _context.Entry(student).State = System.Data.Entity.EntityState.Modified;
-        }
-
+        public void Add(Student student) =>_context.Students.Add(student);
+        
+        public void Update(Student student) =>_context.Entry(student).State = EntityState.Modified;
+        
         public void Delete(int id)
         {
             var student = _context.Students.Find(id);
@@ -49,9 +55,6 @@ namespace DeltaSchool.Data.Repository
                 _context.Students.Remove(student);
         }
 
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+        public void Save() =>_context.SaveChanges();
     }
 }

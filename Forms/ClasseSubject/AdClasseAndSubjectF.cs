@@ -64,8 +64,7 @@ namespace DeltaSchool.Forms.ClasseSubject
             this._subject = GetSubject();
             if (this._classe != null)
             {
-                Cycle selectedCycle;
-                if (this._classe.Cycle is string cycleStr && Enum.TryParse(cycleStr, out selectedCycle))
+                if (this._classe.Cycle is string cycleStr && Enum.TryParse(cycleStr, out Cycle selectedCycle))
                 {
                     cbCycle.SelectedValue = selectedCycle;
                 }

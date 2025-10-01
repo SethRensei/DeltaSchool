@@ -86,6 +86,7 @@ namespace DeltaSchool.Forms
         private void ReturnMainForm(object sender, EventArgs e)
         {
             currentChildForm.Close();
+            this.lblTitle.Text = "Accueil";
         }
         
         private void BtnStudent_Click(object sender, EventArgs e)

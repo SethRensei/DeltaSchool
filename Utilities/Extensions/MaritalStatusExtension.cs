@@ -38,7 +38,7 @@ namespace DeltaSchool.Utilities.Extensions
         public override string ToString() => Label;
     }
 
-    public static class MaritalStatuseMapper
+    public static class MaritalStatusMapper
     {
         public static readonly Dictionary<string, MaritalStatus> DbToEnum = new Dictionary<string, MaritalStatus>
         {

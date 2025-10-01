@@ -11,6 +11,7 @@ namespace DeltaSchool.Data.Repository.Interface
         IClasseRepository Classes { get; }
         IJobRepository Jobs { get; }
         IStaffRepository Staffs { get; }
+        IStaffJobRepository StaffJobs { get; }
         IClasseSubjectRepository ClasseSubjects { get; }
 
         IStudentRepository Students { get; }

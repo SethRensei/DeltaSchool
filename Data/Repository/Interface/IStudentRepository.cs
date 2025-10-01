@@ -7,6 +7,7 @@ namespace DeltaSchool.Data.Repository.Interface
     public interface IStudentRepository
     {
         IEnumerable<Student> GetAll();
+        IEnumerable<Student> FindAllForLocaton(int location);
         Student GetById(int id);
         void Add(Student student);
         void Update(Student student);

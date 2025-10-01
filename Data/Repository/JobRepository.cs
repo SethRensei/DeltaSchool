@@ -18,7 +18,9 @@ namespace DeltaSchool.Data.Repository
 
         public IEnumerable<Job> GetAll()
         {
-            return _context.Jobs.ToList();
+            return _context.Jobs
+                .OrderBy(j => j.Name)
+                .ToList();
         }
 
         public Job GetById(int id)
@@ -26,10 +28,7 @@ namespace DeltaSchool.Data.Repository
             return _context.Jobs.Find(id);
         }
 
-        public void Add(Job job)
-        {
-            _context.Jobs.Add(job);
-        }
+        public void Add(Job job) =>_context.Jobs.Add(job);
 
         public void Update(Job job)
         {
@@ -43,9 +42,6 @@ namespace DeltaSchool.Data.Repository
                 _context.Jobs.Remove(job);
         }
 
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+        public void Save() =>_context.SaveChanges();
     }
 }
