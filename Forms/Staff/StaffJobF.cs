@@ -34,6 +34,7 @@ namespace DeltaSchool.Forms.Staff
 
             lblInfo.Text = "Liste de fonctions (postes) pour le personnel";
             btnSave.Enabled = false;
+            txtSalary.Enabled = false;
         }
         public StaffJobF(int staffId, string staffName)
         {
@@ -56,17 +57,25 @@ namespace DeltaSchool.Forms.Staff
             txtSalary.KeyPress += GlobalEvent.NumericWithDecimal;
             dgvStaffJob.DataGrid.CellClick += DgvStaffJob_CellClick;
 
-            if (this._staffJob != null)
+            dgvStaffJob.DataGrid.CellDoubleClick += (s, ce) =>
             {
+                this._staffJobId = GlobalEvent.IDFromCellDGV(ce, dgvStaffJob.DataGrid);
+                this._staffJob = _uow.StaffJobs.GetById(_staffJobId);
+                if (this._staffJob == null) return;
+                this._isEdit = true;
+                cbJob.SelectedValue = this._staffJob.Job.Id;
+                txtSalary.Texts = Convert.ToString(this._staffJob.Salary);
                 if (this._staffJob.Periodicity is string perStr && Enum.TryParse(perStr, out Periodicity selectedPe))
-                {
                     cbPeriod.SelectedValue = selectedPe;
-                }
                 else
-                {
                     ShowAlert.WarningMsg("Periodicité introuvable ou mal typé.");
-                }
-            }
+
+                btnSave.Text = "Modifier";
+                btnSave.Enabled = true;
+                txtSalary.Enabled = true;
+                lblInfo.Text = $"Modification fonction : {this._sInfo}";
+                btnDelete.Visible = false;
+            };
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -96,20 +105,6 @@ namespace DeltaSchool.Forms.Staff
             }
         }
 
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            this._staffJob = _uow.StaffJobs.GetById(_staffJobId);
-            if (this._staffJob == null) return;
-            this._isEdit = true;
-            cbJob.SelectedValue = this._staffJob.Job.Id;
-            txtSalary.Texts = Convert.ToString(this._staffJob.Salary);
-            btnSave.Text = "Modifier";
-            btnSave.Enabled = true;
-            lblInfo.Text = $"Modification fonction : {this._sInfo}";
-            btnDelete.Visible = false;
-            btnEdit.Visible = false;
-        }
-
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             if (this._staffJobId != -1)
@@ -126,7 +121,7 @@ namespace DeltaSchool.Forms.Staff
 
         private void DgvStaffJob_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit.Visible = true; btnDelete.Visible = true;
+            btnDelete.Visible = true;
             if (e.RowIndex < 0) return; // Header clicked
             var selectedRow = dgvStaffJob.DataGrid.Rows[e.RowIndex];
             this._staffJobId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
@@ -185,7 +180,6 @@ namespace DeltaSchool.Forms.Staff
             LoadDGV(staffJobs);
             txtSalary.Texts = string.Empty;
             btnDelete.Visible = false;
-            btnEdit.Visible = false;
             btnSave.Text = "Enregistrer";
         }
         #endregion

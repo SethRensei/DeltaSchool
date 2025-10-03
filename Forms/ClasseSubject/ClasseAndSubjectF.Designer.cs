@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClasse = new RenComponent.PaginatedDataGridView();
             this.dgvSubject = new RenComponent.PaginatedDataGridView();
             this.lblClasses = new System.Windows.Forms.Label();
             this.lblSubject = new System.Windows.Forms.Label();
             this.btnOpenAdClasseAndSubjectF = new RenComponent.RenButton();
-            this.btnEditClasse = new RenComponent.RenButton();
             this.btnDeleteClasse = new RenComponent.RenButton();
-            this.btnEditSubject = new RenComponent.RenButton();
             this.btnDeleteSubject = new RenComponent.RenButton();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasse.DataGrid)).BeginInit();
@@ -63,19 +61,19 @@
             this.dgvClasse.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvClasse.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClasse.DataGrid.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClasse.DataGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClasse.DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClasse.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvClasse.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvClasse.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvClasse.DataGrid.Margin = new System.Windows.Forms.Padding(172, 40, 172, 40);
+            this.dgvClasse.DataGrid.Margin = new System.Windows.Forms.Padding(287, 55, 287, 55);
             this.dgvClasse.DataGrid.Name = "dataGridView1";
             this.dgvClasse.DataGrid.ReadOnly = true;
             this.dgvClasse.DataGrid.RowHeadersVisible = false;
@@ -108,19 +106,19 @@
             this.dgvSubject.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvSubject.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSubject.DataGrid.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSubject.DataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSubject.DataGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSubject.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubject.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvSubject.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvSubject.DataGrid.Margin = new System.Windows.Forms.Padding(287, 55, 287, 55);
+            this.dgvSubject.DataGrid.Margin = new System.Windows.Forms.Padding(478, 76, 478, 76);
             this.dgvSubject.DataGrid.Name = "dataGridView1";
             this.dgvSubject.DataGrid.ReadOnly = true;
             this.dgvSubject.DataGrid.RowHeadersVisible = false;
@@ -176,27 +174,6 @@
             this.btnOpenAdClasseAndSubjectF.UseVisualStyleBackColor = false;
             this.btnOpenAdClasseAndSubjectF.Click += new System.EventHandler(this.BtnOpenAdClasseAndSubjectF_Click);
             // 
-            // btnEditClasse
-            // 
-            this.btnEditClasse.BackColor = System.Drawing.Color.DimGray;
-            this.btnEditClasse.BackgroundColor = System.Drawing.Color.DimGray;
-            this.btnEditClasse.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEditClasse.BorderRadius = 4;
-            this.btnEditClasse.BorderSize = 0;
-            this.btnEditClasse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditClasse.FlatAppearance.BorderSize = 0;
-            this.btnEditClasse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditClasse.ForeColor = System.Drawing.Color.Black;
-            this.btnEditClasse.Location = new System.Drawing.Point(14, 124);
-            this.btnEditClasse.Name = "btnEditClasse";
-            this.btnEditClasse.Size = new System.Drawing.Size(99, 27);
-            this.btnEditClasse.TabIndex = 2;
-            this.btnEditClasse.Text = "Modifier";
-            this.btnEditClasse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditClasse.UseVisualStyleBackColor = false;
-            this.btnEditClasse.Visible = false;
-            this.btnEditClasse.Click += new System.EventHandler(this.BtnEditClasse_Click);
-            // 
             // btnDeleteClasse
             // 
             this.btnDeleteClasse.BackColor = System.Drawing.Color.DimGray;
@@ -208,7 +185,7 @@
             this.btnDeleteClasse.FlatAppearance.BorderSize = 0;
             this.btnDeleteClasse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteClasse.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteClasse.Location = new System.Drawing.Point(430, 127);
+            this.btnDeleteClasse.Location = new System.Drawing.Point(430, 130);
             this.btnDeleteClasse.Name = "btnDeleteClasse";
             this.btnDeleteClasse.Size = new System.Drawing.Size(108, 26);
             this.btnDeleteClasse.TabIndex = 2;
@@ -217,27 +194,6 @@
             this.btnDeleteClasse.UseVisualStyleBackColor = false;
             this.btnDeleteClasse.Visible = false;
             this.btnDeleteClasse.Click += new System.EventHandler(this.BtnDeleteClasse_Click);
-            // 
-            // btnEditSubject
-            // 
-            this.btnEditSubject.BackColor = System.Drawing.Color.DimGray;
-            this.btnEditSubject.BackgroundColor = System.Drawing.Color.DimGray;
-            this.btnEditSubject.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEditSubject.BorderRadius = 4;
-            this.btnEditSubject.BorderSize = 0;
-            this.btnEditSubject.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditSubject.FlatAppearance.BorderSize = 0;
-            this.btnEditSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditSubject.ForeColor = System.Drawing.Color.Black;
-            this.btnEditSubject.Location = new System.Drawing.Point(574, 126);
-            this.btnEditSubject.Name = "btnEditSubject";
-            this.btnEditSubject.Size = new System.Drawing.Size(87, 27);
-            this.btnEditSubject.TabIndex = 2;
-            this.btnEditSubject.Text = "Modifier";
-            this.btnEditSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditSubject.UseVisualStyleBackColor = false;
-            this.btnEditSubject.Visible = false;
-            this.btnEditSubject.Click += new System.EventHandler(this.BtnEditSubject_Click);
             // 
             // btnDeleteSubject
             // 
@@ -250,7 +206,7 @@
             this.btnDeleteSubject.FlatAppearance.BorderSize = 0;
             this.btnDeleteSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteSubject.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteSubject.Location = new System.Drawing.Point(895, 128);
+            this.btnDeleteSubject.Location = new System.Drawing.Point(895, 131);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
             this.btnDeleteSubject.Size = new System.Drawing.Size(107, 26);
             this.btnDeleteSubject.TabIndex = 2;
@@ -281,9 +237,7 @@
             this.ClientSize = new System.Drawing.Size(1010, 647);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDeleteSubject);
-            this.Controls.Add(this.btnEditSubject);
             this.Controls.Add(this.btnDeleteClasse);
-            this.Controls.Add(this.btnEditClasse);
             this.Controls.Add(this.btnOpenAdClasseAndSubjectF);
             this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.lblClasses);
@@ -311,9 +265,7 @@
         private System.Windows.Forms.Label lblClasses;
         private System.Windows.Forms.Label lblSubject;
         private RenComponent.RenButton btnOpenAdClasseAndSubjectF;
-        private RenComponent.RenButton btnEditClasse;
         private RenComponent.RenButton btnDeleteClasse;
-        private RenComponent.RenButton btnEditSubject;
         private RenComponent.RenButton btnDeleteSubject;
         private System.Windows.Forms.Label label9;
     }

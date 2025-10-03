@@ -263,6 +263,7 @@
             this.cbCycle.Location = new System.Drawing.Point(40, 309);
             this.cbCycle.Name = "cbCycle";
             this.cbCycle.Padding = new System.Windows.Forms.Padding(2);
+            this.cbCycle.SelectedValue = null;
             this.cbCycle.Size = new System.Drawing.Size(330, 30);
             this.cbCycle.TabIndex = 2;
             this.cbCycle.Texts = "";

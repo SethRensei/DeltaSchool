@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtJobName = new RenComponent.RenTextBox();
             this.txtDescription = new RenComponent.RenTextBox();
@@ -37,7 +37,6 @@
             this.btnSave = new RenComponent.RenButton();
             this.dgvJob = new RenComponent.PaginatedDataGridView();
             this.btnDelete = new RenComponent.RenButton();
-            this.btnEdit = new RenComponent.RenButton();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new RenComponent.RenButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJob.DataGrid)).BeginInit();
@@ -150,28 +149,28 @@
             this.dgvJob.DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvJob.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvJob.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvJob.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvJob.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvJob.DataGrid.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvJob.DataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvJob.DataGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvJob.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvJob.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvJob.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvJob.DataGrid.Margin = new System.Windows.Forms.Padding(103, 29, 103, 29);
+            this.dgvJob.DataGrid.Margin = new System.Windows.Forms.Padding(172, 40, 172, 40);
             this.dgvJob.DataGrid.Name = "dataGridView1";
             this.dgvJob.DataGrid.RowHeadersVisible = false;
             this.dgvJob.DataGrid.RowTemplate.Height = 35;
@@ -205,27 +204,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.DimGray;
-            this.btnEdit.BackgroundColor = System.Drawing.Color.DimGray;
-            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 4;
-            this.btnEdit.BorderSize = 0;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(799, 43);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(87, 27);
-            this.btnEdit.TabIndex = 20;
-            this.btnEdit.Text = "Modifier";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Visible = false;
-            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // label3
             // 
@@ -267,7 +245,6 @@
             this.ClientSize = new System.Drawing.Size(1010, 647);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvJob);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label3);
@@ -280,7 +257,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "JobF";
-            this.Text = "JobF";
+            this.Text = "Gestionnaire de Poste";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.JobF_FormClosed);
             this.Load += new System.EventHandler(this.JobF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvJob.DataGrid)).EndInit();
@@ -298,7 +275,6 @@
         private RenComponent.RenButton btnSave;
         private RenComponent.PaginatedDataGridView dgvJob;
         private RenComponent.RenButton btnDelete;
-        private RenComponent.RenButton btnEdit;
         private System.Windows.Forms.Label label3;
         private RenComponent.RenButton btnCancel;
     }

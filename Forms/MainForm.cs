@@ -143,6 +143,11 @@ namespace DeltaSchool.Forms
             OpenChildForm(new Staff.JobF());
         }
 
+        private void StaffJobTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff.StaffJobF());
+        }
+
         private void ClasseSubjectTSM_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ClasseSubject.ClasseSubjectF());

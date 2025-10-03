@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStudent = new RenComponent.PaginatedDataGridView();
-            this.btnEdit = new RenComponent.RenButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent.DataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,38 +53,38 @@
             this.dgvStudent.DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvStudent.DataGrid.BackgroundColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStudent.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudent.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudent.DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudent.DataGrid.ColumnHeadersHeight = 45;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudent.DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudent.DataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudent.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudent.DataGrid.GridColor = System.Drawing.Color.DimGray;
             this.dgvStudent.DataGrid.Location = new System.Drawing.Point(0, 0);
-            this.dgvStudent.DataGrid.Margin = new System.Windows.Forms.Padding(22, 11, 22, 11);
+            this.dgvStudent.DataGrid.Margin = new System.Windows.Forms.Padding(37, 15, 37, 15);
             this.dgvStudent.DataGrid.Name = "dataGridView1";
             this.dgvStudent.DataGrid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Lucida Fax", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStudent.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStudent.DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStudent.DataGrid.RowHeadersVisible = false;
             this.dgvStudent.DataGrid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.DarkSlateGray;
             this.dgvStudent.DataGrid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -103,33 +102,12 @@
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.Visible = false;
             // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.DimGray;
-            this.btnEdit.BackgroundColor = System.Drawing.Color.DimGray;
-            this.btnEdit.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEdit.BorderRadius = 4;
-            this.btnEdit.BorderSize = 0;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(862, 93);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(84, 27);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Modifier";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Visible = false;
-            // 
             // StudentsF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(994, 608);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvStudent);
             this.Font = new System.Drawing.Font("Lucida Fax", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -146,6 +124,5 @@
         #endregion
 
         private RenComponent.PaginatedDataGridView dgvStudent;
-        private RenComponent.RenButton btnEdit;
     }
 }

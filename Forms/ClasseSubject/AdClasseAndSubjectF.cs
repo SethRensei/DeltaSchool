@@ -21,7 +21,7 @@ namespace DeltaSchool.Forms.ClasseSubject
         private Classe _classe = null;
         private Subject _subject = null;
 
-        private int _classeId = -1, _subjectId = -1;
+        private readonly int _classeId = -1, _subjectId = -1;
 
 
         public AdClasseAndSubjectF()
@@ -63,16 +63,10 @@ namespace DeltaSchool.Forms.ClasseSubject
             this._classe = GetClasse();
             this._subject = GetSubject();
             if (this._classe != null)
-            {
                 if (this._classe.Cycle is string cycleStr && Enum.TryParse(cycleStr, out Cycle selectedCycle))
-                {
                     cbCycle.SelectedValue = selectedCycle;
-                }
                 else
-                {
                     ShowAlert.WarningMsg("Cycle introuvable ou mal typé.");
-                }
-            }
         }
 
         private void BtnAddClasse_Click(object sender, EventArgs e)

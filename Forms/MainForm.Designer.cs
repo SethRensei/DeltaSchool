@@ -56,6 +56,7 @@
             this.adStaffTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.staffsTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.jobTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffJobTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -415,19 +416,20 @@
             this.drpStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adStaffTSM,
             this.staffsTSM,
+            this.staffJobTSM,
             this.jobTSM});
             this.drpStaff.MenuItemHeight = 25;
             this.drpStaff.MenuItemTextColor = System.Drawing.Color.LightCyan;
             this.drpStaff.Name = "drpStudent";
             this.drpStaff.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStaff.ShowImageMargin = false;
-            this.drpStaff.Size = new System.Drawing.Size(225, 94);
+            this.drpStaff.Size = new System.Drawing.Size(236, 147);
             // 
             // adStaffTSM
             // 
             this.adStaffTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
             this.adStaffTSM.Name = "adStaffTSM";
-            this.adStaffTSM.Size = new System.Drawing.Size(224, 22);
+            this.adStaffTSM.Size = new System.Drawing.Size(235, 22);
             this.adStaffTSM.Text = "Ajouter du personnel";
             this.adStaffTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.adStaffTSM.Click += new System.EventHandler(this.AdStaffTSM_Click);
@@ -436,7 +438,7 @@
             // 
             this.staffsTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
             this.staffsTSM.Name = "staffsTSM";
-            this.staffsTSM.Size = new System.Drawing.Size(224, 22);
+            this.staffsTSM.Size = new System.Drawing.Size(235, 22);
             this.staffsTSM.Text = "Liste du personnel";
             this.staffsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.staffsTSM.Click += new System.EventHandler(this.StaffsTSM_Click);
@@ -445,10 +447,19 @@
             // 
             this.jobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.jobTSM.Name = "jobTSM";
-            this.jobTSM.Size = new System.Drawing.Size(224, 22);
+            this.jobTSM.Size = new System.Drawing.Size(235, 22);
             this.jobTSM.Text = "Gestion de fonction";
             this.jobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobTSM.Click += new System.EventHandler(this.JobTSM_Click);
+            // 
+            // staffJobTSM
+            // 
+            this.staffJobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.staffJobTSM.Name = "staffJobTSM";
+            this.staffJobTSM.Size = new System.Drawing.Size(235, 22);
+            this.staffJobTSM.Text = "Fonction du personnel";
+            this.staffJobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.staffJobTSM.Click += new System.EventHandler(this.StaffJobTSM_Click);
             // 
             // MainForm
             // 
@@ -511,5 +522,6 @@
         private System.Windows.Forms.ToolStripMenuItem adStaffTSM;
         private System.Windows.Forms.ToolStripMenuItem staffsTSM;
         private System.Windows.Forms.ToolStripMenuItem jobTSM;
+        private System.Windows.Forms.ToolStripMenuItem staffJobTSM;
     }
 }

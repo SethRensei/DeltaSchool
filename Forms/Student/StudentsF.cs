@@ -32,10 +32,8 @@ namespace DeltaSchool.Forms.Student
         {
             var students = _uow.Students.GetAll();
             LoadStudents(students);
-            dgvStudent.DataGrid.CellClick += DgvStudent_CellClick;
-            btnEdit.Click += (s, ev) => {
-                MainForm.Instance.OpenChildForm(new AdStudent(this._studentId));
-            };
+
+            dgvStudent.DataGrid.CellDoubleClick += DGVStudent_CellDoubleClick;
         }
 
         private void StudentsF_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,13 +41,10 @@ namespace DeltaSchool.Forms.Student
             _uow.Dispose();
         }
 
-        private void DgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DGVStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit.Visible = true;
-            if (e.RowIndex < 0) return; // Header clicked
-            var selectedRow = dgvStudent.DataGrid.Rows[e.RowIndex];
-            this._studentId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
+            this._studentId = GlobalEvent.IDFromCellDGV(e, dgvStudent.DataGrid);
+            MainForm.Instance.OpenChildForm(new AdStudent(this._studentId));
         }
 
         #region Private Methods

@@ -1,4 +1,5 @@
 ﻿using RenComponent;
+using System;
 using System.Windows.Forms;
 
 namespace DeltaSchool.Utilities
@@ -137,5 +138,11 @@ namespace DeltaSchool.Utilities
             e.Handled = true;
         }
 
+        public static int IDFromCellDGV(DataGridViewCellEventArgs e, DataGridView dgv)
+        {
+            if (e.RowIndex < 0) return -1; // Header clicked
+            var selectedRow = dgv.Rows[e.RowIndex];
+            return Convert.ToInt32(selectedRow.Cells["ID"].Value);
+        }
     }
 }

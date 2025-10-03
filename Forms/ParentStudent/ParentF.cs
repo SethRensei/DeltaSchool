@@ -114,7 +114,6 @@ namespace DeltaSchool.Forms.ParentStudent
             var selectedRow = dgvParent.DataGrid.Rows[e.RowIndex];
             this._parentId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
             this._fullname = selectedRow.Cells["Nom"].Value.ToString() + " " + selectedRow.Cells["Prénom (s)"].Value.ToString();
-
         }
 
         private void BtnAddStudent_Click(object sender, EventArgs e)

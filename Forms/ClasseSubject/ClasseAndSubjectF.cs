@@ -35,9 +35,21 @@ namespace DeltaSchool.Forms.ClasseSubject
             LoadSubjects();
             dgvClasse.DataGrid.CellClick += DgvClasse_CellClick;
             dgvSubject.DataGrid.CellClick += DgvSubject_CellClick;
+
+            dgvClasse.DataGrid.CellDoubleClick += (s, ce) =>
+            {
+                this._classeId = GlobalEvent.IDFromCellDGV(ce, dgvClasse.DataGrid);
+                MainForm.Instance.OpenChildForm(new AdClasseAndSubjectF(classe: this._classeId));
+            };
+
+            dgvSubject.DataGrid.CellDoubleClick += (s, ce) =>
+            {
+                this._subjectId = GlobalEvent.IDFromCellDGV(ce, dgvSubject.DataGrid);
+                MainForm.Instance.OpenChildForm(new AdClasseAndSubjectF(subject: this._subjectId));
+            };
         }
 
-
+        #region -> Private Methods
         private void LoadClasses()
         {
             DataTable dt = new DataTable();
@@ -48,7 +60,7 @@ namespace DeltaSchool.Forms.ClasseSubject
 
             var classes = _uow.Classes.GetAll();
             foreach (var classe in classes)
-                dt.Rows.Add(classe.Id, classe.Name, CycleMapper.GetLabelFromDbValue(classe.Cycle), classe.Category == "PASS" ? "Classe de passage": "Classe d'examen");
+                dt.Rows.Add(classe.Id, classe.Name, CycleMapper.GetLabelFromDbValue(classe.Cycle), classe.Category == "PASS" ? "Classe de passage" : "Classe d'examen");
 
             dgvClasse.SetData(dt);
             dgvClasse.Visible = true;
@@ -67,7 +79,9 @@ namespace DeltaSchool.Forms.ClasseSubject
             dgvSubject.Visible = true;
             lblSubject.Visible = true;
         }
+        #endregion
 
+        #region -> Events
         private void BtnOpenAdClasseAndSubjectF_Click(object sender, System.EventArgs e)
         {
             MainForm.Instance.OpenChildForm(new AdClasseAndSubjectF());
@@ -80,16 +94,8 @@ namespace DeltaSchool.Forms.ClasseSubject
 
         private void DgvClasse_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDeleteClasse.Visible = true; btnEditClasse.Visible = true;
-            if (e.RowIndex < 0) return; // Header clicked
-            var selectedRow = dgvClasse.DataGrid.Rows[e.RowIndex];
-            this._classeId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
-        }
-
-        private void BtnEditClasse_Click(object sender, EventArgs e)
-        {
-            MainForm.Instance.OpenChildForm(new AdClasseAndSubjectF(classe : this._classeId));
+            btnDeleteClasse.Visible = true;
+            this._classeId = GlobalEvent.IDFromCellDGV(e, dgvClasse.DataGrid);
         }
 
         private void BtnDeleteClasse_Click(object sender, EventArgs e)
@@ -107,7 +113,7 @@ namespace DeltaSchool.Forms.ClasseSubject
                 else
                 {
                     LoadClasses();
-                    btnEditClasse.Visible = false; btnDeleteClasse.Visible = false;
+                    btnDeleteClasse.Visible = false;
                     this._classeId = -1;
                 }
             }
@@ -115,11 +121,8 @@ namespace DeltaSchool.Forms.ClasseSubject
 
         private void DgvSubject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEditSubject.Visible = true; btnDeleteSubject.Visible = true;
-            if (e.RowIndex < 0) return; // Header clicked
-            var selectedRow = dgvSubject.DataGrid.Rows[e.RowIndex];
-            this._subjectId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
+            btnDeleteSubject.Visible = true;
+            this._subjectId = GlobalEvent.IDFromCellDGV(e, dgvSubject.DataGrid);
         }
 
         private void BtnEditSubject_Click(object sender, EventArgs e)
@@ -142,10 +145,11 @@ namespace DeltaSchool.Forms.ClasseSubject
                 else
                 {
                     LoadSubjects();
-                    btnEditSubject.Visible = false; btnDeleteSubject.Visible = false;
+                    btnDeleteSubject.Visible = false;
                     this._subjectId = -1;
                 }
             }
         }
+        #endregion
     }
 }

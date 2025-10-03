@@ -38,6 +38,23 @@ namespace DeltaSchool.Forms.ClasseSubject
 
             txtCoeff.KeyPress += GlobalEvent.NumberOnly;
             dgvClasseSubject.DataGrid.CellClick += DgvClasseSubject_CellClick;
+            dgvClasseSubject.DataGrid.CellDoubleClick += (s, ce) =>
+            {
+                this._csId = GlobalEvent.IDFromCellDGV(ce, dgvClasseSubject.DataGrid);
+                this._clSb = _uow.ClasseSubjects.GetById(_csId);
+                if (this._clSb == null) return;
+                this._isEdit = true;
+                txtCoeff.Texts = Convert.ToString(this._clSb.Coeff);
+                cbSubject.SelectedValue = this._clSb.Subject.Id;
+                cbClasse.SelectedValue = this._clSb.Classe.Id;
+                if (this._clSb.StaffId != null)
+                    cbStaff.SelectedValue = this._clSb.StaffId;
+                else
+                    cbStaff.SelectedIndex = -1;
+
+                btnSave.Text = "Modifier";
+                btnDelete.Visible = false;
+            };
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -100,31 +117,10 @@ namespace DeltaSchool.Forms.ClasseSubject
             }
         }
 
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            this._clSb = _uow.ClasseSubjects.GetById(_csId);
-            if (this._clSb == null) return;
-            this._isEdit = true;
-            txtCoeff.Texts = Convert.ToString(this._clSb.Coeff);
-            cbSubject.SelectedValue = this._clSb.Subject.Id;
-            cbClasse.SelectedValue = this._clSb.Classe.Id;
-            if(this._clSb.StaffId != null)
-                cbStaff.SelectedValue = this._clSb.StaffId;
-            else
-                cbStaff.SelectedIndex = -1;
-
-            btnSave.Text = "Modifier";
-            btnDelete.Visible = false;
-            btnEdit.Visible = false;
-        }
-
         private void DgvClasseSubject_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit.Visible = true; btnDelete.Visible = true;
-            if (e.RowIndex < 0) return; // Header clicked
-            var selectedRow = dgvClasseSubject.DataGrid.Rows[e.RowIndex];
-            this._csId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
+            btnDelete.Visible = true;
+            this._csId = GlobalEvent.IDFromCellDGV(e, dgvClasseSubject.DataGrid);
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -195,7 +191,7 @@ namespace DeltaSchool.Forms.ClasseSubject
             btnSave.Text = "Enregistrer";
             this._isEdit = false;
             this._csId = -1;
-            btnEdit.Visible = false; btnDelete.Visible = false;
+            btnDelete.Visible = false;
         }
         #endregion
     }

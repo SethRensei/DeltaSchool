@@ -35,6 +35,17 @@ namespace DeltaSchool.Forms.Staff
         {
             dgvJob.DataGrid.CellClick += DgvJob_CellClick;
             LoadJobs();
+            dgvJob.DataGrid.CellDoubleClick += (s, ce) =>
+            {
+                this._jobId = GlobalEvent.IDFromCellDGV(ce, dgvJob.DataGrid);
+                this._job = _uow.Jobs.GetById(_jobId);
+                if (this._job == null) return;
+                this._isEdit = true;
+                txtJobName.Texts = this._job.Name;
+                txtDescription.Texts = this._job.Description;
+                btnSave.Text = "Modifier";
+                btnDelete.Visible = false;
+            };
         }
 
         private void BtnSave_Click(object sender, System.EventArgs e)
@@ -68,22 +79,12 @@ namespace DeltaSchool.Forms.Staff
 
         private void DgvJob_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit.Visible = true; btnDelete.Visible = true;
-            if (e.RowIndex < 0) return; // Header clicked
-            var selectedRow = dgvJob.DataGrid.Rows[e.RowIndex];
-            this._jobId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-
+            btnDelete.Visible = true;
+            this._jobId = GlobalEvent.IDFromCellDGV(e, dgvJob.DataGrid);
         }
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            this._job = _uow.Jobs.GetById(_jobId);
-            if (this._job == null) return;
-            this._isEdit = true;
-            txtJobName.Texts = this._job.Name;
-            txtDescription.Texts = this._job.Description;
-            btnSave.Text = "Modifier";
-            btnDelete.Visible = false;
-            btnEdit.Visible = false;
+            
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace DeltaSchool.Forms.Staff
             this._jobId = -1;
             this._isEdit = false;
             btnSave.Text = "Ajouter";
-            btnEdit.Visible = false; btnDelete.Visible = false;
+            btnDelete.Visible = false;
         }
 
         #endregion
