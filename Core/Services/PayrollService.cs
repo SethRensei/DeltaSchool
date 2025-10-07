@@ -1,32 +1,41 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Data.Entity.Infrastructure;
-
-using DeltaSchool.Data.Entity;
+﻿using DeltaSchool.Data.Entity;
 using DeltaSchool.Data.Repository.Interface;
 using DeltaSchool.Utilities;
+using MySql.Data.MySqlClient;
+using System;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
 
 namespace DeltaSchool.Core.Services
 {
-    public class StudentService
+    public class PayrollService
     {
         private readonly IUnitOfWork _uow;
 
-        public StudentService(IUnitOfWork uow)
-        {
-            _uow = uow;
-        }
+        public PayrollService(IUnitOfWork uow)
+            => _uow = uow;
 
-        public bool Create(Student student)
+        public bool Create(Payroll p)
         {
-            if (!FormValidator.Validate(student))
+            if (p.Status == "PAID")
+            {
+                var exists = _uow.Payrolls.Query()
+                    .Any(x => x.Id != p.Id && x.StaffId == p.StaffId && x.Period == p.Period && x.Status == "PAID");
+
+                if (exists)
+                {
+                    ShowAlert.ErrorMsg("Impossible : un autre paiement marqué comme ≪ Payé ≫ existe déjà pour ce personnel pour cette période.");
+                    return false;
+                }
+            }
+            if (!FormValidator.Validate(p))
                 return false;
 
             try
             {
-                _uow.Students.Add(student);
+                _uow.Payrolls.Add(p);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Inscription d'élève a été éffectuée.");
+                ShowAlert.SuccessMsg("La transaction a été enregistré.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -34,6 +43,8 @@ namespace DeltaSchool.Core.Services
                 var baseEx = dbEx.GetBaseException();
                 if (baseEx is MySqlException mex)
                 {
+                    if (mex.Number == 1062)
+                        ShowAlert.ErrorMsg("Existance d'un paiement identique qui a déjà été marqué comme ≪ Payé ≫");
                     var msg = MySqlExceptionHelper.TryParseDuplicateEntry(mex) ?? mex.Message;
                     ShowAlert.ErrorMsg(msg);
                 }
@@ -43,7 +54,7 @@ namespace DeltaSchool.Core.Services
                 }
 
                 // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(student);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(p);  // ou _uow.ClearChangeTracker();
 
                 return false;
             }
@@ -54,16 +65,16 @@ namespace DeltaSchool.Core.Services
             }
         }
 
-        public bool Update(Student student)
+        public bool Update(Payroll p)
         {
-            if (!FormValidator.Validate(student))
+            if (!FormValidator.Validate(p))
                 return false;
 
             try
             {
-                _uow.Students.Update(student);
+                _uow.Payrolls.Update(p);
                 _uow.Save();
-                ShowAlert.SuccessMsg("Information sur l'élève a été mis à jour.");
+                ShowAlert.SuccessMsg("Les informations sur la transtaction a été mis à jour.");
                 return true;
             }
             catch (DbUpdateException dbEx)
@@ -71,6 +82,8 @@ namespace DeltaSchool.Core.Services
                 var baseEx = dbEx.GetBaseException();
                 if (baseEx is MySqlException mex)
                 {
+                    if (mex.Number == 1062)
+                        ShowAlert.ErrorMsg("Existance d'un paiement identique qui a déjà été marqué comme ≪ Payé ≫");
                     var msg = MySqlExceptionHelper.TryParseDuplicateEntry(mex) ?? mex.Message;
                     ShowAlert.ErrorMsg(msg);
                 }
@@ -79,8 +92,7 @@ namespace DeltaSchool.Core.Services
                     ShowAlert.ErrorMsg(baseEx.Message);
                 }
 
-                // IMPORTANT : détacher l'entité qui a échoué
-                _uow.DetachEntity(student);  // ou _uow.ClearChangeTracker();
+                _uow.DetachEntity(p);
 
                 return false;
             }
@@ -88,23 +100,6 @@ namespace DeltaSchool.Core.Services
             {
                 ShowAlert.ErrorMsg(ex.Message);
                 return false;
-            }
-        }
-
-        public Student FindStudentForSchooling(string code, string lastname, string firstname)
-        {
-            try
-            {
-                var student = _uow.Students.GetByLocationCodeLastnameFirstname(code, lastname, firstname);
-
-                if (student == null) ShowAlert.InfoMsg("Aucun élève trouvé pour ces critères.");
-
-                return student;
-            }
-            catch (Exception ex)
-            {
-                ShowAlert.ErrorMsg("Erreur lors de la recherche : " + ex.Message);
-                return null;
             }
         }
     }

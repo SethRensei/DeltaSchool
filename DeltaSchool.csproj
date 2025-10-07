@@ -120,6 +120,8 @@
     <Compile Include="Core\Services\ClasseSubjectService.cs" />
     <Compile Include="Core\Services\JobService.cs" />
     <Compile Include="Core\Services\ParentStudentService.cs" />
+    <Compile Include="Core\Services\PayrollService.cs" />
+    <Compile Include="Core\Services\SchoolingService.cs" />
     <Compile Include="Core\Services\StaffJobService.cs" />
     <Compile Include="Core\Services\StaffService.cs" />
     <Compile Include="Core\Services\StudentService.cs" />
@@ -128,6 +130,8 @@
     <Compile Include="Data\Entity\Classe.cs" />
     <Compile Include="Data\Entity\ClasseSubject.cs" />
     <Compile Include="Data\Entity\Job.cs" />
+    <Compile Include="Data\Entity\Payroll.cs" />
+    <Compile Include="Data\Entity\Schooling.cs" />
     <Compile Include="Data\Entity\SchoolYear.cs" />
     <Compile Include="Data\Entity\Sites.cs" />
     <Compile Include="Data\Entity\ParentStudent.cs" />
@@ -142,6 +146,8 @@
     <Compile Include="Data\Repository\Interface\IJobRepository.cs" />
     <Compile Include="Data\Repository\Interface\ILocationRepository.cs" />
     <Compile Include="Data\Repository\Interface\IParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\Interface\IPayrollRepository.cs" />
+    <Compile Include="Data\Repository\Interface\ISchoolingRepository.cs" />
     <Compile Include="Data\Repository\Interface\ISchoolYearRepository.cs" />
     <Compile Include="Data\Repository\Interface\IStaffJobRepository.cs" />
     <Compile Include="Data\Repository\Interface\IStaffRepository.cs" />
@@ -151,6 +157,8 @@
     <Compile Include="Data\Repository\JobRepository.cs" />
     <Compile Include="Data\Repository\LocationRepository.cs" />
     <Compile Include="Data\Repository\ParentStudentRepository.cs" />
+    <Compile Include="Data\Repository\PayrollRepository.cs" />
+    <Compile Include="Data\Repository\SchoolingRepository.cs" />
     <Compile Include="Data\Repository\SchoolYearRepository.cs" />
     <Compile Include="Data\Repository\StaffJobRepository.cs" />
     <Compile Include="Data\Repository\StaffRepository.cs" />
@@ -175,6 +183,24 @@
     <Compile Include="Forms\ClasseSubject\ClasseSubjectF.Designer.cs">
       <DependentUpon>ClasseSubjectF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Payroll\PayrollF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Payroll\PayrollF.Designer.cs">
+      <DependentUpon>PayrollF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Schooling\AdSchoolingF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Schooling\AdSchoolingF.Designer.cs">
+      <DependentUpon>AdSchoolingF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Schooling\SchoolingF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Schooling\SchoolingF.Designer.cs">
+      <DependentUpon>SchoolingF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +218,12 @@
     </Compile>
     <Compile Include="Forms\ParentStudent\ParentF.Designer.cs">
       <DependentUpon>ParentF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Payroll\AdPayrollF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Payroll\AdPayrollF.Designer.cs">
+      <DependentUpon>AdPayrollF.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Staff\AdStaffF.cs">
       <SubType>Form</SubType>
@@ -242,6 +274,8 @@
     <Compile Include="Utilities\DbExceptionHandler.cs" />
     <Compile Include="Utilities\Extensions\MaritalStatusExtension.cs" />
     <Compile Include="Utilities\Extensions\PeriodicityExtension.cs" />
+    <Compile Include="Utilities\Extensions\TransacStatusExtension.cs" />
+    <Compile Include="Utilities\Extensions\TransacTypeExtension.cs" />
     <Compile Include="Utilities\MySqlExceptionHelper.cs" />
     <Compile Include="Utilities\ShowAlert.cs" />
     <Compile Include="Utilities\GlobalEvent.cs" />
@@ -255,6 +289,15 @@
     <EmbeddedResource Include="Forms\ClasseSubject\ClasseSubjectF.resx">
       <DependentUpon>ClasseSubjectF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Payroll\PayrollF.resx">
+      <DependentUpon>PayrollF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Schooling\AdSchoolingF.resx">
+      <DependentUpon>AdSchoolingF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Schooling\SchoolingF.resx">
+      <DependentUpon>SchoolingF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ParentStudent\ParentF.resx">
       <DependentUpon>ParentF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Payroll\AdPayrollF.resx">
+      <DependentUpon>AdPayrollF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Staff\AdStaffF.resx">
       <DependentUpon>AdStaffF.cs</DependentUpon>
@@ -344,6 +390,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

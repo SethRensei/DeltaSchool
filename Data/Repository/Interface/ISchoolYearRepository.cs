@@ -10,7 +10,6 @@ namespace DeltaSchool.Data.Repository.Interface
         SchoolYear GetById(int id);
         void Add(SchoolYear schoolYear);
         void Update(SchoolYear schoolYear);
-        void Delete(int id);
         void Save();
     }
 }

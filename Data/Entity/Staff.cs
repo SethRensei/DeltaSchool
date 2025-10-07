@@ -13,6 +13,10 @@ namespace DeltaSchool.Data.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Column("matricule")]
+        [StringLength(50)]
+        public string Matricule { get; set; }
+
         [Required(ErrorMessage = "Le nom est requis")]
         [StringLength(200, ErrorMessage = "Le nom ne peut dépasser 200 caractères")]
         [Column("lastname")]
@@ -83,5 +87,6 @@ namespace DeltaSchool.Data.Entity
 
         public virtual ICollection<ClasseSubject> ClasseSubjects { get; set; }
         public virtual ICollection<StaffJob> StaffJobs { get; set; }
+        public virtual ICollection<Payroll> Payrolls { get; set; }
     }
 }

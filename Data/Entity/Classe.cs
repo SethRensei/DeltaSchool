@@ -36,5 +36,6 @@ namespace DeltaSchool.Data.Entity
         public virtual ICollection<ClasseSubject> ClasseSubjects { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Schooling> Schoolings { get; set; }
     }
 }

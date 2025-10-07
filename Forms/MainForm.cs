@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RenComponent;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -43,6 +44,8 @@ namespace DeltaSchool.Forms
             child_form.Show();
             lblTitle.Text = child_form.Text;
         }
+
+        private void OpenSidebarDRP(RenDropdownMenu drp, RenButton btn) => drp.Show(btn, btn.Width, 0);
 
         // Drap Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -91,7 +94,7 @@ namespace DeltaSchool.Forms
         
         private void BtnStudent_Click(object sender, EventArgs e)
         {
-            drpStudent.Show(btnStudent, btnStudent.Width, 0);
+            OpenSidebarDRP(drpStudent, btnStudent);
         }
         private void AdStudentTSM_Click(object sender, EventArgs e)
         {
@@ -115,7 +118,7 @@ namespace DeltaSchool.Forms
 
         private void BtnClasse_Click(object sender, EventArgs e)
         {
-            drpClasse.Show(btnClasse, btnClasse.Width, 0);
+            OpenSidebarDRP(drpClasse, btnClasse);
         }
 
         private void ClassesAndSubjetsTSM_Click(object sender, EventArgs e)
@@ -125,7 +128,7 @@ namespace DeltaSchool.Forms
 
         private void BtnStaff_Click(object sender, EventArgs e)
         {
-            drpStaff.Show(btnStaff, btnStaff.Width, 0);
+            OpenSidebarDRP(drpStaff, btnStaff);
         }
 
         private void AdStaffTSM_Click(object sender, EventArgs e)
@@ -152,7 +155,25 @@ namespace DeltaSchool.Forms
         {
             OpenChildForm(new ClasseSubject.ClasseSubjectF());
         }
+        private void BtnFinance_Click(object sender, EventArgs e)
+        {
+            OpenSidebarDRP(drpFinance, btnFinance);
+        }
+        private void TransacTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Finance.SchoolingF());
+        }
 
+        private void AdPayrollTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Payroll.AdPayrollF());
+        }
+
+        private void PayrollTSM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Payroll.PayrollF());
+        }
         #endregion
+
     }
 }

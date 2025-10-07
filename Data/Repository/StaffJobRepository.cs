@@ -12,9 +12,7 @@ namespace DeltaSchool.Data.Repository
         private readonly DeltaSchoolContext _context;
 
         public StaffJobRepository(DeltaSchoolContext context)
-        {
-            _context = context;
-        }
+            => _context = context;
 
         public IEnumerable<StaffJob> GetAll()
         {

@@ -143,7 +143,10 @@ namespace DeltaSchool.Forms.Student
                 if (!_service.Create(student))
                     ShowAlert.WarningMsg("Échec de l'ajout du personnel.");
                 else
-                    MainForm.Instance.OpenChildForm(new StudentsF());
+                    if (ShowAlert.Question("Voulez-vous effectuer une nouvelle inscription ?") == DialogResult.Yes)
+                        MainForm.Instance.OpenChildForm(new StudentsF());
+                    else
+                        ResetValue();
             }
             else
             {
@@ -271,6 +274,23 @@ namespace DeltaSchool.Forms.Student
         {
             if (this._studentId == -1) return null;
             return _uow.Students.GetById(this._studentId);
+        }
+
+        private void ResetValue()
+        {
+            AllLoadCbx();
+            txtLastname.Texts = string.Empty;
+            txtFirstname.Texts = string.Empty;
+            rbMale.Checked = true;
+            txtAddress.Texts = string.Empty;
+            txtPhone.Texts = string.Empty;
+            chkOrphan.Checked = false;
+            dpBirthday.Value = dpBirthday.MaxDate;
+            txtBirthplace.Texts = string.Empty;
+            txtNationality.Texts = string.Empty;
+            txtEmail.Texts = string.Empty;
+            txtHomeInsti.Texts = string.Empty;
+            txtObs.Texts = string.Empty;
         }
         #endregion
     }

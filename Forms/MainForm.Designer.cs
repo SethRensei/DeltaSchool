@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new RenComponent.RenPanel();
+            this.btnFinance = new RenComponent.RenButton();
             this.btnStaff = new RenComponent.RenButton();
             this.btnClasse = new RenComponent.RenButton();
             this.btnStudent = new RenComponent.RenButton();
@@ -45,6 +46,7 @@
             this.pnlMain = new RenComponent.RenPanel();
             this.drpStudent = new RenComponent.RenDropdownMenu(this.components);
             this.adStudentTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchStudentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.studentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.parentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adParentSTM = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,12 @@
             this.drpStaff = new RenComponent.RenDropdownMenu(this.components);
             this.adStaffTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.staffsTSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.jobTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.staffJobTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.jobTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.drpFinance = new RenComponent.RenDropdownMenu(this.components);
+            this.transacTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.adPayrollTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.payrollTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -64,6 +70,7 @@
             this.drpStudent.SuspendLayout();
             this.drpClasse.SuspendLayout();
             this.drpStaff.SuspendLayout();
+            this.drpFinance.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -73,6 +80,7 @@
             this.pnlMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlMenu.BorderRadius = 0;
             this.pnlMenu.BorderSize = 0;
+            this.pnlMenu.Controls.Add(this.btnFinance);
             this.pnlMenu.Controls.Add(this.btnStaff);
             this.pnlMenu.Controls.Add(this.btnClasse);
             this.pnlMenu.Controls.Add(this.btnStudent);
@@ -87,6 +95,35 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(229, 700);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnFinance
+            // 
+            this.btnFinance.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinance.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnFinance.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFinance.BorderRadius = 0;
+            this.btnFinance.BorderSize = 0;
+            this.btnFinance.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFinance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFinance.FlatAppearance.BorderSize = 0;
+            this.btnFinance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnFinance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnFinance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinance.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinance.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnFinance.Image = global::DeltaSchool.Properties.Resources.finance;
+            this.btnFinance.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFinance.Location = new System.Drawing.Point(0, 262);
+            this.btnFinance.Margin = new System.Windows.Forms.Padding(0);
+            this.btnFinance.Name = "btnFinance";
+            this.btnFinance.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnFinance.Size = new System.Drawing.Size(229, 46);
+            this.btnFinance.TabIndex = 4;
+            this.btnFinance.Text = "Espace Finance ▶";
+            this.btnFinance.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFinance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFinance.UseVisualStyleBackColor = false;
+            this.btnFinance.Click += new System.EventHandler(this.BtnFinance_Click);
             // 
             // btnStaff
             // 
@@ -306,6 +343,7 @@
             this.pnlMain.GradientBottomColor = System.Drawing.Color.Transparent;
             this.pnlMain.GradientTopColor = System.Drawing.Color.Transparent;
             this.pnlMain.Location = new System.Drawing.Point(229, 53);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1015, 647);
             this.pnlMain.TabIndex = 0;
@@ -318,6 +356,7 @@
             this.drpStudent.IsMainMenu = false;
             this.drpStudent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adStudentTSM,
+            this.searchStudentTSM,
             this.studentTSM,
             this.parentsToolStripMenuItem});
             this.drpStudent.MenuItemHeight = 25;
@@ -325,22 +364,30 @@
             this.drpStudent.Name = "drpStudent";
             this.drpStudent.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStudent.ShowImageMargin = false;
-            this.drpStudent.Size = new System.Drawing.Size(159, 94);
+            this.drpStudent.Size = new System.Drawing.Size(207, 125);
             // 
             // adStudentTSM
             // 
             this.adStudentTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
             this.adStudentTSM.Name = "adStudentTSM";
-            this.adStudentTSM.Size = new System.Drawing.Size(158, 22);
+            this.adStudentTSM.Size = new System.Drawing.Size(206, 22);
             this.adStudentTSM.Text = "Inscription";
             this.adStudentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.adStudentTSM.Click += new System.EventHandler(this.AdStudentTSM_Click);
+            // 
+            // searchStudentTSM
+            // 
+            this.searchStudentTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.searchStudentTSM.Name = "searchStudentTSM";
+            this.searchStudentTSM.Size = new System.Drawing.Size(206, 22);
+            this.searchStudentTSM.Text = "Recherche d\'élèves";
+            this.searchStudentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // studentTSM
             // 
             this.studentTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
             this.studentTSM.Name = "studentTSM";
-            this.studentTSM.Size = new System.Drawing.Size(158, 22);
+            this.studentTSM.Size = new System.Drawing.Size(206, 22);
             this.studentTSM.Text = "Liste d\'élèves";
             this.studentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.studentTSM.Click += new System.EventHandler(this.StudentTSM_Click);
@@ -352,7 +399,7 @@
             this.parentTSM});
             this.parentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.parentsToolStripMenuItem.Name = "parentsToolStripMenuItem";
-            this.parentsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.parentsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.parentsToolStripMenuItem.Text = "Parents";
             this.parentsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -423,7 +470,7 @@
             this.drpStaff.Name = "drpStudent";
             this.drpStaff.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStaff.ShowImageMargin = false;
-            this.drpStaff.Size = new System.Drawing.Size(236, 147);
+            this.drpStaff.Size = new System.Drawing.Size(236, 125);
             // 
             // adStaffTSM
             // 
@@ -443,6 +490,15 @@
             this.staffsTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.staffsTSM.Click += new System.EventHandler(this.StaffsTSM_Click);
             // 
+            // staffJobTSM
+            // 
+            this.staffJobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.staffJobTSM.Name = "staffJobTSM";
+            this.staffJobTSM.Size = new System.Drawing.Size(235, 22);
+            this.staffJobTSM.Text = "Fonction du personnel";
+            this.staffJobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.staffJobTSM.Click += new System.EventHandler(this.StaffJobTSM_Click);
+            // 
             // jobTSM
             // 
             this.jobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
@@ -452,14 +508,49 @@
             this.jobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobTSM.Click += new System.EventHandler(this.JobTSM_Click);
             // 
-            // staffJobTSM
+            // drpFinance
             // 
-            this.staffJobTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
-            this.staffJobTSM.Name = "staffJobTSM";
-            this.staffJobTSM.Size = new System.Drawing.Size(235, 22);
-            this.staffJobTSM.Text = "Fonction du personnel";
-            this.staffJobTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.staffJobTSM.Click += new System.EventHandler(this.StaffJobTSM_Click);
+            this.drpFinance.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.drpFinance.DropShadowEnabled = false;
+            this.drpFinance.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.drpFinance.IsMainMenu = false;
+            this.drpFinance.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transacTSM,
+            this.adPayrollTSM,
+            this.payrollTSM});
+            this.drpFinance.MenuItemHeight = 25;
+            this.drpFinance.MenuItemTextColor = System.Drawing.Color.LightCyan;
+            this.drpFinance.Name = "drpStudent";
+            this.drpFinance.PrimaryColor = System.Drawing.Color.DarkSlateGray;
+            this.drpFinance.ShowImageMargin = false;
+            this.drpFinance.Size = new System.Drawing.Size(239, 116);
+            // 
+            // transacTSM
+            // 
+            this.transacTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
+            this.transacTSM.Name = "transacTSM";
+            this.transacTSM.Size = new System.Drawing.Size(238, 22);
+            this.transacTSM.Text = "Transaction élèves";
+            this.transacTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.transacTSM.Click += new System.EventHandler(this.TransacTSM_Click);
+            // 
+            // adPayrollTSM
+            // 
+            this.adPayrollTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.adPayrollTSM.Name = "adPayrollTSM";
+            this.adPayrollTSM.Size = new System.Drawing.Size(238, 22);
+            this.adPayrollTSM.Text = "Payer un personnel";
+            this.adPayrollTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adPayrollTSM.Click += new System.EventHandler(this.AdPayrollTSM_Click);
+            // 
+            // payrollTSM
+            // 
+            this.payrollTSM.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.payrollTSM.Name = "payrollTSM";
+            this.payrollTSM.Size = new System.Drawing.Size(238, 22);
+            this.payrollTSM.Text = "Paiement du personnel";
+            this.payrollTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.payrollTSM.Click += new System.EventHandler(this.PayrollTSM_Click);
             // 
             // MainForm
             // 
@@ -490,6 +581,7 @@
             this.drpStudent.ResumeLayout(false);
             this.drpClasse.ResumeLayout(false);
             this.drpStaff.ResumeLayout(false);
+            this.drpFinance.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -523,5 +615,11 @@
         private System.Windows.Forms.ToolStripMenuItem staffsTSM;
         private System.Windows.Forms.ToolStripMenuItem jobTSM;
         private System.Windows.Forms.ToolStripMenuItem staffJobTSM;
+        private RenComponent.RenButton btnFinance;
+        private RenComponent.RenDropdownMenu drpFinance;
+        private System.Windows.Forms.ToolStripMenuItem transacTSM;
+        private System.Windows.Forms.ToolStripMenuItem adPayrollTSM;
+        private System.Windows.Forms.ToolStripMenuItem payrollTSM;
+        private System.Windows.Forms.ToolStripMenuItem searchStudentTSM;
     }
 }

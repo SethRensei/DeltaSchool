@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 using DeltaSchool.Data.Entity;
@@ -20,20 +21,18 @@ namespace DeltaSchool.Data.Repository
             return _context.Staffs.ToList();
         }
 
-        public Staff GetById(int id)
-        {
-            return _context.Staffs.Find(id);
-        }
+        public Staff GetById(int id) => _context.Staffs.Find(id);
+        
+        public void Add(Staff staff) => _context.Staffs.Add(staff);
 
-        public void Add(Staff staff)
-        {
-            _context.Staffs.Add(staff);
-        }
+        public Staff FindByMatricule(string matricule)
+            => _context.Staffs
+            .Include(s => s.StaffJobs)
+            .Include(s => s.Payrolls)
+            .FirstOrDefault(s => s.Matricule == matricule.ToUpper());
 
         public void Update(Staff staff)
-        {
-            _context.Entry(staff).State = System.Data.Entity.EntityState.Modified;
-        }
+            => _context.Entry(staff).State = EntityState.Modified;
 
         public void Delete(int id)
         {

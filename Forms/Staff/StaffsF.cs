@@ -34,6 +34,7 @@ namespace DeltaSchool.Forms.Staff
             // Charger les parents depuis la base de données
             var dt = new DataTable();
             dt.Columns.Add("ID");
+            dt.Columns.Add("Matricule");
             dt.Columns.Add("Nom");
             dt.Columns.Add("Prénom (s)");
             dt.Columns.Add("Genre");
@@ -45,7 +46,7 @@ namespace DeltaSchool.Forms.Staff
             dt.Columns.Add("Nationalité");
 
             foreach (var staff in staffs)
-                dt.Rows.Add(staff.Id, staff.Lastname,
+                dt.Rows.Add(staff.Id, staff.Matricule,staff.Lastname,
                     staff.Firstname, staff.Gender.Equals("MALE") ? "Homme" : "Femme",
                     staff.Birthday != null ? $"{UHelpers.CalculateAge(staff.Birthday.Value)} ans" : "_",
                     staff.PhoneNumber1, staff.Address,

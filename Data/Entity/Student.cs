@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
@@ -92,5 +93,7 @@ namespace DeltaSchool.Data.Entity
 
         [ForeignKey("LocationId")]
         public virtual Sites Location { get; set; }
+
+        public virtual ICollection<Schooling> Schoolings { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace DeltaSchool.Data.Repository.Interface
     {
         IEnumerable<Staff> GetAll();
         Staff GetById(int id);
+        Staff FindByMatricule(string matricule);
         void Add(Staff staff);
         void Update(Staff staff);
         void Delete(int id);

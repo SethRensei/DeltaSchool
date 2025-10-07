@@ -167,9 +167,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 306);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 22);
+            this.label4.Size = new System.Drawing.Size(115, 22);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Addrese 📌";
+            this.label4.Text = "Adresse 📌";
             // 
             // label2
             // 
@@ -510,7 +510,7 @@
             this.dpBirthday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dpBirthday.Font = new System.Drawing.Font("Lucida Fax", 12F);
             this.dpBirthday.Location = new System.Drawing.Point(339, 95);
-            this.dpBirthday.MaxDate = new System.DateTime(2025, 9, 27, 0, 0, 0, 0);
+            this.dpBirthday.MaxDate = new System.DateTime(2025, 10, 5, 0, 0, 0, 0);
             this.dpBirthday.MinDate = new System.DateTime(1940, 1, 1, 0, 0, 0, 0);
             this.dpBirthday.MinimumSize = new System.Drawing.Size(4, 35);
             this.dpBirthday.Name = "dpBirthday";
@@ -518,7 +518,7 @@
             this.dpBirthday.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             this.dpBirthday.TabIndex = 7;
             this.dpBirthday.TextColor = System.Drawing.Color.Black;
-            this.dpBirthday.Value = new System.DateTime(2025, 9, 2, 0, 0, 0, 0);
+            this.dpBirthday.Value = new System.DateTime(2025, 10, 5, 0, 0, 0, 0);
             // 
             // label12
             // 

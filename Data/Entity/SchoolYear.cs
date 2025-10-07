@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeltaSchool.Data.Entity
 {
@@ -29,6 +26,6 @@ namespace DeltaSchool.Data.Entity
         public DateTime? CreatedAt { get; private set; }
 
         public virtual ICollection<Student> Students { get; set; }
-        //public virtual ICollection<Schooling> Schoolings { get; set; }
+        public virtual ICollection<Schooling> Schoolings { get; set; }
     }
 }

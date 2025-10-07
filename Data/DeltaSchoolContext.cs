@@ -1,8 +1,10 @@
 ﻿using DeltaSchool.Data.Entity;
 using MySql.Data.EntityFramework;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
+using System.Linq;
 using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
 
 namespace DeltaSchool.Data
@@ -10,6 +12,8 @@ namespace DeltaSchool.Data
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class DeltaSchoolContext : DbContext
     {
+        private bool _isAssigningMatricules = false;
+
         public DeltaSchoolContext() : base("name=DeltaSchoolDB")
         {
             // Configuration par défaut
@@ -24,28 +28,32 @@ namespace DeltaSchool.Data
         public DbSet<Classe> Classes { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Payroll> Payrolls { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<ClasseSubject> ClasseSubjects { get; set; }
         public DbSet<StaffJob> StaffJobs { get; set; }
         public DbSet<ParentStudent> ParentStudents { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Schooling> Schoolings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             #region Table names (s'assurer que EF n'ajoute pas 's' ou modifie)
-            
+
             modelBuilder.Entity<Sites>().ToTable("location");
             modelBuilder.Entity<SchoolYear>().ToTable("school_year");
             modelBuilder.Entity<Classe>().ToTable("classe");
             modelBuilder.Entity<Subject>().ToTable("subject");
             modelBuilder.Entity<Job>().ToTable("job");
+            modelBuilder.Entity<Payroll>().ToTable("payroll");
             modelBuilder.Entity<Staff>().ToTable("staff");
             modelBuilder.Entity<ClasseSubject>().ToTable("classe_subject");
             modelBuilder.Entity<StaffJob>().ToTable("staff_job");
             modelBuilder.Entity<ParentStudent>().ToTable("parent_student");
             modelBuilder.Entity<Student>().ToTable("student");
+            modelBuilder.Entity<Schooling>().ToTable("schooling");
 
             #endregion
 
@@ -91,19 +99,45 @@ namespace DeltaSchool.Data
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_Job_Name") { IsUnique = true }));
 
-            // staff.phone_number_1 unique
+            // Staff unique Cols
             modelBuilder.Entity<Staff>()
                 .Property(s => s.PhoneNumber1)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_Staff_Phone1") { IsUnique = true }));
 
-            // staff.email unique (nullable)
+            modelBuilder.Entity<Staff>()
+                .Property(s => s.PhoneNumber2)
+                .HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Staff_Phone2") { IsUnique = true }));
+
+            modelBuilder.Entity<Staff>()
+                .Property(s => s.Matricule)
+                .HasMaxLength(50)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Staff_Matricule") { IsUnique = true }));
+
             modelBuilder.Entity<Staff>()
                 .Property(s => s.Email)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_Staff_Email") { IsUnique = true }));
+
+            // Payroll
+            modelBuilder.Entity<Payroll>()
+                .Property(p => p.PaidKey)
+                .HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Payroll_PaidKey") { IsUnique = true }));
+
+            // Schooling
+            modelBuilder.Entity<Schooling>()
+                .Property(sc => sc.PaidKey)
+                .HasColumnAnnotation(
+                IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Schooling_PaidKey") { IsUnique = true }));
 
             // parent_student.phone_number unique
             modelBuilder.Entity<ParentStudent>()
@@ -155,6 +189,7 @@ namespace DeltaSchool.Data
             #endregion
 
             #region Relations (s'assurer du comportement ON DELETE/UPDATE)
+            // Student
             modelBuilder.Entity<Student>()
                 .HasOptional(s => s.Parent)
                 .WithMany(p => p.Students)
@@ -179,6 +214,7 @@ namespace DeltaSchool.Data
                 .HasForeignKey(s => s.LocationId)
                 .WillCascadeOnDelete(false);
 
+            // ClasseSubject
             modelBuilder.Entity<ClasseSubject>()
                 .HasRequired(cs => cs.Classe)
                 .WithMany(c => c.ClasseSubjects)
@@ -197,6 +233,14 @@ namespace DeltaSchool.Data
                 .HasForeignKey(cs => cs.StaffId)
                 .WillCascadeOnDelete(false);
 
+            // Payroll
+            modelBuilder.Entity<Payroll>()
+                .HasRequired(pr => pr.Staff)
+                .WithMany(st => st.Payrolls)
+                .HasForeignKey(pr => pr.StaffId)
+                .WillCascadeOnDelete(false);
+
+            // StaffJob
             modelBuilder.Entity<StaffJob>()
                 .HasRequired(sj => sj.Staff)
                 .WithMany(st => st.StaffJobs)
@@ -209,7 +253,79 @@ namespace DeltaSchool.Data
                 .HasForeignKey(sj => sj.JobId)
                 .WillCascadeOnDelete(true);
 
+            // Schooling
+            modelBuilder.Entity<Schooling>()
+                .HasRequired(sc => sc.Student)
+                .WithMany(st => st.Schoolings)
+                .HasForeignKey(sc => sc.StudentId)
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Schooling>()
+                .HasRequired(sc => sc.Classe)
+                .WithMany(c => c.Schoolings)
+                .HasForeignKey(sc => sc.ClasseId)
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Schooling>()
+                .HasOptional(sc => sc.SchoolYear)
+                .WithMany(sy => sy.Schoolings)
+                .HasForeignKey(sc => sc.SchoolYearId)
+                .WillCascadeOnDelete(false);
             #endregion
         }
-    } 
+
+        public override int SaveChanges()
+        {
+            // 1) première persistance pour obtenir les Id des nouvelles entités
+            var result = base.SaveChanges();
+
+            // 2) si on est déjà en train d'assigner, on évite la récursion
+            if (_isAssigningMatricules) return result;
+
+            try
+            {
+                _isAssigningMatricules = true;
+
+                // On recherche dans le ChangeTracker les entités Staff sans matricule.
+                // Après le premier SaveChanges elles sont normalement en state Unchanged (mais toujours trackées).
+
+                var staffsToUpdate = this.ChangeTracker
+                    .Entries()
+                    .Where(e => e.Entity is Staff)
+                    .Select(e => e.Entity as Staff)
+                    .Where(st => st != null && string.IsNullOrWhiteSpace(st.Matricule))
+                    .ToList();
+
+                // Si rien à faire, sortir
+                if (!staffsToUpdate.Any())
+                {
+                    _isAssigningMatricules = false;
+                    return result;
+                }
+
+                // Générer matricules et marquer Modified
+
+                foreach (var st in staffsToUpdate)
+                {
+                    st.Matricule = GenerateStaffMatricule(st.Id);
+                    Entry(st).State = EntityState.Modified;
+                }
+
+                // Persister les matricules
+                base.SaveChanges();
+            }
+            finally
+            {
+                _isAssigningMatricules = false;
+            }
+
+            return result;
+        }
+
+        private string GenerateStaffMatricule(int id)
+        {
+            // Exemple : STF + année + id sur 6 chiffres
+            return $"STF{DateTime.UtcNow.Year}{id:000000}";
+        }
+    }
 }

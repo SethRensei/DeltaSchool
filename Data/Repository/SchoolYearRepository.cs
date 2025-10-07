@@ -21,27 +21,12 @@ namespace DeltaSchool.Data.Repository
                 .ToList();
         }
 
-        public SchoolYear GetById(int id)
-        {
-            return _context.SchoolYears.Find(id);
-        }
+        public SchoolYear GetById(int id) => _context.SchoolYears.Find(id);
 
-        public void Add(SchoolYear schoolYear)
-        {
-            _context.SchoolYears.Add(schoolYear);
-        }
+        public void Add(SchoolYear schoolYear) =>_context.SchoolYears.Add(schoolYear);
 
         public void Update(SchoolYear schoolYear)
-        {
-            _context.Entry(schoolYear).State = System.Data.Entity.EntityState.Modified;
-        }
-
-        public void Delete(int id)
-        {
-            var schoolYear = _context.SchoolYears.Find(id);
-            if (schoolYear != null)
-                _context.SchoolYears.Remove(schoolYear);
-        }
+            => _context.Entry(schoolYear).State = System.Data.Entity.EntityState.Modified;
 
         public void Save() => _context.SaveChanges();
     }

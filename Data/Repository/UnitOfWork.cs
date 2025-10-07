@@ -16,9 +16,11 @@ namespace DeltaSchool.Data.Repository
         private ClasseRepository _classeRepo;
         private JobRepository _jobRepo;
         private StaffRepository _staffRepo;
+        private PayrollRepository _payReop;
         private StaffJobRepository _staffJobRepo;
         private ClasseSubjectRepository _classeSubjectRepo;
         private StudentRepository _studentRepo;
+        private SchoolingRepository _schoolingRepo;
 
         private DbContextTransaction _transaction;
         private bool _disposed = false;
@@ -46,6 +48,9 @@ namespace DeltaSchool.Data.Repository
         public IJobRepository Jobs
             => _jobRepo ?? (_jobRepo = new JobRepository(_context));
 
+        public IPayrollRepository Payrolls
+            => _payReop ?? (_payReop = new PayrollRepository(_context));
+
         public IStaffRepository Staffs
             => _staffRepo ?? (_staffRepo = new StaffRepository(_context));
 
@@ -57,6 +62,10 @@ namespace DeltaSchool.Data.Repository
 
         public IStudentRepository Students
             => _studentRepo ?? (_studentRepo = new StudentRepository(_context));
+
+        public ISchoolingRepository Schoolings
+            => _schoolingRepo ?? (_schoolingRepo = new SchoolingRepository(_context));
+
         public DbContextTransaction BeginTransaction()
         {
             if (_transaction == null)

@@ -90,9 +90,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(579, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 22);
+            this.label4.Size = new System.Drawing.Size(115, 22);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Addrese 📌";
+            this.label4.Text = "Adresse 📌";
             // 
             // label5
             // 

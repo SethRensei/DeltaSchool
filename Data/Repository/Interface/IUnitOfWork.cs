@@ -11,10 +11,11 @@ namespace DeltaSchool.Data.Repository.Interface
         IClasseRepository Classes { get; }
         IJobRepository Jobs { get; }
         IStaffRepository Staffs { get; }
+        IPayrollRepository Payrolls { get; }
         IStaffJobRepository StaffJobs { get; }
         IClasseSubjectRepository ClasseSubjects { get; }
-
         IStudentRepository Students { get; }
+        ISchoolingRepository Schoolings { get; }
 
         // transaction handling
         System.Data.Entity.DbContextTransaction BeginTransaction();

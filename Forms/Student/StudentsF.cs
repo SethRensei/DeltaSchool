@@ -34,6 +34,11 @@ namespace DeltaSchool.Forms.Student
             LoadStudents(students);
 
             dgvStudent.DataGrid.CellDoubleClick += DGVStudent_CellDoubleClick;
+            dgvStudent.DataGrid.CellClick += (s, ce) =>
+            {
+                this._studentId = GlobalEvent.IDFromCellDGV(ce, dgvStudent.DataGrid);
+                btnNewTransac.Visible = true;
+            };
         }
 
         private void StudentsF_FormClosed(object sender, FormClosedEventArgs e)
@@ -45,6 +50,10 @@ namespace DeltaSchool.Forms.Student
         {
             this._studentId = GlobalEvent.IDFromCellDGV(e, dgvStudent.DataGrid);
             MainForm.Instance.OpenChildForm(new AdStudent(this._studentId));
+        }
+        private void BtnNewTransac_Click(object sender, EventArgs e)
+        {
+            MainForm.Instance.OpenChildForm(new Finance.AdSchoolingF(_uow.Students.GetById(this._studentId)));
         }
 
         #region Private Methods
