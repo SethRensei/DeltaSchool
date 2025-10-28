@@ -21,6 +21,8 @@ namespace DeltaSchool.Data.Repository
         private ClasseSubjectRepository _classeSubjectRepo;
         private StudentRepository _studentRepo;
         private SchoolingRepository _schoolingRepo;
+        private ExpenseRepository _expenseRepo;
+        private ExpenseCategoryRepository _expenseCatRepo;
 
         private DbContextTransaction _transaction;
         private bool _disposed = false;
@@ -65,6 +67,12 @@ namespace DeltaSchool.Data.Repository
 
         public ISchoolingRepository Schoolings
             => _schoolingRepo ?? (_schoolingRepo = new SchoolingRepository(_context));
+
+        public IExpenseRepository Expenses
+            => _expenseRepo ?? (_expenseRepo = new ExpenseRepository(_context));
+        
+        public IExpenseCategoryRepository ExpenseCategories
+            => _expenseCatRepo ?? (_expenseCatRepo = new ExpenseCategoryRepository(_context));
 
         public DbContextTransaction BeginTransaction()
         {

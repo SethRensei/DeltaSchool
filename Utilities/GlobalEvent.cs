@@ -138,6 +138,30 @@ namespace DeltaSchool.Utilities
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Retrieves the ID from the row associated with a DataGridView cell event.
+        /// </summary>
+        /// <remarks>
+        /// This method assumes that there is a column named “ID” in the DataGridView 
+        /// containing the unique identifier value to be retrieved.
+        /// </remarks>
+        /// <param name="e">The cell event arguments (<see cref="DataGridViewCellEventArgs"/>) 
+        /// providing the row index.</param>
+        /// <param name="dgv">The <see cref="DataGridView"/> concerned.</param>
+        /// <returns>
+        /// The ID (integer) contained in the “ID” column of the clicked row.
+        /// Returns <c>-1</c> if the column header was clicked (RowIndex is negative).
+        /// </returns>
+        /// <exception cref="InvalidCastException">
+        /// Occurs if the value of the “ID” cell cannot be converted to <see cref="System.Int32"/>.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Occurs if the row index specified by <paramref name="e"/> is outside the range 
+        /// of valid rows in <paramref name="dgv"/>.
+        /// </exception>
+        /// <exception cref="Exception">
+        /// May occur if the column named “ID” does not exist in <see cref="DataGridView"/>.
+        /// </exception>
         public static int IDFromCellDGV(DataGridViewCellEventArgs e, DataGridView dgv)
         {
             if (e.RowIndex < 0) return -1; // Header clicked

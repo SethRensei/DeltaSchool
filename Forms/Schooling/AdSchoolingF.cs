@@ -130,14 +130,8 @@ namespace DeltaSchool.Forms.Finance
         {
             if(this._isEdit ==  false)
             {
-                decimal amount;
-                if (!decimal.TryParse(txtAmount.Texts, out amount))
-                {
-                    ShowAlert.WarningMsg("Le montant n'est pas valide ou est vide.");
-                    return;
-                }
 
-                if (cbType.SelectedValue.ToString() == "SCHOOL_FEES")
+                if (cbType.SelectedValue.ToString() == TransacType.SCHOOL_FEES.ToString())
                 {
                     if (string.IsNullOrWhiteSpace(cbPeriod.SelectedItem.ToString()))
                     {
@@ -153,7 +147,7 @@ namespace DeltaSchool.Forms.Finance
                     StudentId = _student.Id,
                     Status = cbStatus.SelectedValue.ToString(),
                     Type = cbType.SelectedValue.ToString(),
-                    Amount = amount,
+                    Amount = UHelpers.ConvertAmount(txtAmount.Texts),
                     PaidAt = dpPeriod.Value,
                     Period = period
                 };

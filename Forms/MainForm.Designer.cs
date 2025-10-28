@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new RenComponent.RenPanel();
+            this.btnReport = new RenComponent.RenButton();
+            this.btnLogout = new RenComponent.RenButton();
             this.btnFinance = new RenComponent.RenButton();
             this.btnStaff = new RenComponent.RenButton();
             this.btnClasse = new RenComponent.RenButton();
@@ -49,7 +51,7 @@
             this.searchStudentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.studentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.parentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adParentSTM = new System.Windows.Forms.ToolStripMenuItem();
+            this.adParentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.parentTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.drpClasse = new RenComponent.RenDropdownMenu(this.components);
             this.classesAndSubjetsTSM = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +63,18 @@
             this.jobTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.drpFinance = new RenComponent.RenDropdownMenu(this.components);
             this.transacTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.expenseCatTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.expenseTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.adPayrollTSM = new System.Windows.Forms.ToolStripMenuItem();
             this.payrollTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.drpReport = new RenComponent.RenDropdownMenu(this.components);
+            this.dashboardTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -71,6 +83,7 @@
             this.drpClasse.SuspendLayout();
             this.drpStaff.SuspendLayout();
             this.drpFinance.SuspendLayout();
+            this.drpReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -80,6 +93,8 @@
             this.pnlMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlMenu.BorderRadius = 0;
             this.pnlMenu.BorderSize = 0;
+            this.pnlMenu.Controls.Add(this.btnReport);
+            this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.btnFinance);
             this.pnlMenu.Controls.Add(this.btnStaff);
             this.pnlMenu.Controls.Add(this.btnClasse);
@@ -95,6 +110,63 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(229, 700);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnReport.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnReport.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnReport.BorderRadius = 0;
+            this.btnReport.BorderSize = 0;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnReport.Image = global::DeltaSchool.Properties.Resources.report;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnReport.Location = new System.Drawing.Point(0, 617);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnReport.Size = new System.Drawing.Size(229, 49);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "Rapports  ▶";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.BtnReport_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnLogout.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLogout.BorderRadius = 0;
+            this.btnLogout.BorderSize = 0;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnLogout.Image = global::DeltaSchool.Properties.Resources.logout;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 666);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(229, 34);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Se déconnecter";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // btnFinance
             // 
@@ -395,7 +467,7 @@
             // parentsToolStripMenuItem
             // 
             this.parentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adParentSTM,
+            this.adParentTSM,
             this.parentTSM});
             this.parentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.parentsToolStripMenuItem.Name = "parentsToolStripMenuItem";
@@ -403,20 +475,22 @@
             this.parentsToolStripMenuItem.Text = "Parents";
             this.parentsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // adParentSTM
+            // adParentTSM
             // 
-            this.adParentSTM.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.adParentSTM.Name = "adParentSTM";
-            this.adParentSTM.Size = new System.Drawing.Size(136, 22);
-            this.adParentSTM.Text = "Ajouter";
-            this.adParentSTM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.adParentSTM.Click += new System.EventHandler(this.AdParentSTM_Click);
+            this.adParentTSM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.adParentTSM.Name = "adParentTSM";
+            this.adParentTSM.Padding = new System.Windows.Forms.Padding(0, 1, 0, 4);
+            this.adParentTSM.Size = new System.Drawing.Size(180, 25);
+            this.adParentTSM.Text = "Ajouter";
+            this.adParentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.adParentTSM.Click += new System.EventHandler(this.AdParentSTM_Click);
             // 
             // parentTSM
             // 
             this.parentTSM.BackColor = System.Drawing.Color.DarkSlateGray;
             this.parentTSM.Name = "parentTSM";
-            this.parentTSM.Size = new System.Drawing.Size(136, 22);
+            this.parentTSM.Padding = new System.Windows.Forms.Padding(0, 1, 0, 4);
+            this.parentTSM.Size = new System.Drawing.Size(180, 25);
             this.parentTSM.Text = "Liste";
             this.parentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.parentTSM.Click += new System.EventHandler(this.ParentTSM_Click);
@@ -516,6 +590,7 @@
             this.drpFinance.IsMainMenu = false;
             this.drpFinance.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.transacTSM,
+            this.toolStripMenuItem1,
             this.adPayrollTSM,
             this.payrollTSM});
             this.drpFinance.MenuItemHeight = 25;
@@ -523,7 +598,7 @@
             this.drpFinance.Name = "drpStudent";
             this.drpFinance.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpFinance.ShowImageMargin = false;
-            this.drpFinance.Size = new System.Drawing.Size(239, 116);
+            this.drpFinance.Size = new System.Drawing.Size(239, 125);
             // 
             // transacTSM
             // 
@@ -533,6 +608,39 @@
             this.transacTSM.Text = "Transaction élèves";
             this.transacTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.transacTSM.Click += new System.EventHandler(this.TransacTSM_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.expenseCatTSM,
+            this.expenseTSM});
+            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(238, 22);
+            this.toolStripMenuItem1.Text = "Dépense interne";
+            this.toolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // expenseCatTSM
+            // 
+            this.expenseCatTSM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.expenseCatTSM.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.expenseCatTSM.Name = "expenseCatTSM";
+            this.expenseCatTSM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.expenseCatTSM.Size = new System.Drawing.Size(234, 25);
+            this.expenseCatTSM.Text = "Catégories Dépense";
+            this.expenseCatTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.expenseCatTSM.Click += new System.EventHandler(this.ExpenseCatTSM_Click);
+            // 
+            // expenseTSM
+            // 
+            this.expenseTSM.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.expenseTSM.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.expenseTSM.Name = "expenseTSM";
+            this.expenseTSM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.expenseTSM.Size = new System.Drawing.Size(234, 25);
+            this.expenseTSM.Text = "Nos Dépenses";
+            this.expenseTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.expenseTSM.Click += new System.EventHandler(this.ExpenseTSM_Click);
             // 
             // adPayrollTSM
             // 
@@ -551,6 +659,76 @@
             this.payrollTSM.Text = "Paiement du personnel";
             this.payrollTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.payrollTSM.Click += new System.EventHandler(this.PayrollTSM_Click);
+            // 
+            // drpReport
+            // 
+            this.drpReport.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.drpReport.DropShadowEnabled = false;
+            this.drpReport.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.drpReport.IsMainMenu = false;
+            this.drpReport.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dashboardTSM,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.drpReport.MenuItemHeight = 25;
+            this.drpReport.MenuItemTextColor = System.Drawing.Color.LightCyan;
+            this.drpReport.Name = "drpStudent";
+            this.drpReport.PrimaryColor = System.Drawing.Color.DarkSlateGray;
+            this.drpReport.ShowImageMargin = false;
+            this.drpReport.Size = new System.Drawing.Size(207, 125);
+            // 
+            // dashboardTSM
+            // 
+            this.dashboardTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
+            this.dashboardTSM.Name = "dashboardTSM";
+            this.dashboardTSM.Size = new System.Drawing.Size(206, 22);
+            this.dashboardTSM.Text = "Tableaux de Bord";
+            this.dashboardTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashboardTSM.Click += new System.EventHandler(this.DashboardTSM_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 22);
+            this.toolStripMenuItem2.Text = "Recherche d\'élèves";
+            this.toolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(206, 22);
+            this.toolStripMenuItem3.Text = "Liste d\'élèves";
+            this.toolStripMenuItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6});
+            this.toolStripMenuItem4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(206, 22);
+            this.toolStripMenuItem4.Text = "Parents";
+            this.toolStripMenuItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem5.Text = "Ajouter";
+            this.toolStripMenuItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem6.Text = "Liste";
+            this.toolStripMenuItem6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
@@ -582,6 +760,7 @@
             this.drpClasse.ResumeLayout(false);
             this.drpStaff.ResumeLayout(false);
             this.drpFinance.ResumeLayout(false);
+            this.drpReport.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -603,7 +782,7 @@
         private System.Windows.Forms.ToolStripMenuItem adStudentTSM;
         private System.Windows.Forms.ToolStripMenuItem studentTSM;
         private System.Windows.Forms.ToolStripMenuItem parentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adParentSTM;
+        private System.Windows.Forms.ToolStripMenuItem adParentTSM;
         private System.Windows.Forms.ToolStripMenuItem parentTSM;
         private RenComponent.RenButton btnClasse;
         private RenComponent.RenDropdownMenu drpClasse;
@@ -621,5 +800,17 @@
         private System.Windows.Forms.ToolStripMenuItem adPayrollTSM;
         private System.Windows.Forms.ToolStripMenuItem payrollTSM;
         private System.Windows.Forms.ToolStripMenuItem searchStudentTSM;
+        private RenComponent.RenButton btnReport;
+        private RenComponent.RenButton btnLogout;
+        private RenComponent.RenDropdownMenu drpReport;
+        private System.Windows.Forms.ToolStripMenuItem dashboardTSM;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem expenseTSM;
+        private System.Windows.Forms.ToolStripMenuItem expenseCatTSM;
     }
 }

@@ -24,5 +24,17 @@ namespace DeltaSchool.Utilities
             return age;
         }
 
+        public static decimal ConvertAmount(string input)
+        {
+            decimal amount;
+
+            if (!decimal.TryParse(input, out amount))
+            {
+                ShowAlert.ErrorMsg("Le montant n'est pas valide ou est vide.");
+                return default;
+            }
+            else
+                return amount;
+        }
     }
 }

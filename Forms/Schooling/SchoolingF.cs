@@ -56,9 +56,7 @@ namespace DeltaSchool.Forms.Finance
         }
 
         private void SchoolingF_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _uow.Dispose();
-        }
+            => _uow.Dispose();
 
         private void CbSchoolYear_OnSelectedIndexChanged(object sender, EventArgs e)
         {

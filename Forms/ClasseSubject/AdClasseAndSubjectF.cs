@@ -73,7 +73,7 @@ namespace DeltaSchool.Forms.ClasseSubject
         {
             if (this._classeId == -1)
             {
-                var classe = new Data.Entity.Classe
+                var classe = new Classe
                 {
                     Name = txtClasse.Texts.Trim(),
                     Cycle = cbCycle.SelectedValue.ToString(),

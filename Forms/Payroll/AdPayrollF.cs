@@ -33,6 +33,9 @@ namespace DeltaSchool.Forms.Payroll
         {
             txtAmount.KeyPress += GlobalEvent.NumberOnly;
 
+            dpPeriod.MaxDate = DateTime.Today;
+            dpPeriod.Value = dpPeriod.MaxDate;
+
             // Payment Status
             cbStatus.DataSource = Enum.GetValues(typeof(TransacStatus))
                 .Cast<TransacStatus>()
@@ -68,7 +71,7 @@ namespace DeltaSchool.Forms.Payroll
                 txtFirstname.Texts = _staff.Firstname;
                 txtAddress.Texts = _staff.Address;
                 txtPhone.Texts = _staff.PhoneNumber1;
-                txtNetPay.Texts = Convert.ToString(_staff.StaffJobs.Sum(sj => sj.Salary)) + " XAF";
+                txtNetPay.Texts = _staff.StaffJobs.Sum(sj => sj.Salary).ToString() + " XAF";
 
                 if(_staff.StaffJobs.Sum(sj => sj.Salary) != 0)
                     gbAdPay.Visible = true;
@@ -87,19 +90,22 @@ namespace DeltaSchool.Forms.Payroll
             if (_staff != null)
             {
                 decimal netPay = _staff.StaffJobs.Sum(sj => sj.Salary);
-                decimal amount;
+                decimal amount = UHelpers.ConvertAmount(txtAmount.Texts); ;
                 decimal residual = 0;
-
-                if (!decimal.TryParse(txtAmount.Texts, out amount))
-                {
-                    ShowAlert.ErrorMsg("Le montant n'est pas valide ou est vide.");
-                    return;
-                }
 
                 if (amount > netPay)
                 {
                     ShowAlert.ErrorMsg("Le montant à payer ne doit pas être supérieur au net à payer");
                     return;
+                }
+
+                if (cbStatus.SelectedValue.ToString() == TransacStatus.SUSPENDED.ToString())
+                {
+                    if (string.IsNullOrWhiteSpace(txtNotes.Texts))
+                    {
+                        ShowAlert.ErrorMsg("Veuillez indiquer la note/raison pour suspendre un paiement");
+                        return;
+                    }
                 }
 
                 if (netPay > amount)

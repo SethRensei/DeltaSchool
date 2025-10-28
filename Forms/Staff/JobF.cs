@@ -82,10 +82,6 @@ namespace DeltaSchool.Forms.Staff
             btnDelete.Visible = true;
             this._jobId = GlobalEvent.IDFromCellDGV(e, dgvJob.DataGrid);
         }
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {

@@ -68,9 +68,7 @@ namespace DeltaSchool.Forms
         }
 
         private void BtnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+            => WindowState = FormWindowState.Minimized;
 
         private void BtnMaximize_Click(object sender, EventArgs e)
         {
@@ -93,87 +91,68 @@ namespace DeltaSchool.Forms
         }
         
         private void BtnStudent_Click(object sender, EventArgs e)
-        {
-            OpenSidebarDRP(drpStudent, btnStudent);
-        }
+            => OpenSidebarDRP(drpStudent, btnStudent);
+
         private void AdStudentTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Student.AdStudent());
-        }
+            => OpenChildForm(new Student.AdStudent());
 
         private void StudentTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Student.StudentsF());
-        }
+            => OpenChildForm(new Student.StudentsF());
 
         private void ParentTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ParentStudent.ParentF());
-        }
+            => OpenChildForm(new ParentStudent.ParentF());
 
         private void AdParentSTM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ParentStudent.AddParentF());
-        }
+            => OpenChildForm(new ParentStudent.AddParentF());
 
         private void BtnClasse_Click(object sender, EventArgs e)
-        {
-            OpenSidebarDRP(drpClasse, btnClasse);
-        }
+            => OpenSidebarDRP(drpClasse, btnClasse);
 
         private void ClassesAndSubjetsTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ClasseSubject.ClasseAndSubjectF());
-        }
+            => OpenChildForm(new ClasseSubject.ClasseAndSubjectF());
 
         private void BtnStaff_Click(object sender, EventArgs e)
-        {
-            OpenSidebarDRP(drpStaff, btnStaff);
-        }
+            => OpenSidebarDRP(drpStaff, btnStaff);
 
         private void AdStaffTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Staff.AdStaffF());
-        }
+            => OpenChildForm(new Staff.AdStaffF());
 
         private void StaffsTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Staff.StaffsF());
-        }
+            => OpenChildForm(new Staff.StaffsF());
 
         private void JobTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Staff.JobF());
-        }
+            => OpenChildForm(new Staff.JobF());
 
         private void StaffJobTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Staff.StaffJobF());
-        }
+            => OpenChildForm(new Staff.StaffJobF());
 
         private void ClasseSubjectTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ClasseSubject.ClasseSubjectF());
-        }
+            => OpenChildForm(new ClasseSubject.ClasseSubjectF());
+
         private void BtnFinance_Click(object sender, EventArgs e)
-        {
-            OpenSidebarDRP(drpFinance, btnFinance);
-        }
+            => OpenSidebarDRP(drpFinance, btnFinance);
+
         private void TransacTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Finance.SchoolingF());
-        }
+            => OpenChildForm(new Finance.SchoolingF());
 
         private void AdPayrollTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Payroll.AdPayrollF());
-        }
+            => OpenChildForm(new Payroll.AdPayrollF());
 
         private void PayrollTSM_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Payroll.PayrollF());
-        }
-        #endregion
+            => OpenChildForm(new Payroll.PayrollF());
+        
+        private void BtnReport_Click(object sender, EventArgs e)
+            => OpenSidebarDRP(drpReport, btnReport);
 
+        private void DashboardTSM_Click(object sender, EventArgs e)
+            => OpenChildForm(new Report.DashbordF());
+
+        private void ExpenseCatTSM_Click(object sender, EventArgs e)
+            => OpenChildForm(new Expense.CategoryF());
+
+        private void ExpenseTSM_Click(object sender, EventArgs e)
+            => OpenChildForm(new Expense.ExpenseF());
+        
+        #endregion
     }
 }

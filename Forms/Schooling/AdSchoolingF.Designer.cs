@@ -256,9 +256,9 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(66, 448);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 22);
+            this.label5.Size = new System.Drawing.Size(55, 22);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Période";
+            this.label5.Text = "Mois";
             // 
             // btnSave
             // 

@@ -35,6 +35,8 @@ namespace DeltaSchool.Data
         public DbSet<ParentStudent> ParentStudents { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Schooling> Schoolings { get; set; }
+        public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,6 +56,8 @@ namespace DeltaSchool.Data
             modelBuilder.Entity<ParentStudent>().ToTable("parent_student");
             modelBuilder.Entity<Student>().ToTable("student");
             modelBuilder.Entity<Schooling>().ToTable("schooling");
+            modelBuilder.Entity<ExpenseCategory>().ToTable("expense_category");
+            modelBuilder.Entity<Expense>().ToTable("expense");
 
             #endregion
 
@@ -186,6 +190,13 @@ namespace DeltaSchool.Data
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_StaffJob_Unique", 2) { IsUnique = true }));
 
+            // expense_category.name unique
+            modelBuilder.Entity<ExpenseCategory>()
+                .Property(ec => ec.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_ExpenseCategory_Name") { IsUnique = true }));
+
             #endregion
 
             #region Relations (s'assurer du comportement ON DELETE/UPDATE)
@@ -270,6 +281,13 @@ namespace DeltaSchool.Data
                 .HasOptional(sc => sc.SchoolYear)
                 .WithMany(sy => sy.Schoolings)
                 .HasForeignKey(sc => sc.SchoolYearId)
+                .WillCascadeOnDelete(false);
+
+            // Expense
+            modelBuilder.Entity<Expense>()
+                .HasRequired(e => e.ExpenseCategory)
+                .WithMany(ec => ec.Expenses)
+                .HasForeignKey(e => e.CategoryId)
                 .WillCascadeOnDelete(false);
             #endregion
         }

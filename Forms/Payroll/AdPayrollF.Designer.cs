@@ -191,9 +191,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(315, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 22);
+            this.label7.Size = new System.Drawing.Size(82, 22);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Période 📌";
+            this.label7.Text = "Mois 📌";
             // 
             // label11
             // 
