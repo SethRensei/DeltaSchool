@@ -31,9 +31,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlStudentCount = new RenComponent.RenPanel();
             this.lblStudentCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,16 +47,16 @@
             this.lblStaffCount = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartBar = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.genderChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.studentChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlStudentCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlParentCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlStaffCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentChart)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlStudentCount
@@ -217,37 +218,75 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // chartPie
+            // genderChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPie.ChartAreas.Add(chartArea1);
+            this.genderChart.BackColor = System.Drawing.Color.Transparent;
+            this.genderChart.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderColor = System.Drawing.Color.Transparent;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 100F;
+            chartArea1.InnerPlotPosition.Width = 100F;
+            chartArea1.Name = "MainArea";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 90F;
+            chartArea1.Position.Width = 100F;
+            chartArea1.Position.Y = 9F;
+            chartArea1.ShadowColor = System.Drawing.Color.Transparent;
+            this.genderChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chartPie.Legends.Add(legend1);
-            this.chartPie.Location = new System.Drawing.Point(576, 186);
-            this.chartPie.Name = "chartPie";
-            series1.ChartArea = "ChartArea1";
+            this.genderChart.Legends.Add(legend1);
+            this.genderChart.Location = new System.Drawing.Point(576, 186);
+            this.genderChart.Name = "genderChart";
+            series1.ChartArea = "MainArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Lucida Fax", 12F);
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartPie.Series.Add(series1);
-            this.chartPie.Size = new System.Drawing.Size(421, 449);
-            this.chartPie.TabIndex = 5;
-            this.chartPie.Text = "chart1";
+            series1.Name = "Gender Distribution";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            this.genderChart.Series.Add(series1);
+            this.genderChart.Size = new System.Drawing.Size(421, 449);
+            this.genderChart.TabIndex = 5;
+            this.genderChart.Text = "Répartion des élèves par Sexe";
+            title1.Alignment = System.Drawing.ContentAlignment.TopCenter;
+            title1.BackColor = System.Drawing.Color.DarkSlateGray;
+            title1.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            title1.ForeColor = System.Drawing.Color.LightCyan;
+            title1.Name = "Title1";
+            title1.Text = "Répartion des élèves par Sexe";
+            this.genderChart.Titles.Add(title1);
             // 
-            // chartBar
+            // studentChart
             // 
+            this.studentChart.BackColor = System.Drawing.Color.Transparent;
+            this.studentChart.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
             chartArea2.Name = "ChartArea1";
-            this.chartBar.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartBar.Legends.Add(legend2);
-            this.chartBar.Location = new System.Drawing.Point(12, 186);
-            this.chartBar.Name = "chartBar";
+            this.studentChart.ChartAreas.Add(chartArea2);
+            this.studentChart.Location = new System.Drawing.Point(12, 186);
+            this.studentChart.Name = "studentChart";
+            series2.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            series2.BackSecondaryColor = System.Drawing.Color.Transparent;
             series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartBar.Series.Add(series2);
-            this.chartBar.Size = new System.Drawing.Size(545, 449);
-            this.chartBar.TabIndex = 6;
-            this.chartBar.Text = "chart1";
+            series2.CustomProperties = "LabelStyle=Bottom, EmptyPointValue=Zero, DrawingStyle=Wedge";
+            series2.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            series2.IsValueShownAsLabel = true;
+            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            series2.LabelBorderColor = System.Drawing.Color.DarkSlateGray;
+            series2.Name = "Student Hist";
+            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.studentChart.Series.Add(series2);
+            this.studentChart.Size = new System.Drawing.Size(545, 449);
+            this.studentChart.TabIndex = 6;
+            this.studentChart.Text = "chart1";
+            title2.BackColor = System.Drawing.Color.DarkSlateGray;
+            title2.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            title2.ForeColor = System.Drawing.Color.LightCyan;
+            title2.Name = "Title1";
+            title2.ShadowColor = System.Drawing.Color.Transparent;
+            title2.Text = "Répartition des élèves par classe";
+            this.studentChart.Titles.Add(title2);
             // 
             // DashbordF
             // 
@@ -255,8 +294,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(216)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1010, 647);
-            this.Controls.Add(this.chartBar);
-            this.Controls.Add(this.chartPie);
+            this.Controls.Add(this.studentChart);
+            this.Controls.Add(this.genderChart);
             this.Controls.Add(this.pnlStaffCount);
             this.Controls.Add(this.pnlParentCount);
             this.Controls.Add(this.pnlStudentCount);
@@ -274,8 +313,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlStaffCount.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,7 +333,7 @@
         private System.Windows.Forms.Label lblStaffCount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPie;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartBar;
+        private System.Windows.Forms.DataVisualization.Charting.Chart genderChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart studentChart;
     }
 }

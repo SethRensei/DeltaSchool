@@ -148,7 +148,7 @@ namespace DeltaSchool.Forms.Staff
             foreach(var sj in staffJobs)
                 dt.Rows.Add(sj.Id, $"{sj.Staff.Lastname} {sj.Staff.Firstname}",
                     sj.Job.Name, $"{sj.Salary} FCFA",
-                    PeriodicityMapper.GetLabelFromDbValue(sj.Periodicity), sj.Staff.HireDate.Value.ToString("D"));
+                    PeriodicityMapper.GetLabelFromDbValue(sj.Periodicity), sj.Staff.HireDate?.ToString("D"));
 
             dgvStaffJob.SetData(dt);
             dgvStaffJob.Visible = true;

@@ -152,7 +152,10 @@ namespace DeltaSchool.Forms.Finance
                     Period = period
                 };
 
-                if(cbClasse.SelectedIndex == -1)
+                if (sc.Amount <= 0)
+                    return;
+
+                if (cbClasse.SelectedIndex == -1)
                     sc.ClasseId = _student.ClasseId;
                 else
                     sc.ClasseId = Convert.ToInt32(cbClasse.SelectedValue.ToString());
@@ -162,12 +165,14 @@ namespace DeltaSchool.Forms.Finance
                     sc.SchoolYearId = Convert.ToInt32(cbSchoolYear.SelectedValue.ToString());
 
                 if (!_service.Create(sc))
-                    ShowAlert.WarningMsg("Impossible d'enregistrer ce(tte) inscription/paiement\nCar il existe une (des) erreur(s).");
+                    ShowAlert.WarningMsg("Impossible d'enregistrer cette transaction\nCar il existe une (des) erreur(s).");
                 else
-                    if (ShowAlert.Question("Voulez-vous effectuer une nouvelle inscription ?") == DialogResult.Yes)
-                    MainForm.Instance.OpenChildForm(new StudentsF());
-                else
-                    ResetValue();
+                {
+                    if (ShowAlert.Question("Voulez-vous effectuer une nouvelle transaction ?") == DialogResult.No)
+                        MainForm.Instance.OpenChildForm(new StudentsF());
+                    else
+                        ResetValue();
+                }
             }
         }
 

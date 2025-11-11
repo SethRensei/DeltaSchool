@@ -73,8 +73,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -128,11 +126,11 @@
             this.btnReport.ForeColor = System.Drawing.Color.LightCyan;
             this.btnReport.Image = global::DeltaSchool.Properties.Resources.report;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnReport.Location = new System.Drawing.Point(0, 617);
+            this.btnReport.Location = new System.Drawing.Point(0, 601);
             this.btnReport.Margin = new System.Windows.Forms.Padding(0);
             this.btnReport.Name = "btnReport";
             this.btnReport.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnReport.Size = new System.Drawing.Size(229, 49);
+            this.btnReport.Size = new System.Drawing.Size(229, 56);
             this.btnReport.TabIndex = 5;
             this.btnReport.Text = "Rapports  ▶";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -157,11 +155,11 @@
             this.btnLogout.ForeColor = System.Drawing.Color.LightCyan;
             this.btnLogout.Image = global::DeltaSchool.Properties.Resources.logout;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 666);
+            this.btnLogout.Location = new System.Drawing.Point(0, 657);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnLogout.Size = new System.Drawing.Size(229, 34);
+            this.btnLogout.Size = new System.Drawing.Size(229, 43);
             this.btnLogout.TabIndex = 6;
             this.btnLogout.Text = "Se déconnecter";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -480,7 +478,7 @@
             this.adParentTSM.BackColor = System.Drawing.Color.DarkSlateGray;
             this.adParentTSM.Name = "adParentTSM";
             this.adParentTSM.Padding = new System.Windows.Forms.Padding(0, 1, 0, 4);
-            this.adParentTSM.Size = new System.Drawing.Size(180, 25);
+            this.adParentTSM.Size = new System.Drawing.Size(136, 25);
             this.adParentTSM.Text = "Ajouter";
             this.adParentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.adParentTSM.Click += new System.EventHandler(this.AdParentSTM_Click);
@@ -490,7 +488,7 @@
             this.parentTSM.BackColor = System.Drawing.Color.DarkSlateGray;
             this.parentTSM.Name = "parentTSM";
             this.parentTSM.Padding = new System.Windows.Forms.Padding(0, 1, 0, 4);
-            this.parentTSM.Size = new System.Drawing.Size(180, 25);
+            this.parentTSM.Size = new System.Drawing.Size(136, 25);
             this.parentTSM.Text = "Liste";
             this.parentTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.parentTSM.Click += new System.EventHandler(this.ParentTSM_Click);
@@ -676,13 +674,13 @@
             this.drpReport.Name = "drpStudent";
             this.drpReport.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpReport.ShowImageMargin = false;
-            this.drpReport.Size = new System.Drawing.Size(207, 125);
+            this.drpReport.Size = new System.Drawing.Size(193, 125);
             // 
             // dashboardTSM
             // 
             this.dashboardTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
             this.dashboardTSM.Name = "dashboardTSM";
-            this.dashboardTSM.Size = new System.Drawing.Size(206, 22);
+            this.dashboardTSM.Size = new System.Drawing.Size(192, 22);
             this.dashboardTSM.Text = "Tableaux de Bord";
             this.dashboardTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboardTSM.Click += new System.EventHandler(this.DashboardTSM_Click);
@@ -691,44 +689,25 @@
             // 
             this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(206, 22);
-            this.toolStripMenuItem2.Text = "Recherche d\'élèves";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItem2.Text = "Flux Internes";
             this.toolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(206, 22);
-            this.toolStripMenuItem3.Text = "Liste d\'élèves";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 22);
+            this.toolStripMenuItem3.Text = "Flux Externes";
             this.toolStripMenuItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6});
             this.toolStripMenuItem4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(206, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 22);
             this.toolStripMenuItem4.Text = "Parents";
             this.toolStripMenuItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem5.Text = "Ajouter";
-            this.toolStripMenuItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMenuItem6.Text = "Liste";
-            this.toolStripMenuItem6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
@@ -807,8 +786,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem expenseTSM;
         private System.Windows.Forms.ToolStripMenuItem expenseCatTSM;

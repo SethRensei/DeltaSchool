@@ -59,6 +59,7 @@ namespace DeltaSchool.Forms.Expense
                     ShowAlert.WarningMsg("Le choix d'une catégorie est obligatoire");
                     return;
                 }
+
                 var expense = new Data.Entity.Expense
                 {
                     CategoryId = Convert.ToInt32(cbCategory.SelectedValue.ToString()),
@@ -66,6 +67,9 @@ namespace DeltaSchool.Forms.Expense
                     IncurredAt = dpIncurredAt.Value,
                     Description = txtDesc.Texts.Trim()
                 };
+
+                if (expense.Amount <= 0)
+                    return;
 
                 _service.Create(expense);
                 FillDGV();

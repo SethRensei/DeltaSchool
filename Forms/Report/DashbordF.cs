@@ -56,25 +56,7 @@ namespace DeltaSchool.Forms.Report
             })
             .ToList();
 
-            chartPie.Series.Clear();
-            chartPie.ChartAreas.Clear();
-            chartPie.Legends.Clear();
-            chartPie.ChartAreas.Add(new ChartArea("PieArea"));
-
-            var legend = new Legend("Legend1")
-            {
-                Docking = Docking.Right,
-                Alignment = StringAlignment.Center,
-                LegendStyle = LegendStyle.Table
-            };
-            chartPie.Legends.Add(legend);
-
-            var series = new Series("Répartition par genre")
-            {
-                ChartType = SeriesChartType.Pie,
-                ChartArea = "PieArea",
-                Legend = "Legend1"
-            };
+            var series = genderChart.Series["Gender Distribution"];
 
             int totalAll = data.Sum(x => (int)x.Total);
 
@@ -89,7 +71,7 @@ namespace DeltaSchool.Forms.Report
 
                 double pct = totalAll == 0 ? 0 : (double)g.Total * 100.0 / totalAll;
                 pt.Label = $"{pct:0}%\n{g.Total}";
-                pt.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                pt.Font = new Font("Lucida Fax", 10, FontStyle.Bold);
                 pt.LabelForeColor = Color.Black;
             }
 
@@ -98,8 +80,7 @@ namespace DeltaSchool.Forms.Report
             series["PieDrawingStyle"] = "SoftEdge";
             series["PieLabelStyle"] = "Inside"; // or "Outside"
 
-            chartPie.Series.Add(series);
-            chartPie.Invalidate();
+            genderChart.Invalidate();
         }
 
         private void DrawChart()
@@ -109,22 +90,14 @@ namespace DeltaSchool.Forms.Report
                 .Select(g => new { Classe = g.Key, Total = g.Count() })
                 .ToList();
 
-            chartBar.Series.Clear();
-            chartBar.ChartAreas.Clear();
-            chartBar.ChartAreas.Add(new ChartArea("BarArea"));
-
-            var series = new Series("Élèves par classe")
-            {
-                ChartType = SeriesChartType.Column,
-                ChartArea = "BarArea"
-            };
+            var series = studentChart.Series["Student Hist"];
 
             foreach (var c in studentsByClass)
             {
                 series.Points.AddXY(c.Classe, c.Total);
             }
 
-            chartBar.Series.Add(series);
+            //studentChart.Series.Add(series);
         }
     }
 }

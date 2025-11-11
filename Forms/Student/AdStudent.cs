@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 using DeltaSchool.Core.Services;
 using DeltaSchool.Data;
-using DeltaSchool.Data.Entity;
 using DeltaSchool.Data.Repository;
 using DeltaSchool.Data.Repository.Interface;
 using DeltaSchool.Utilities;
@@ -143,10 +142,12 @@ namespace DeltaSchool.Forms.Student
                 if (!_service.Create(student))
                     ShowAlert.WarningMsg("Échec de l'ajout du personnel.");
                 else
-                    if (ShowAlert.Question("Voulez-vous effectuer une nouvelle inscription ?") == DialogResult.Yes)
+                {
+                    if (ShowAlert.Question("Voulez-vous effectuer une nouvelle inscription ?") == DialogResult.No)
                         MainForm.Instance.OpenChildForm(new StudentsF());
                     else
                         ResetValue();
+                }
             }
             else
             {

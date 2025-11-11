@@ -93,6 +93,9 @@ namespace DeltaSchool.Forms.Payroll
                 decimal amount = UHelpers.ConvertAmount(txtAmount.Texts); ;
                 decimal residual = 0;
 
+                if (amount <= 0)
+                    return;
+
                 if (amount > netPay)
                 {
                     ShowAlert.ErrorMsg("Le montant à payer ne doit pas être supérieur au net à payer");
@@ -119,7 +122,7 @@ namespace DeltaSchool.Forms.Payroll
                     ResidualAmount = residual,
                     Status = cbStatus.SelectedValue.ToString(),
                     PaidAt = dpPeriod.Value,
-                    Period = cbPeriod.SelectedItem.ToString(),
+                    Period = cbPeriod.SelectedItem.ToString() + DateTime.Today.ToString("yyyy"),
                     Notes = UHelpers.GetValueOrtNull(txtNotes.Texts)
                 };
 
