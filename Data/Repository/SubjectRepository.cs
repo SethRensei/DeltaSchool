@@ -10,29 +10,19 @@ namespace DeltaSchool.Data.Repository
         private readonly DeltaSchoolContext _context;
 
         public SubjectRepository(DeltaSchoolContext context)
-        {
-            _context = context;
-        }
+            => _context = context;
 
         public IEnumerable<Entity.Subject> GetAll()
-        {
-            return _context.Subjects.ToList();
-        }
+            => _context.Subjects.ToList();
 
         public Entity.Subject GetById(int id)
-        {
-            return _context.Subjects.Find(id);
-        }
+            => _context.Subjects.Find(id);
 
         public void Add(Entity.Subject subject)
-        {
-            _context.Subjects.Add(subject);
-        }
+            => _context.Subjects.Add(subject);
 
         public void Update(Entity.Subject subject)
-        {
-            _context.Entry(subject).State = System.Data.Entity.EntityState.Modified;
-        }
+            => _context.Entry(subject).State = System.Data.Entity.EntityState.Modified;
 
         public void Delete(int id)
         {
@@ -42,8 +32,6 @@ namespace DeltaSchool.Data.Repository
         }
 
         public void Save()
-        {
-            _context.SaveChanges();
-        }
+            => _context.SaveChanges();
     }
 }

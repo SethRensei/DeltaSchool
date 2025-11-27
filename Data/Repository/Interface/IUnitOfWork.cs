@@ -18,6 +18,8 @@ namespace DeltaSchool.Data.Repository.Interface
         ISchoolingRepository Schoolings { get; }
         IExpenseRepository Expenses { get; }
         IExpenseCategoryRepository ExpenseCategories { get; }
+        IExamTypeRepository ExamTypes { get; }
+        INoteRepository Notes { get; }
 
         // transaction handling
         System.Data.Entity.DbContextTransaction BeginTransaction();

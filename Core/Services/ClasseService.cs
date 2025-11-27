@@ -22,7 +22,7 @@ namespace DeltaSchool.Core.Services
             try
             {
                 _uow.Classes.Add(c);
-                _uow.Save();
+                _uow.Classes.Save();
                 ShowAlert.SuccessMsg("Classe ajouté avec succès.");
                 return true;
             }
@@ -59,7 +59,7 @@ namespace DeltaSchool.Core.Services
             try
             {
                 _uow.Classes.Update(c);
-                _uow.Save();
+                _uow.Classes.Save();
                 ShowAlert.SuccessMsg("Information de la classe a été modifié avec succes.");
                 return true;
             }
@@ -93,7 +93,7 @@ namespace DeltaSchool.Core.Services
             try
             {
                 _uow.Classes.Delete(id);
-                _uow.Save();
+                _uow.Classes.Save();
                 ShowAlert.SuccessMsg("Classe a été supprimé.");
                 return true;
             }

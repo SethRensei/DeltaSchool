@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlMenu = new RenComponent.RenPanel();
+            this.btnExam = new RenComponent.RenButton();
             this.btnReport = new RenComponent.RenButton();
             this.btnLogout = new RenComponent.RenButton();
             this.btnFinance = new RenComponent.RenButton();
@@ -73,6 +74,9 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.drpExam = new RenComponent.RenDropdownMenu(this.components);
+            this.addNoteTSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -82,6 +86,7 @@
             this.drpStaff.SuspendLayout();
             this.drpFinance.SuspendLayout();
             this.drpReport.SuspendLayout();
+            this.drpExam.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -91,6 +96,7 @@
             this.pnlMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.pnlMenu.BorderRadius = 0;
             this.pnlMenu.BorderSize = 0;
+            this.pnlMenu.Controls.Add(this.btnExam);
             this.pnlMenu.Controls.Add(this.btnReport);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.btnFinance);
@@ -108,6 +114,35 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(229, 700);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // btnExam
+            // 
+            this.btnExam.BackColor = System.Drawing.Color.Transparent;
+            this.btnExam.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnExam.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnExam.BorderRadius = 0;
+            this.btnExam.BorderSize = 0;
+            this.btnExam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExam.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExam.FlatAppearance.BorderSize = 0;
+            this.btnExam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExam.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExam.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnExam.Image = global::DeltaSchool.Properties.Resources.finance;
+            this.btnExam.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnExam.Location = new System.Drawing.Point(0, 308);
+            this.btnExam.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExam.Name = "btnExam";
+            this.btnExam.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnExam.Size = new System.Drawing.Size(229, 46);
+            this.btnExam.TabIndex = 7;
+            this.btnExam.Text = "Examens ▶";
+            this.btnExam.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnExam.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExam.UseVisualStyleBackColor = false;
+            this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
             // 
             // btnReport
             // 
@@ -434,7 +469,7 @@
             this.drpStudent.Name = "drpStudent";
             this.drpStudent.PrimaryColor = System.Drawing.Color.DarkSlateGray;
             this.drpStudent.ShowImageMargin = false;
-            this.drpStudent.Size = new System.Drawing.Size(207, 125);
+            this.drpStudent.Size = new System.Drawing.Size(207, 147);
             // 
             // adStudentTSM
             // 
@@ -709,6 +744,39 @@
             this.toolStripMenuItem4.Text = "Parents";
             this.toolStripMenuItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // drpExam
+            // 
+            this.drpExam.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.drpExam.DropShadowEnabled = false;
+            this.drpExam.Font = new System.Drawing.Font("Lucida Fax", 12F);
+            this.drpExam.IsMainMenu = false;
+            this.drpExam.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNoteTSM,
+            this.toolStripMenuItem10});
+            this.drpExam.MenuItemHeight = 25;
+            this.drpExam.MenuItemTextColor = System.Drawing.Color.LightCyan;
+            this.drpExam.Name = "drpStudent";
+            this.drpExam.PrimaryColor = System.Drawing.Color.DarkSlateGray;
+            this.drpExam.ShowImageMargin = false;
+            this.drpExam.Size = new System.Drawing.Size(257, 63);
+            // 
+            // addNoteTSM
+            // 
+            this.addNoteTSM.Margin = new System.Windows.Forms.Padding(0, 3, 0, 9);
+            this.addNoteTSM.Name = "addNoteTSM";
+            this.addNoteTSM.Size = new System.Drawing.Size(256, 22);
+            this.addNoteTSM.Text = "Enregistrement des notes";
+            this.addNoteTSM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addNoteTSM.Click += new System.EventHandler(this.AddNoteTSM_Click);
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(256, 22);
+            this.toolStripMenuItem10.Text = "Paiement du personnel";
+            this.toolStripMenuItem10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -740,6 +808,7 @@
             this.drpStaff.ResumeLayout(false);
             this.drpFinance.ResumeLayout(false);
             this.drpReport.ResumeLayout(false);
+            this.drpExam.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -789,5 +858,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem expenseTSM;
         private System.Windows.Forms.ToolStripMenuItem expenseCatTSM;
+        private RenComponent.RenButton btnExam;
+        private RenComponent.RenDropdownMenu drpExam;
+        private System.Windows.Forms.ToolStripMenuItem addNoteTSM;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
     }
 }

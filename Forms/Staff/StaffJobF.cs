@@ -54,7 +54,7 @@ namespace DeltaSchool.Forms.Staff
             var staffJobs = _uow.StaffJobs.GetAll();
             LoadDGV(staffJobs);
             LoadCbx();
-            txtSalary.KeyPress += GlobalEvent.NumericWithDecimal;
+            txtSalary.KeyPress += GlobalEvent.NumberOnly;
             dgvStaffJob.DataGrid.CellClick += DgvStaffJob_CellClick;
 
             dgvStaffJob.DataGrid.CellDoubleClick += (s, ce) =>

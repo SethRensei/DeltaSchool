@@ -23,6 +23,8 @@ namespace DeltaSchool.Data.Repository
         private SchoolingRepository _schoolingRepo;
         private ExpenseRepository _expenseRepo;
         private ExpenseCategoryRepository _expenseCatRepo;
+        private ExamTypeRepository _examTypeRepo;
+        private NoteRepository _noteRepo;
 
         private DbContextTransaction _transaction;
         private bool _disposed = false;
@@ -73,6 +75,12 @@ namespace DeltaSchool.Data.Repository
         
         public IExpenseCategoryRepository ExpenseCategories
             => _expenseCatRepo ?? (_expenseCatRepo = new ExpenseCategoryRepository(_context));
+
+        public IExamTypeRepository ExamTypes
+            => _examTypeRepo ?? (_examTypeRepo = new ExamTypeRepository(_context));
+
+        public INoteRepository Notes
+            => _noteRepo ?? (_noteRepo = new NoteRepository(_context));
 
         public DbContextTransaction BeginTransaction()
         {

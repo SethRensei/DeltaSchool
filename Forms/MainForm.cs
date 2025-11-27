@@ -152,7 +152,14 @@ namespace DeltaSchool.Forms
 
         private void ExpenseTSM_Click(object sender, EventArgs e)
             => OpenChildForm(new Expense.ExpenseF());
-        
+
+        private void btnExam_Click(object sender, EventArgs e)
+            => OpenSidebarDRP(drpExam, btnExam);
+
+        private void AddNoteTSM_Click(object sender, EventArgs e)
+            => OpenChildForm(new Exam.SelectExamForAddingF());
+
         #endregion
+
     }
 }

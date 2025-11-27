@@ -13,8 +13,8 @@ namespace DeltaSchool.Data.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Le nom de classe est requis")]
-        [StringLength(50, ErrorMessage = "Le nom de classe ne peut dépasser 50 caractères")]
+        [Required(ErrorMessage = "Le nom du job/fonction est requis")]
+        [StringLength(50, ErrorMessage = "Le nom du job/fonction ne peut dépasser 50 caractères")]
         [Column("name")]
         public string Name { get; set; }
 

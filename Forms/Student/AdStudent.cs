@@ -123,9 +123,9 @@ namespace DeltaSchool.Forms.Student
                     Nationality = UHelpers.GetValueOrtNull(txtNationality.Texts),
                     Email = UHelpers.GetValueOrtNull(txtEmail.Texts.ToLower()),
                     HomeInstitution = UHelpers.GetValueOrtNull(txtHomeInsti.Texts),
-                    ClasseId = Convert.ToInt32(cbClasse.SelectedValue.ToString()),
-                    SchoolYearId = Convert.ToInt32(cbSchoolYear.SelectedValue.ToString()),
-                    LocationId = Convert.ToInt32(cbLocation.SelectedValue.ToString()),
+                    ClasseId = UHelpers.ConvToInt(cbClasse),
+                    SchoolYearId = UHelpers.ConvToInt(cbSchoolYear),
+                    LocationId = UHelpers.ConvToInt(cbLocation),
                     IsOrphan = chkOrphan.Checked,
                     Observations = UHelpers.GetValueOrtNull(txtObs.Texts),
                 };
@@ -137,7 +137,7 @@ namespace DeltaSchool.Forms.Student
                     student.ParentId = _parentId;
 
                 if (cbParent.SelectedIndex == -1) student.ParentId = null;
-                else student.ParentId = Convert.ToInt32(cbParent.SelectedValue.ToString());
+                else student.ParentId = UHelpers.ConvToInt(cbParent);
 
                 if (!_service.Create(student))
                     ShowAlert.WarningMsg("Échec de l'ajout du personnel.");
@@ -160,9 +160,9 @@ namespace DeltaSchool.Forms.Student
                 this._student.Nationality = UHelpers.GetValueOrtNull(txtNationality.Texts);
                 this._student.Email = UHelpers.GetValueOrtNull(txtEmail.Texts.ToLower());
                 this._student.HomeInstitution = UHelpers.GetValueOrtNull(txtHomeInsti.Texts);
-                this._student.ClasseId = Convert.ToInt32(cbClasse.SelectedValue.ToString());
-                this._student.SchoolYearId = Convert.ToInt32(cbSchoolYear.SelectedValue.ToString());
-                this._student.LocationId = Convert.ToInt32(cbLocation.SelectedValue.ToString());
+                this._student.ClasseId = UHelpers.ConvToInt(cbClasse);
+                this._student.SchoolYearId = UHelpers.ConvToInt(cbSchoolYear);
+                this._student.LocationId = UHelpers.ConvToInt(cbLocation);
                 this._student.IsOrphan = chkOrphan.Checked;
                 this._student.Observations = UHelpers.GetValueOrtNull(txtObs.Texts);                
 
@@ -170,7 +170,7 @@ namespace DeltaSchool.Forms.Student
                     this._student.Birthday = dpBirthday.Value;
 
                 if (cbParent.SelectedIndex == -1) this._student.ParentId = null;
-                else this._student.ParentId = Convert.ToInt32(cbParent.SelectedValue.ToString());
+                else this._student.ParentId = UHelpers.ConvToInt(cbParent);
 
                 if (_service.Update(this._student))
                     MainForm.Instance.OpenChildForm(new StudentsF());
@@ -180,9 +180,7 @@ namespace DeltaSchool.Forms.Student
         }
 
         private void AdStudentF_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _uow.Dispose();
-        }
+            => _uow.Dispose();
 
         private void ChkOrphan_CheckedChanged(object sender, EventArgs e)
         {

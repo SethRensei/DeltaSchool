@@ -21,9 +21,8 @@ namespace DeltaSchool.Forms.Expense
 
         public CategoryF()
         {
-            InitializeComponent();
-            var ctx = new DeltaSchoolContext();
-            _uow = new UnitOfWork(ctx);
+            InitializeComponent();            
+            _uow = new UnitOfWork(new DeltaSchoolContext());
 
             _service = new ExpenseCategorieservice(_uow);
         }

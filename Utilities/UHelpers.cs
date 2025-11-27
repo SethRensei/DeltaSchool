@@ -1,8 +1,10 @@
-﻿using System;
+﻿using RenComponent;
+using System;
 using System.Globalization;
 
 namespace DeltaSchool.Utilities
 {
+
     public static class UHelpers
     {
         public static string ToTitleCase(string input)
@@ -36,5 +38,11 @@ namespace DeltaSchool.Utilities
             else
                 return amount;
         }
+
+        public static int ConvToInt(RenComboBox cbx)
+            => Convert.ToInt32(cbx.SelectedValue.ToString());
+
+        public static int ConvToInt(object value)
+            => Convert.ToInt32(value);
     }
 }

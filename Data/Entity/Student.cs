@@ -95,5 +95,6 @@ namespace DeltaSchool.Data.Entity
         public virtual Sites Location { get; set; }
 
         public virtual ICollection<Schooling> Schoolings { get; set; }
+        public virtual ICollection<Note> Notes { get; set; }
     }
 }

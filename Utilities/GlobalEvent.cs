@@ -16,15 +16,26 @@ namespace DeltaSchool.Utilities
                 e.Handled = true;  // Annuler la saisie de la touche
         }
 
-        public static void NumericWithDecimal(object sender, KeyPressEventArgs e)
+        public static void DecimalOnly(object sender, KeyPressEventArgs e)
         {
-            RenTextBox textBox = sender as RenTextBox;
-            if (textBox == null)
+            string currentText = "";
+
+            // 1️⃣ Détecter le type dynamique du contrôle
+            if (sender is RenTextBox ren)
             {
+                currentText = ren.Texts;
+            }
+            else if (sender is TextBox tb)
+            {
+                currentText = tb.Text;
+            }
+            else
+            {
+                // Si ce n'est aucun des deux → on bloque
                 e.Handled = true;
                 return;
             }
-            string currentText = textBox.Texts;
+
             char key = e.KeyChar;
             // Autoriser les touches de contrôle
             if (char.IsControl(key))
@@ -32,8 +43,8 @@ namespace DeltaSchool.Utilities
                 e.Handled = false;
                 return;
             }
-            // Autoriser les chiffres et les espaces
-            if (char.IsDigit(key) || char.IsWhiteSpace(key))
+            // Autoriser les chiffres
+            if (char.IsDigit(key))
             {
                 e.Handled = false;
                 return;

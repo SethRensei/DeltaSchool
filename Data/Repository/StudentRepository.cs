@@ -14,7 +14,7 @@ namespace DeltaSchool.Data.Repository
         public StudentRepository(DeltaSchoolContext context)
             => _context = context;
 
-        public IEnumerable<Student> GetAll()
+        public IQueryable<Student> GetAll()
         {
             return _context.Students
                 .Include(s => s.Classe)
@@ -22,8 +22,7 @@ namespace DeltaSchool.Data.Repository
                 .Include(s => s.SchoolYear)
                 .Include(s => s.Location)
                 .OrderByDescending(s => s.Id)
-                .AsNoTracking()   // if readonly -> better performance
-                .ToList();
+                .AsNoTracking();   // if readonly -> better performance
         }
 
         public IEnumerable<Student> GetByLocaton(int location)

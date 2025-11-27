@@ -5,28 +5,27 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeltaSchool.Data.Entity
 {
-    [Table("school_year")]
-    public class SchoolYear
+    [Table("exam_type")]
+    public class ExamType
     {
         [Key]
         [Column("id")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "L'année scolaire est requise")]
-        [StringLength(12, ErrorMessage = "Ne doit pas dépasser 12 caractères")]
-        [Column("label")]
-        public string Label { get; set; }
+        [Required(ErrorMessage = "Le nom du type d'examen est requis")]
+        [StringLength(100, ErrorMessage = "Le nom du type d'examen ne peut dépasser 50 caractères")]
+        [Column("name")]
+        public string Name { get; set; }
 
-        [Column("ongoing")]
-        public decimal Ongoing { get; set; } = 1.5m;
+        [StringLength(250, ErrorMessage = "La description ne peut dépasser 200 caractères")]
+        [Column("description")]
+        public string Description { get; set; }
 
         [Column("created_at")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? CreatedAt { get; private set; }
 
-        public virtual ICollection<Student> Students { get; set; }
-        public virtual ICollection<Schooling> Schoolings { get; set; }
         public virtual ICollection<Note> Notes { get; set; }
     }
 }

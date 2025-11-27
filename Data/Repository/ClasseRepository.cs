@@ -11,29 +11,19 @@ namespace DeltaSchool.Data.Repository
         private readonly DeltaSchoolContext _context;
 
         public ClasseRepository(DeltaSchoolContext context)
-        {
-            _context = context;
-        }
+            => _context = context;
 
         public IEnumerable<Classe> GetAll()
-        {
-            return _context.Classes.ToList();
-        }
+            => _context.Classes.ToList();
 
         public Classe GetById(int id)
-        {
-            return _context.Classes.Find(id);
-        }
+            => _context.Classes.Find(id);
 
         public void Add(Classe c)
-        {
-            _context.Classes.Add(c);
-        }
+            => _context.Classes.Add(c);
 
         public void Update(Classe c)
-        {
-            _context.Entry(c).State = System.Data.Entity.EntityState.Modified;
-        }
+            => _context.Entry(c).State = System.Data.Entity.EntityState.Modified;
 
         public void Delete(int id)
         {

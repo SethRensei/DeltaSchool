@@ -37,6 +37,8 @@ namespace DeltaSchool.Data
         public DbSet<Schooling> Schoolings { get; set; }
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
         public DbSet<Expense> Expenses { get; set; }
+        public DbSet<ExamType> ExamTypes { get; set; }
+        public DbSet<Note> Notes { get; set; }  
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,6 +60,8 @@ namespace DeltaSchool.Data
             modelBuilder.Entity<Schooling>().ToTable("schooling");
             modelBuilder.Entity<ExpenseCategory>().ToTable("expense_category");
             modelBuilder.Entity<Expense>().ToTable("expense");
+            modelBuilder.Entity<ExamType>().ToTable("exam_type");
+            modelBuilder.Entity<Note>().ToTable("note");
 
             #endregion
 
@@ -197,6 +201,31 @@ namespace DeltaSchool.Data
                     IndexAnnotation.AnnotationName,
                     new IndexAnnotation(new IndexAttribute("IX_ExpenseCategory_Name") { IsUnique = true }));
 
+            // exam_type.name unique
+            modelBuilder.Entity<ExamType>()
+                .Property(et => et.Name)
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_ExamType_Name") { IsUnique = true }));
+
+            // note unique (student_id, exam_id, classe_id, school_year_id)
+            modelBuilder.Entity<Note>()
+                .Property(n => n.StudentId)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Note_Unique", 1) { IsUnique = true }));
+            modelBuilder.Entity<Note>()
+                .Property(n => n.ExamId)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Note_Unique", 2) { IsUnique = true }));
+            modelBuilder.Entity<Note>()
+                .Property(n => n.ClasseId)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Note_Unique", 3) { IsUnique = true }));
+            modelBuilder.Entity<Note>()
+                .Property(n => n.SchoolYearId)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName,
+                new IndexAnnotation(new IndexAttribute("IX_Note_Unique", 4) { IsUnique = true }));
+
             #endregion
 
             #region Relations (s'assurer du comportement ON DELETE/UPDATE)
@@ -289,6 +318,28 @@ namespace DeltaSchool.Data
                 .WithMany(ec => ec.Expenses)
                 .HasForeignKey(e => e.CategoryId)
                 .WillCascadeOnDelete(false);
+
+            // Note
+            modelBuilder.Entity<Note>()
+                .HasRequired(n => n.Student)
+                .WithMany(st => st.Notes)
+                .HasForeignKey(n => n.StudentId)
+                .WillCascadeOnDelete(true);
+            modelBuilder.Entity<Note>()
+                .HasRequired(n => n.Classe)
+                .WithMany(c => c.Notes)
+                .HasForeignKey(n => n.ClasseId)
+                .WillCascadeOnDelete(true);
+            modelBuilder.Entity<Note>()
+                .HasRequired(n => n.SchoolYear)
+                .WithMany(sy => sy.Notes)
+                .HasForeignKey(n => n.SchoolYearId)
+                .WillCascadeOnDelete(true);
+            modelBuilder.Entity<Note>()
+                .HasRequired(n => n.ExamType)
+                .WithMany(et => et.Notes)
+                .HasForeignKey(n => n.ExamId)
+                .WillCascadeOnDelete(true);
             #endregion
         }
 
